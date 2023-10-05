@@ -8,7 +8,7 @@ using ContosoCrafts.WebSite.Services;
 namespace ContosoCrafts.WebSite.Pages.Product
 {
     /// <summary>
-    /// Index Page will return all the data to show
+    /// Sai Vikshit Kode
     /// </summary>
     public class IndexModel : PageModel
     {
