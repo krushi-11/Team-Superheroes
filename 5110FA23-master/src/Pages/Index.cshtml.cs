@@ -9,7 +9,11 @@ using ContosoCrafts.WebSite.Services;
 namespace ContosoCrafts.WebSite.Pages
 {
     /// <summary>
+<<<<<<< HEAD
     /// Krushikesh Thotange
+=======
+    /// Aryan Khetarpal
+>>>>>>> 8b3aa051235122d1cc6d9ffe511b4b4e99fe7cae
     /// </summary>
     public class IndexModel : PageModel
     {
