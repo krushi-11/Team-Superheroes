@@ -4061,10 +4061,19 @@ input[type="button"].btn-block {
 }
 
 .navImgLogo {
-    width: 50px;
-    height: 40px;
+    width: 60px;
+    height: 50px;
     object-fit: contain;
-    padding-right: 5px;
+}
+
+.navbar-nav {
+    justify-content: flex-start;
+}
+
+.navbar-nav-padding {
+    padding-top: 4px;
+    padding-left: 1rem;
+    font-size: 18px;
 }
 
 .nav-link {
