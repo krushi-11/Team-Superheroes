@@ -4060,9 +4060,16 @@ input[type="button"].btn-block {
   list-style: none;
 }
 
+.navImgLogo {
+    width: 50px;
+    height: 40px;
+    object-fit: contain;
+    padding-right: 5px;
+}
+
 .nav-link {
-  display: block;
-  padding: 0.5rem 1rem;
+    display: block;
+    padding: 0.5rem 1rem;
 }
 
 .nav-link:hover, .nav-link:focus {

@@ -361,3 +361,5 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/5110FA23-master/src/ContosoCrafts.WebSite.csproj
+/5110FA23-master/src/wwwroot/data/products.json
