@@ -7,10 +7,10 @@
 }
 
 body {
-    background: darkred;
-    background-image: url("C:\Users\Aryan\source\repos\Team-14-Super-Heroes\5110FA23-master\src\images\superherobackg.jpg");
-    background-repeat: no-repeat;
+    background-image: url(../assets/comic-superhero-style-background.jpg);
     background-size: cover;
+    enable-background:accumulate;
+    background-position-x:center;
 }
 
 
@@ -148,7 +148,7 @@ ul {
 }
 /*Backgrounds*/
 .bg-navbar {
-    background: linear-gradient(109.6deg, rgb(255, 207, 84) 11.2%, rgb(255, 158, 27) 91.1%);
+    background: radial-gradient(circle at 10.6% 22.1%, rgb(206, 18, 18) 0%, rgb(122, 21, 21) 100.7%);
 }
 
 .bg-footer {
