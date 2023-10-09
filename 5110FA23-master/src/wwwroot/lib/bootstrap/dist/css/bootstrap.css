@@ -4064,6 +4064,8 @@ input[type="button"].btn-block {
     width: 60px;
     height: 50px;
     object-fit: contain;
+    -webkit-filter: drop-shadow(5px 5px 5px #666666);
+    filter: drop-shadow(1px 1px 1px #ffffff);
 }
 
 .navbar-nav {
