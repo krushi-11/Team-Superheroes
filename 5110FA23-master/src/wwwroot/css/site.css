@@ -7,7 +7,7 @@
 }
 
 body {
-    background-image: url(../assets/comic-superhero-style-background.jpg);
+    background-image: url(../assets/backgrd.jpg);
     background-size: cover;
     enable-background:accumulate;
     background-position-x:center;
