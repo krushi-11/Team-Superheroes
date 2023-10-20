@@ -154,3 +154,14 @@ ul {
 .bg-footer {
     background: radial-gradient(circle at 10.6% 22.1%, rgb(206, 18, 18) 0%, rgb(122, 21, 21) 100.7%);
 }
+.whitebox {
+    max-width: 800px;
+    position: relative;
+    display:c;
+    top: 90%;
+    left: 15%;
+    background: rgba(255,255,255,.9);
+    box-shadow: 0 15px 20px rgba(0,0,0,.8);
+    text-align: center;
+    border-radius: 20px;
+}
