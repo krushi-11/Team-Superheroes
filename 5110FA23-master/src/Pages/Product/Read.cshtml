@@ -6,16 +6,16 @@
 @{
     ViewData["Title"] = "Read page";
 }
-
-<h1>Read</h1>
-
-<div class="content">
+<div class="whitebox">
+    <h1>Read</h1>
+    <div class="content">
     <h5 class="title" id="productTitle">@Model.Product.Title</h5>
 
     <!--class="card-img" -->
 
     <img src='@Model.Product.Image' width="300" height="400" alt='Image for @Model.Product.Title'>
-    <p class="card-text">@Model.Product.Description</p>
-
+    
+        <p>@Model.Product.Description</p>
+    </div>
 </div>
 
