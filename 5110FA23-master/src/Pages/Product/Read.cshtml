@@ -17,7 +17,9 @@
     <p class="card-text">@Model.Product.Description</p>
         
         <!--Created and styled update button -->
-        <button type="button" style="background-color: red; color: white; border-color: red;box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); padding: 10px 20px; font-size: 16px; border-radius:10px">Update</button> 
+        <form method="post" asp-page="Update">
+            <button type="submit" class="btn-update">Update</button>
+        </form> 
 
 </div>
 
