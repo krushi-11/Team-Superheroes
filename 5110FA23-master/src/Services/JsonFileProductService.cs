@@ -62,5 +62,56 @@ namespace ContosoCrafts.WebSite.Services
                 );
             }
         }
+
+        public void UpdateData(ProductModel updatedProduct)
+        {
+            // Load the existing products from the JSON file
+            List<ProductModel> products = GetProducts().ToList();
+
+            // Find the index of the product with the matching ID
+            int index = products.FindIndex(p => p.Id == updatedProduct.Id);
+
+            if (index >= 0)
+            {
+                // Update the product at the found index with the new data
+                products[index] = updatedProduct;
+
+                // Save the updated products back to the JSON file
+                SaveProductsToJson(products);
+            }
+        }
+
+        private void SaveProductsToJson(List<ProductModel> products)
+        {
+            var json = JsonSerializer.Serialize(products, new JsonSerializerOptions { WriteIndented = true });
+            System.IO.File.WriteAllText(JsonFileName, json);
+        }
+
+
+
+        //public void UpdateTitle(string productId, string newTitle)
+        //{
+        //    var products = GetProducts();
+        //    var productToUpdate = products.FirstOrDefault(x => x.Id == productId);
+
+        //    if (productToUpdate != null)
+        //    {
+        //        productToUpdate.Title = newTitle;
+
+        //        // Save the updated product list back to the JSON file
+        //        using (var outputStream = File.OpenWrite(JsonFileName))
+        //        {
+        //            using (var writer = new Utf8JsonWriter(outputStream, new JsonWriterOptions
+        //            {
+        //                SkipValidation = true,
+        //                Indented = true
+        //            }))
+        //            {
+        //                JsonSerializer.Serialize(writer, products);
+        //            }
+        //        }
+        //    }
+        //}
+
     }
 }
