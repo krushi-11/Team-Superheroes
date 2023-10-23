@@ -1,46 +1,45 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.IO;
-using System.Text.Json;
 using ContosoCrafts.WebSite.Services;
 using ContosoCrafts.WebSite.Models;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace ContosoCrafts.WebSite.Pages.Product
 {
-    public class UpdateProductModel : PageModel
+    public class UpdateModel : PageModel
     {
+        public JsonFileProductService ProductService { get; }
+
+        /// <summary>
+        /// Defualt Construtor
+        /// </summary>
+        public UpdateModel(JsonFileProductService productService)
+        {
+            ProductService = productService;
+        }
+
+
         [BindProperty]
         public ProductModel Product { get; set; }
 
-        public IActionResult OnGet()
+        public void OnGet(string id)
         {
-            // Load the existing product data from the products.json file
-            string productJson = System.IO.File.ReadAllText("products.json");
-            Product = JsonSerializer.Deserialize<ProductModel>(productJson);
-
-            return Page();
+            Product = ProductService.GetProducts().FirstOrDefault(m => m.Id.Equals(id));
         }
 
         public IActionResult OnPost()
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                // Serialize the modified product to JSON
-                string updatedProductJson = JsonSerializer.Serialize(Product, new JsonSerializerOptions
-                {
-                    WriteIndented = true
-                });
-
-                // Write the updated data back to the products.json file
-                System.IO.File.WriteAllText("products.json", updatedProductJson);
-
-                // Redirect to a confirmation page or a product list page
-                return RedirectToPage("/Product/Index");
+                return Page();
             }
 
-            // If ModelState is not valid, return the current page
-            return Page();
-        }
+            // Update the product title using the service
+            ProductService.UpdateData(Product);
 
-    }
+            // Redirect to a confirmation page or a product list page
+            return RedirectToPage("./Index");
+        }
+    } 
 }
