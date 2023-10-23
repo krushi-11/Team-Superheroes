@@ -1,6 +1,8 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Http.Json;
 using System.Text.Json;
 
 using ContosoCrafts.WebSite.Models;
@@ -35,12 +37,15 @@ namespace ContosoCrafts.WebSite.Services
             }
         }
 
-        public void AddRating(string productId, int rating)
+        // Changed return type to boolean so that we can acknowledge the output in the unit test
+        public bool AddRating(string productId, int rating)
         {
             var products = GetProducts();
+            var check = true;
 
             if(products.First(x => x.Id == productId).Ratings == null)
             {
+                check = false;
                 products.First(x => x.Id == productId).Ratings = new int[] { rating };
             }
             else
@@ -48,6 +53,7 @@ namespace ContosoCrafts.WebSite.Services
                 var ratings = products.First(x => x.Id == productId).Ratings.ToList();
                 ratings.Add(rating);
                 products.First(x => x.Id == productId).Ratings = ratings.ToArray();
+                check = false;
             }
 
             using(var outputStream = File.OpenWrite(JsonFileName))
@@ -61,6 +67,7 @@ namespace ContosoCrafts.WebSite.Services
                     products
                 );
             }
+            return check;
         }
     }
 }
