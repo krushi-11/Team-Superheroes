@@ -1,24 +1,17 @@
 [
   {
     "Id": "jenlooper-cactus",
-    "Maker": "@jenlooper",
-    "img": "https://evolution3sixty.com/wp-content/uploads/2018/10/Black-Panther-3-sht-copy.jpg",
-    "Url": "https://www.hackster.io/agent-hawking-1/the-quantified-cactus-an-easy-plant-soil-moisture-sensor-e65393",
-    "Title": "Black Panther",
-    "Description": "The King and Protector of wakanda. Get this tshirt of Black Panther and get in gear to protect your kingdom.",
-    "Ratings": [
-      5,
-      5,
-      3,
-      2,
-      1,
-      5
-    ]
+    "Maker": null,
+    "img": "https://i.natgeofe.com/k/66d3a80c-f4c3-4410-845c-3543375eaa85/cheetah-watching_4x3.jpg",
+    "Url": "https://kids.nationalgeographic.com/animals/mammals/facts/cheetah",
+    "Title": "Cheetah",
+    "Description": "This is a new Description",
+    "Ratings": null
   },
   {
     "Id": "jenlooper-light",
     "Maker": "jenlooper",
-    "img": "https://target.scene7.com/is/image/Target/GUEST_0f577c8f-3dd4-4627-a899-79e5f4820987?wid=488&hei=488&fmt=pjpeg",
+    "img": "https://target.scene7.com/is/image/Target/GUEST_0f577c8f-3dd4-4627-a899-79e5f4820987?wid=488\u0026hei=488\u0026fmt=pjpeg",
     "Url": "https://www.hackster.io/agent-hawking-1/book-light-dee7e4",
     "Title": "IronMan",
     "Description": "Get this T-shirt and be prepared to become the armored avenger. YOU ARE IRON MAN",
@@ -48,7 +41,7 @@
     "img": "https://m.media-amazon.com/images/I/A13usaonutL._AC_CLa%7C2140%2C2000%7C71ty-JQA96L.png%7C0%2C0%2C2140%2C2000%2B0.0%2C0.0%2C2140.0%2C2000.0_UY1000_.png",
     "Url": "https://twitter.com/sailorhg/status/1090107740049952770",
     "Title": "Spider-Man",
-    "Description": "Put this on and become everyone's favorite web slinger, our friendly neighborhood Spider-Man",
+    "Description": "Put this on and become everyone\u0027s favorite web slinger, our friendly neighborhood Spider-Man",
     "Ratings": null
   },
   {
@@ -57,7 +50,7 @@
     "img": "https://www.80stees.com/cdn/shop/products/hulk-hulkin-t-shirt.master.jpg?v=1689136607",
     "Url": "https://twitter.com/sailorhg/status/1090113666911891456",
     "Title": "Hulk",
-    "Description": "Get this T-shirt, Get big, Get green and remember the secret, He's always angry.",
+    "Description": "Get this T-shirt, Get big, Get green and remember the secret, He\u0027s always angry.",
     "Ratings": [
       4,
       5,
@@ -103,7 +96,7 @@
   {
     "Id": "sailorhg-led",
     "Maker": "sailorhg",
-    "img": "https://render.fineartamerica.com/images/rendered/default/t-shirt/23/30/images/artworkimages/medium/3/hawkeye-mike-scott-transparent.png?targetx=0&targety=0&imagewidth=430&imageheight=575&modelwidth=430&modelheight=575",
+    "img": "https://render.fineartamerica.com/images/rendered/default/t-shirt/23/30/images/artworkimages/medium/3/hawkeye-mike-scott-transparent.png?targetx=0\u0026targety=0\u0026imagewidth=430\u0026imageheight=575\u0026modelwidth=430\u0026modelheight=575",
     "Url": "https://twitter.com/sailorhg/status/1090117277540745216",
     "Title": "Hawkeye",
     "Description": "The skilled archer Clint Barton, SHIELD needs you to put on your suit and head out for a mission.",
@@ -121,7 +114,7 @@
   {
     "Id": "selinazawacki-soi-pins",
     "Maker": "selinazawacki",
-    "img": "https://cdn.media.amplience.net/s/hottopic/15430559_hi?$productMainDesktop$&fmt=auto",
+    "img": "https://cdn.media.amplience.net/s/hottopic/15430559_hi?$productMainDesktop$\u0026fmt=auto",
     "Url": "https://www.instagram.com/p/BNm6hZzDoEF/",
     "Title": "Wanda",
     "Description": "The scarlet witch, a powerful sorcer or a loving mother ? ",
@@ -130,7 +123,7 @@
   {
     "Id": "vogueandcode-hipster-dev-bro",
     "Maker": "vogueandcode",
-    "img": "https://render.fineartamerica.com/images/rendered/default/t-shirt/23/30/images/artworkimages/medium/3/superman-wiyarti-jajalo-transparent.png?targetx=0&targety=0&imagewidth=430&imageheight=537&modelwidth=430&modelheight=575",
+    "img": "https://render.fineartamerica.com/images/rendered/default/t-shirt/23/30/images/artworkimages/medium/3/superman-wiyarti-jajalo-transparent.png?targetx=0\u0026targety=0\u0026imagewidth=430\u0026imageheight=537\u0026modelwidth=430\u0026modelheight=575",
     "Url": "https://www.vogueandcode.com/shop/hipster-dev-bro",
     "Title": "Superman",
     "Description": "Put on the symbol of Hope as the last son of krypton.",
@@ -139,10 +132,10 @@
   {
     "Id": "vogueandcode-pretty-girls-code-tee",
     "Maker": "vogueandcode",
-    "img": "https://target.scene7.com/is/image/Target/GUEST_f0722d25-f007-4502-af22-6a5458c87290?wid=488&hei=488&fmt=pjpeg",
+    "img": "https://target.scene7.com/is/image/Target/GUEST_f0722d25-f007-4502-af22-6a5458c87290?wid=488\u0026hei=488\u0026fmt=pjpeg",
     "Url": "https://www.vogueandcode.com/shop/pretty-girls-code-tee",
     "Title": "Batman",
-    "Description": "The Dark Knight, The Caped Crusader, He's Vengence, He doesn't hide in the shadows, he is the shadows.",
+    "Description": "The Dark Knight, The Caped Crusader, He\u0027s Vengence, He doesn\u0027t hide in the shadows, he is the shadows.",
     "Ratings": null
   },
   {
@@ -166,10 +159,10 @@
   {
     "Id": "selinazawacki-shirt",
     "Maker": "selinazawacki",
-    "img": "https://render.fineartamerica.com/images/rendered/default/t-shirt/33/2/images-medium-5/jla-flash-title-brand-a-transparent.png?targetx=0&targety=0&imagewidth=440&imageheight=407&modelwidth=440&modelheight=590",
+    "img": "https://render.fineartamerica.com/images/rendered/default/t-shirt/33/2/images-medium-5/jla-flash-title-brand-a-transparent.png?targetx=0\u0026targety=0\u0026imagewidth=440\u0026imageheight=407\u0026modelwidth=440\u0026modelheight=590",
     "Url": "https://www.instagram.com/p/BEXlpiZCnJ3",
     "Title": "Flash",
-    "Description": "Put this on and become the Scarlet Speedster, the world's fastest man alive. The Flash!",
+    "Description": "Put this on and become the Scarlet Speedster, the world\u0027s fastest man alive. The Flash!",
     "Ratings": [
       4
     ]
