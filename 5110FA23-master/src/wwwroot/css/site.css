@@ -154,14 +154,22 @@ ul {
 .bg-footer {
     background: radial-gradient(circle at 10.6% 22.1%, rgb(206, 18, 18) 0%, rgb(122, 21, 21) 100.7%);
 }
-.whitebox {
-    max-width: 800px;
-    position: relative;
-    display:c;
-    top: 90%;
-    left: 15%;
-    background: rgba(255,255,255,.9);
-    box-shadow: 0 15px 20px rgba(0,0,0,.8);
-    text-align: center;
-    border-radius: 20px;
+.whitebox { /*adding the dimensions for whitebox*/
+    max-width: 800px;/*setting the width of the box*/
+    position: relative;/*making the position relative*/
+    display: inline-block;/*displaying the type of box*/
+    left: 15%;/*setting the position from left side*/
+    background: rgba(255,255,255,.9);/*color for the box*/
+    box-shadow: 0 15px 20px rgba(0,0,0,.8);/*giving shadow to the box*/
+    text-align: center;/*aligning the text to the centre*/
+    border-radius: 20px;/*setting the border radius for box*/
 }
+.box { /*adding the dimensions for box*/
+    max-width: 800px; /*setting the width of the box*/
+    position: relative; /*making the position relative*/
+    display: inline-block; /*displaying the type of box*/
+    left: 15%; /*setting the position from left side*/
+    background: rgb(255 0 0); /*color for the box*/
+    box-shadow: 0 15px 20px rgba(0,0,0,.8); /*giving shadow to the box*/
+    text-align: center; /*aligning the text to the centre*/
+    border-radius: 20px; /*setting the border radius for box*/
