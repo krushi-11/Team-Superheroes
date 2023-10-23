@@ -4,8 +4,22 @@
     ViewData["Title"] = "Index page";
 }
 
+<style>
+    .table-bordered {
+        border: 2px solid black; /* Adjust the border width as needed */
+    }
+
+    th, td {
+        color: black; /* Change the color of the text for the Title */
+    }
+
+    a {
+        color: blue; /* Change the color of the link for "Read" */
+    }
+</style>
+
 <div class="container" >
-    <table class="table table-bordered table-striped">
+    <table class="table table-bordered bg-white">
         <thead>
             <tr>
                 <th >Title</th>
@@ -16,8 +30,8 @@
             @foreach (var product in Model.Products)
             {
                 <tr>
-                    <td >@product.Title</td>
-                    <td ><a asp-page="Read" asp-route-id="@product.Id" size="20px">Read</a></td>
+                    <td style="text-decoration-color: initial">@product.Title</td>
+                    <td><a asp-page="Read" asp-route-id="@product.Id" size="20px">Read</a></td>
                 </tr>
             }
         </tbody>
