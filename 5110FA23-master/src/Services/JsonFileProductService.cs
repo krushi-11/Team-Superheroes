@@ -86,32 +86,5 @@ namespace ContosoCrafts.WebSite.Services
             var json = JsonSerializer.Serialize(products, new JsonSerializerOptions { WriteIndented = true });
             System.IO.File.WriteAllText(JsonFileName, json);
         }
-
-
-
-        //public void UpdateTitle(string productId, string newTitle)
-        //{
-        //    var products = GetProducts();
-        //    var productToUpdate = products.FirstOrDefault(x => x.Id == productId);
-
-        //    if (productToUpdate != null)
-        //    {
-        //        productToUpdate.Title = newTitle;
-
-        //        // Save the updated product list back to the JSON file
-        //        using (var outputStream = File.OpenWrite(JsonFileName))
-        //        {
-        //            using (var writer = new Utf8JsonWriter(outputStream, new JsonWriterOptions
-        //            {
-        //                SkipValidation = true,
-        //                Indented = true
-        //            }))
-        //            {
-        //                JsonSerializer.Serialize(writer, products);
-        //            }
-        //        }
-        //    }
-        //}
-
     }
 }
