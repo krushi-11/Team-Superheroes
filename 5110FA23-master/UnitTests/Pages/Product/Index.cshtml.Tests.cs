@@ -57,7 +57,7 @@ namespace UnitTests.Pages.Product.Index
 
             var mockWebHostEnvironment = new Mock<IWebHostEnvironment>();
             mockWebHostEnvironment.Setup(m => m.EnvironmentName).Returns("Hosting:UnitTestEnvironment");
-            mockWebHostEnvironment.Setup(m => m.WebRootPath).Returns("../../../../src/bin/Debug/net5.0/wwwroot");
+            mockWebHostEnvironment.Setup(m => m.WebRootPath).Returns("../../../../src/bin/Debug/net7.0/wwwroot");
             mockWebHostEnvironment.Setup(m => m.ContentRootPath).Returns("./data/");
 
             var MockLoggerDirect = Mock.Of<ILogger<IndexModel>>();
@@ -86,5 +86,40 @@ namespace UnitTests.Pages.Product.Index
             Assert.AreEqual(15, pageModel.Products.ToList().Count);
         }
         #endregion OnGet
+
+
+        #region AddRating
+
+        // Unit Test case for AddRating if rating for a product is null it should return False
+
+        [Test]
+        public void AddRating_Check_Rating_Null_Should_Return_False()
+        {
+            // Arrange
+
+            // Act
+
+            var check = pageModel.ProductService.AddRating("jenlooper-light", 0);
+
+            // Assert
+            Assert.AreEqual(false, check);
+        }
+
+        // Unit Test to Check if Rating is available for product if Yes append Rating and return False
+
+        [Test]
+        public void AddRating_Check_Rating_And_AddRating_Should_Return_False()
+        {
+            // Arrange
+
+            // Act
+            var check = pageModel.ProductService.AddRating("jenlooper-cactus", 3);
+
+            // Assert
+            Assert.AreEqual(false, check);
+        }
+
+        #endregion AddRating
+
     }
 }
