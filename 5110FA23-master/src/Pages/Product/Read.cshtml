@@ -16,10 +16,10 @@
     <img src='@Model.Product.Image' width="300" height="400" alt='Image for @Model.Product.Title'>
     <p class="card-text">@Model.Product.Description</p>
         
-        <!--Created and styled update button -->
-        <form method="post" asp-page="Update">
-            <button type="submit" class="btn-update">Update</button>
-        </form> 
+    <!--Created and styled update button -->
+    <form method="post">
+        <a asp-page="Update" asp-route-id="@Model.Product.Id" size="40px">Update</a>
+    </form>
 
 </div>
 
