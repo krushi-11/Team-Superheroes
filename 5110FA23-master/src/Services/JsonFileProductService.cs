@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -35,56 +36,91 @@ namespace ContosoCrafts.WebSite.Services
             }
         }
 
-        public void AddRating(string productId, int rating)
+        //Add Ratings Method
+        public bool AddRating(string productId, int rating)
         {
             var products = GetProducts();
 
-            if(products.First(x => x.Id == productId).Ratings == null)
+            if (string.IsNullOrEmpty(productId))
             {
-                products.First(x => x.Id == productId).Ratings = new int[] { rating };
+                // Handle the case where productId is null or empty (you can throw an exception, log, or return false)
+                // For example, return false to indicate failure:
+                return false;
+            }
+
+            var product = products.FirstOrDefault(x => x.Id == productId);
+            if (product != null)
+            {
+                if (product.Ratings == null)
+                {
+                    product.Ratings = new int[] { rating };
+                }
+                else
+                {
+                    var ratings = product.Ratings.ToList();
+                    ratings.Add(rating);
+                    product.Ratings = ratings.ToArray();
+                }
+
+                using (var outputStream = File.OpenWrite(JsonFileName))
+                {
+                    JsonSerializer.Serialize<IEnumerable<ProductModel>>(
+                        new Utf8JsonWriter(outputStream, new JsonWriterOptions
+                        {
+                            SkipValidation = true,
+                            Indented = true
+                        }),
+                        products
+                    );
+                }
+
+                // Return true to indicate success
+                return true;
             }
             else
             {
-                var ratings = products.First(x => x.Id == productId).Ratings.ToList();
-                ratings.Add(rating);
-                products.First(x => x.Id == productId).Ratings = ratings.ToArray();
-            }
-
-            using(var outputStream = File.OpenWrite(JsonFileName))
-            {
-                JsonSerializer.Serialize<IEnumerable<ProductModel>>(
-                    new Utf8JsonWriter(outputStream, new JsonWriterOptions
-                    {
-                        SkipValidation = true,
-                        Indented = true
-                    }), 
-                    products
-                );
+                // Handle the case where no product with the given productId is found (throw an exception, log, or return false)
+                // For example, return false to indicate failure:
+                return false;
             }
         }
 
-        public void UpdateData(ProductModel updatedProduct)
+        // Update Data Method
+        public ProductModel UpdateData(ProductModel updatedProduct)
         {
-            // Load the existing products from the JSON file
-            List<ProductModel> products = GetProducts().ToList();
-
-            // Find the index of the product with the matching ID
-            int index = products.FindIndex(p => p.Id == updatedProduct.Id);
-
-            if (index >= 0)
+            if(updatedProduct!= null)
             {
-                // Update the product at the found index with the new data
-                products[index] = updatedProduct;
+                var products = GetProducts().ToList();
+                var productData = products.FirstOrDefault(x=>x.Id.Equals(updatedProduct.Id));
 
-                // Save the updated products back to the JSON file
+                productData.Title = updatedProduct.Title;
+                productData.Description = updatedProduct.Description;
+                productData.Url = updatedProduct.Url;
+                productData.Image = updatedProduct.Image;
+
                 SaveProductsToJson(products);
+                return productData;
+            }
+            else 
+            {
+                System.Console.WriteLine("Data is null");
+                return null; 
             }
         }
 
         private void SaveProductsToJson(List<ProductModel> products)
         {
-            var json = JsonSerializer.Serialize(products, new JsonSerializerOptions { WriteIndented = true });
-            System.IO.File.WriteAllText(JsonFileName, json);
+            using (var outputStream = File.OpenWrite(JsonFileName))
+                {
+                    JsonSerializer.Serialize<IEnumerable<ProductModel>>(
+                        new Utf8JsonWriter(outputStream, new JsonWriterOptions
+                        {
+                            SkipValidation = true,
+                            Indented = true
+                        }),
+                        products
+                    );
+                }
         }
     }
 }
