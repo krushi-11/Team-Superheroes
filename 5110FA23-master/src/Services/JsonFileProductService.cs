@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Http.Json;
 using System.Text.Json;
 
 using ContosoCrafts.WebSite.Models;
@@ -40,6 +41,7 @@ namespace ContosoCrafts.WebSite.Services
         public bool AddRating(string productId, int rating)
         {
             var products = GetProducts();
+            var check = true;
 
             if (string.IsNullOrEmpty(productId))
             {
