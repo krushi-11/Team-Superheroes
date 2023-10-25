@@ -99,7 +99,7 @@ namespace UnitTests.Pages.Product.Index
 
             // Act
 
-            var check = pageModel.ProductService.AddRating("jenlooper-light", 0);
+            var check = pageModel.ProductService.AddRating(null, 2);
 
             // Assert
             Assert.AreEqual(false, check);
@@ -113,7 +113,7 @@ namespace UnitTests.Pages.Product.Index
             // Arrange
 
             // Act
-            var check = pageModel.ProductService.AddRating("jenlooper-cactus", 3);
+            var check = pageModel.ProductService.AddRating("InvalidId", 3);
 
             // Assert
             Assert.AreEqual(false, check);

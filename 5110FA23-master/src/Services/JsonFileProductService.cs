@@ -41,7 +41,6 @@ namespace ContosoCrafts.WebSite.Services
         public bool AddRating(string productId, int rating)
         {
             var products = GetProducts();
-            var check = true;
 
             if (string.IsNullOrEmpty(productId))
             {
