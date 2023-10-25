@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Hosting;
 using System;
 using Moq;
 using System.Collections.Generic;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace UnitTests.Pages.Product.AddRating
 {
@@ -60,6 +61,38 @@ namespace UnitTests.Pages.Product.AddRating
         }
 
         #endregion AddRating
+
+        #region UpdateData
+        [Test]
+        public void UpdateData_Valid_Updated_Value_Matches_Should_Return_true()
+        {
+            // Arrange
+            var data = TestHelper.ProductService.GetProducts().FirstOrDefault();
+            var data1 = data;
+            data1.Title = "Test";
+
+            // Act
+            var result = TestHelper.ProductService.UpdateData(data1);
+
+            // Assert
+            Assert.AreEqual(data1.Title, result.Title);
+        }
+
+        [Test]
+        public void UpdateData_DataIsNull_ReturnsNull()
+        {
+            // Arrange
+            var productService = TestHelper.ProductService.GetProducts().FirstOrDefault(); // Replace with your actual service class
+            ProductModel data = null;
+
+            // Act
+            var result = TestHelper.ProductService.UpdateData(data);
+
+            // Assert
+            Assert.IsNull(result, "Data is null");
+        }
+
+        #endregion UpdateData
 
     }
 }

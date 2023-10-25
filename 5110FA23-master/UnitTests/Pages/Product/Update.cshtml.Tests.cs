@@ -14,6 +14,9 @@ using NUnit.Framework;
 
 using ContosoCrafts.WebSite.Pages.Product;
 using ContosoCrafts.WebSite.Services;
+using ContosoCrafts.WebSite.Models;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace UnitTests.Pages.Product.Update
 {
@@ -86,5 +89,22 @@ namespace UnitTests.Pages.Product.Update
         }
 
         #endregion OnGet
+
+        #region OnPost
+
+            [Test]
+            public void UpdateData_NullProduct_ReturnsNull()
+            {
+                // Arrange
+                ProductModel productToUpdate = null;
+
+                // Act
+                var updatedProduct = TestHelper.ProductService.UpdateData(productToUpdate);
+
+                // Assert
+                Assert.IsNull(updatedProduct);
+            }
+
+        #endregion OnPost    
     }
 }
