@@ -84,6 +84,18 @@ namespace UnitTests.Pages.Product.Read
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
             Assert.AreEqual("Black Panther", pageModel.Product.Title);
         }
+        [Test]
+        public void OnGet_If_Update_Button_Redirecting_Should_Return_True()
+        {
+            // Arrange
+
+            // Act
+            pageModel.OnGet("jenlooper-cactus");
+
+            // Assert
+            Assert.AreEqual(true, pageModel.ModelState.IsValid);
+            Assert.AreEqual("Black Panther", pageModel.Product.Title);
+        }
         #endregion OnGet
     }
 }
