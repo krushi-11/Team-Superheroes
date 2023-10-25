@@ -37,53 +37,60 @@ namespace ContosoCrafts.WebSite.Services
             }
         }
 
-        //Add Ratings Method
+        /// <summary>
+        /// Add Rating
+        /// 
+        /// Take in the product ID and the rating
+        /// If the rating does not exist, add it
+        /// Save the update
+        /// </summary>
+        /// <param name="productId"></param>
+        /// <param name="rating"></param>
         public bool AddRating(string productId, int rating)
         {
-            var products = GetProducts();
-
+            var products = GetProducts().ToList();
+            // If the ProductID is invalid, return
             if (string.IsNullOrEmpty(productId))
             {
-                // Handle the case where productId is null or empty (you can throw an exception, log, or return false)
-                // For example, return false to indicate failure:
                 return false;
             }
 
-            var product = products.FirstOrDefault(x => x.Id == productId);
-            if (product != null)
-            {
-                if (product.Ratings == null)
-                {
-                    product.Ratings = new int[] { rating };
-                }
-                else
-                {
-                    var ratings = product.Ratings.ToList();
-                    ratings.Add(rating);
-                    product.Ratings = ratings.ToArray();
-                }
+            
 
-                using (var outputStream = File.OpenWrite(JsonFileName))
-                {
-                    JsonSerializer.Serialize<IEnumerable<ProductModel>>(
-                        new Utf8JsonWriter(outputStream, new JsonWriterOptions
-                        {
-                            SkipValidation = true,
-                            Indented = true
-                        }),
-                        products
-                    );
-                }
-
-                // Return true to indicate success
-                return true;
-            }
-            else
+            // Look up the product, if it does not exist, return
+            var data = products.FirstOrDefault(x => x.Id.Equals(productId));
+            if (data == null)
             {
-                // Handle the case where no product with the given productId is found (throw an exception, log, or return false)
-                // For example, return false to indicate failure:
                 return false;
             }
+
+            // Check Rating for boundaries, do not allow ratings below 0
+            if (rating < 0)
+            {
+                return false;
+            }
+
+            // Check Rating for boundaries, do not allow ratings above 5
+            if (rating > 5)
+            {
+                return false;
+            }
+
+            // Check to see if the rating exist, if there are none, then create the array
+            if (data.Ratings == null)
+            {
+                data.Ratings = new int[] { rating };
+            }
+
+            // Add the Rating to the Array
+            var ratings = data.Ratings.ToList();
+            ratings.Add(rating);
+            data.Ratings = ratings.ToArray();
+
+            // Save the data back to the data store
+            SaveProductsToJson(products);
+
+            return true;
         }
 
         // Update Data Method
