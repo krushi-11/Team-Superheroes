@@ -30,16 +30,18 @@ namespace ContosoCrafts.WebSite.Pages.Product
 
         public IActionResult OnPost()
         {
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                return Page();
+                // Update the product title using the service
+                ProductService.UpdateData(Product);
+
+                // Redirect to a confirmation page or a product list page
+                return RedirectToPage("./Index");
             }
 
-            // Update the product title using the service
-            ProductService.UpdateData(Product);
-
-            // Redirect to a confirmation page or a product list page
-            return RedirectToPage("./Index");
+            // Handle the case where ModelState is not valid
+            return Page();
         }
-    } 
+
+    }
 }
