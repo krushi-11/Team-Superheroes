@@ -1,22 +1,20 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Routing;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
-using Microsoft.AspNetCore.Mvc.ViewFeatures;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Routing;
+﻿using System.Linq;
+using ContosoCrafts.WebSite.Pages.Product;
+using ContosoCrafts.WebSite.Services;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Routing;
+using Microsoft.AspNetCore.Routing;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.Extensions.Logging;
-
 using Moq;
 
 using NUnit.Framework;
 
-using ContosoCrafts.WebSite.Pages.Product;
-using ContosoCrafts.WebSite.Services;
-using ContosoCrafts.WebSite.Models;
-using System.Collections.Generic;
-using System.Linq;
+
 
 namespace UnitTests.Pages.Product.Update
 {
@@ -66,9 +64,8 @@ namespace UnitTests.Pages.Product.Update
 
             productService = new JsonFileProductService(mockWebHostEnvironment.Object);
 
-            pageModel = new UpdateModel (productService)
+            pageModel = new UpdateModel(productService)
             {
-
             };
         }
 
@@ -81,30 +78,79 @@ namespace UnitTests.Pages.Product.Update
             // Arrange
 
             // Act
-            pageModel.OnGet("jenlooper-cactus");
+            pageModel.OnGet("sailorhg-bubblesortpic");
 
             // Assert
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
-            Assert.AreEqual("Black Panther", pageModel.Product.Title);
+            Assert.AreEqual("Spider-Man", pageModel.Product.Title);
         }
 
-        #endregion OnGet
+        [Test]
+        public void OnGet_InValid_Should_Not_Return_Products()
+        {
+            // Arrange
+
+            // Act
+            pageModel.OnGet("Test");
+
+            // Assert
+            Assert.IsNull(pageModel.Product);
+        }
+
+        [Test]
+        public void OnGet_Valid_Id_Null_Title_Should_Return_False()
+        {
+            // Arrange
+
+            // Act
+            pageModel.OnGet("sailorhg-bubblesortpic");
+            var result = pageModel.Product.Title == null;
+
+            // Assert
+            Assert.AreEqual(false, result);
+        }
+
+        #endregion OnGet
 
         #region OnPost
+        [Test]
+        public void OnPost_Valid_Should_Return_Products()
+        {
+            // Arrange
+            pageModel.OnGet("sailorhg-corsage");
 
-            [Test]
-            public void UpdateData_NullProduct_ReturnsNull()
+            // Act
+            var result = pageModel.OnPost() as RedirectToPageResult;
+
+            // Assert
+            Assert.AreEqual(true, pageModel.ModelState.IsValid);
+            Assert.AreEqual(true, result.PageName.Contains("Index"));
+        }
+
+        [Test]
+        public void OnPost_InValid_Model_Not_Valid_Return_Page()
+        {
+            // Arrange
+            pageModel.Product = new ContosoCrafts.WebSite.Models.ProductModel
             {
-                // Arrange
-                ProductModel productToUpdate = null;
+                Id = "testId",
+                Title = "Title",
+                Description = "Description",
+                Url = "url",
+                Image = "image"
+            };
 
-                // Act
-                var updatedProduct = TestHelper.ProductService.UpdateData(productToUpdate);
+            // Force an invalid error state
+            pageModel.ModelState.AddModelError("Test", "Test error");
 
-                // Assert
-                Assert.IsNull(updatedProduct);
-            }
+            // Act
+            var result = pageModel.OnPost() as ActionResult;
 
-        #endregion OnPost    
+            // Assert
+            Assert.AreEqual(false, pageModel.ModelState.IsValid);
+        }
+
+        #endregion OnPost
+
     }
 }
