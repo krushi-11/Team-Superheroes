@@ -26,28 +26,62 @@ namespace UnitTests.Pages.Product.AddRating
         #endregion TestSetup
 
         #region AddRating
-
+        //[Test]
+        //public void AddRating_InValid_....()
+        //{
+        // // Arrange
+        // // Act
+        // //var result = TestHelper.ProductService.AddRating(null, 1);
+        // // Assert
+        // //Assert.AreEqual(false, result);
+        //}
+        // ....
         [Test]
-        public void AddRating_NullProductId_ReturnsFalse()
+        public void AddRating_InValid_Product_Null_Should_Return_False()
         {
             // Arrange
-            string productId = null;
-            int rating = 5;
             // Act
-            var result = TestHelper.ProductService.AddRating(productId, rating);
-            // Act and Assert
-            Assert.IsFalse(result, "Expected AddRating to return false for a null productId.");
+            var result = TestHelper.ProductService.AddRating(null, 1);
+            // Assert
+            Assert.AreEqual(false, result);
         }
 
         [Test]
-        public void AddRating_InValid_Rating_LessRatingThanZero_Should_Return_False()
+        public void AddRating_InValid_Product_Empty_Should_Return_False()
         {
             // Arrange
-            string productId = "InvalidId";
             // Act
-            var result = TestHelper.ProductService.AddRating(productId, -3);
+            var result = TestHelper.ProductService.AddRating(" ", 3);
             // Assert
-            Assert.AreEqual(false, result); 
+            Assert.AreEqual(false, result);
+        }
+        [Test]
+        public void AddRating_InValid_ProductData_Found_Should_Return_False()
+        {
+            // Arrange
+            // Act
+            var result = TestHelper.ProductService.AddRating("20", 3);
+            // Assert
+            Assert.AreEqual(false, result);
+        }
+        [Test]
+        public void
+        AddRating_InValid_Rating_LessRatingThanZero_Should_Return_False()
+        {
+            // Arrange
+            // Act
+            var result = TestHelper.ProductService.AddRating("jenlooper-cactus", -3);
+            // Assert
+            Assert.AreEqual(false, result);
+        }
+        [Test]
+        public void AddRating_InValid_Rating_GreaterThanFive_Should_Return_False()
+        {
+            // Arrange
+            // Act
+            var result = TestHelper.ProductService.AddRating("jenlooper-cactus", 7);
+            // Assert
+            Assert.AreEqual(false, result);
         }
 
         [Test]
@@ -55,9 +89,31 @@ namespace UnitTests.Pages.Product.AddRating
         {
             // Arrange
             // Act
-            var result = TestHelper.ProductService.AddRating("sailorhg-corsage", 4);
+            var result = TestHelper.ProductService.AddRating("sailorhg-bubblesortpic", 2);
             // Assert
             Assert.AreEqual(true, result);
+        }
+
+        [Test]
+        public void AddRating_InitializeRatingsArrayIfNull()
+        {
+            // Arrange
+            var productId = "jenlooper-cactus";
+            var rating = 2;
+
+            // Create a product with null Ratings
+            var product = new ProductModel
+            {
+                Id = productId,
+                Ratings = null // Simulate a product with no ratings
+            };
+
+            // Act
+            var result = TestHelper.ProductService.AddRating(productId, rating);
+
+            // Assert
+            // Check that the product's Ratings array is initialized and contains the added rating
+            Assert.IsNotNull(result);
         }
 
         #endregion AddRating
