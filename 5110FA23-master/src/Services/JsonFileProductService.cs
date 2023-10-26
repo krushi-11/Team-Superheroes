@@ -48,7 +48,7 @@ namespace ContosoCrafts.WebSite.Services
         /// <param name="rating"></param>
         public bool AddRating(string productId, int rating)
         {
-            var products = GetProducts().ToList();
+            var products = GetProducts();
             // If the ProductID is invalid, return
             if (string.IsNullOrEmpty(productId))
             {
@@ -98,7 +98,7 @@ namespace ContosoCrafts.WebSite.Services
         {
             if(updatedProduct!= null)
             {
-                var products = GetProducts().ToList();
+                var products = GetProducts();
                 var productData = products.FirstOrDefault(x=>x.Id.Equals(updatedProduct.Id));
 
                 productData.Title = updatedProduct.Title;
@@ -116,7 +116,7 @@ namespace ContosoCrafts.WebSite.Services
             }
         }
 
-        private void SaveProductsToJson(List<ProductModel> products)
+        private void SaveProductsToJson(IEnumerable<ProductModel> products)
         {
             using (var outputStream = File.OpenWrite(JsonFileName))
                 {
