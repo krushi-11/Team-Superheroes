@@ -33,7 +33,10 @@
             {
                 <tr>
                     <td style="text-decoration-color: initial">@product.Title</td>
-                    <td><a asp-page="Read" asp-route-id="@product.Id" size="20px">Read</a></td>
+                    <td><a asp-page="Read" asp-route-id="@product.Id" size="20px">Read</a>
+                        <!--Created Delete button-->
+                        <a asp-page="Delete" asp-route-id="@product.Id" size="20px">Delete</a>
+                    </td>
                 </tr>
             }
         </tbody>

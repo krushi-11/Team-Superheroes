@@ -65,6 +65,7 @@ a.navbar-brand {
 /* Provide sufficient contrast against white background */
 a {
     color: #edea32;
+    margin: 10px 10px 10px 10px;/*Adjusted the position of Delete button in index page*/
 }
 
 .btn-update {
