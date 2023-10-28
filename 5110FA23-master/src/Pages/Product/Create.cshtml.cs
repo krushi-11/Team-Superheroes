@@ -16,24 +16,11 @@ namespace ContosoCrafts.WebSite.Pages.Product
         {
             ProductService = productService;
         }
-
-
-        [BindProperty]
         public ProductModel Product { get; set; }
         public IActionResult OnGet()
         {
             Product = ProductService.CreateData();
             return RedirectToPage("./Update", new { Id = Product.Id });
-        }
-
-        public IActionResult OnPost()
-        {
-            // Update the product title using the service
-            ProductService.CreateData();
-
-            // Redirect to a confirmation page or a product list page
-            return RedirectToPage("./Index");
-
         }
     }
 }
