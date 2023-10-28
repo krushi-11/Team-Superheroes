@@ -1,0 +1,52 @@
+﻿@page "{id}"
+@using ContosoCrafts.WebSite.Services
+@inject JsonFileProductService ProductService
+@model ContosoCrafts.WebSite.Pages.Product.CreateModel
+@{
+    ViewData["Title"] = "Create Page";
+}
+
+<h1>Create a New Product</h1>
+
+<body>
+<div>
+<form method="post">
+
+    @Html.HiddenFor(x=>x.Product.Id);
+
+    <div class="form-group">
+        <label class="control-label" asp-for="Product.Title"></label>
+        <input asp-for="Product.Title" class="form-control" required placeholder="Enter Title">
+        <span class="text-danger" asp-validation-for="Product.Title"></span>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label" asp-for="Product.Description"></label>
+        <input asp-for="Product.Description" class="form-control" required placeholder="Enter Description">
+        <span class="text-danger" asp-validation-for="Product.Description"></span>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label" asp-for="Product.Url"></label>
+        <input asp-for="Product.Url" class="form-control" required placeholder="Enter Url">
+        <span class="text-danger" asp-validation-for="Product.Url"></span>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label" asp-for="Product.Image"></label>
+        <input asp-for="Product.Image" class="form-control" required placeholder="Enter Image">
+        <span class="text-danger" asp-validation-for="Product.Image"></span>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Save" class="btn btn-primary">
+    </div>
+    &nbsp; &nbsp
+    <div class="form-group">
+        <a asp-page="Index" class="btn btn-danger">Cancel</a>
+    </div>
+
+    <input name="__RequestVerificationToken" type="hidden" value="">
+</form>
+</div>
+</body>
