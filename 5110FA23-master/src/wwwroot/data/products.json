@@ -6,6 +6,8 @@
     "Url": "https://unsplash.com/photos/brown-and-black-tiger-in-close-up-photography-66zrT0dJ7Mc",
     "Title": "Black Panther",
     "Description": "Get this T-shirt and Enjoy the feel of Wakanda",
+    "Price": 37.01,
+    "Stock": 30,
     "Ratings": [
       2,
       3,
@@ -19,6 +21,8 @@
     "Url": "https://www.hackster.io/agent-hawking-1/book-light-dee7e4",
     "Title": "Iron Man",
     "Description": "Get this T-shirt and be prepared to become the armored avenger. YOU ARE IRON MAN",
+    "Price": 53.58,
+    "Stock": 21,
     "Ratings": null
   },
   {
@@ -28,6 +32,8 @@
     "Url": "https://amzn.eu/d/9r7HPNE",
     "Title": "Captain America",
     "Description": "Put on this T-shirt, grab your shield and head into battle as the first avenger, Captain America.",
+    "Price": 27.54,
+    "Stock": 88,
     "Ratings": null
   },
   {
@@ -37,6 +43,8 @@
     "Url": "https://bestteestore.net/product/raglan-long-sleeve/thor-ragnarok-2023-shirt/",
     "Title": "Thor",
     "Description": "Put on this T-shirt, grab your mighty hammer and strike with all your might as the thunder god and Prince of Asgard, THOR!",
+    "Price": 60.12,
+    "Stock": 61,
     "Ratings": null
   },
   {
@@ -46,6 +54,8 @@
     "Url": "https://cartercomics.com/product/marvel-spider-man-t-shirt-black-with-red-foil-spider-large/",
     "Title": "Spider-Man",
     "Description": "Put this on and become everyone\u0027s favorite web slinger, our friendly neighborhood Spider-Man",
+    "Price": 41.98,
+    "Stock": 2,
     "Ratings": null
   },
   {
@@ -55,6 +65,8 @@
     "Url": "https://www.ubuy.co.in/product/7TZ3D2ZJC-marvel-big-amp-tall-classic-hulkin-men-39-s-tops-short-sleeve-tee-shirt-black-3x-large",
     "Title": "Hulk",
     "Description": "Get this T-shirt, Get big, Get green and remember the secret, He\u0027s always angry.",
+    "Price": 44.25,
+    "Stock": 30,
     "Ratings": [
       4,
       5,
@@ -95,6 +107,8 @@
     "Url": "https://hz.aliexpress.com/i/1005003104421620.html",
     "Title": "Doctor Strange",
     "Description": "Get this and be prepared to become the sorceror supreme, use your magic wisely.",
+    "Price": 28.54,
+    "Stock": 83,
     "Ratings": null
   },
   {
@@ -104,6 +118,8 @@
     "Url": "https://twitter.com/sailorhg/status/1090117277540745216",
     "Title": "Hawkeye",
     "Description": "The skilled archer Clint Barton, SHIELD needs you to put on your suit and head out for a mission.",
+    "Price": 19.05,
+    "Stock": 36,
     "Ratings": null
   },
   {
@@ -113,6 +129,8 @@
     "Url": "https://www.boxlunch.com/product/marvel-avengers-infinity-war-vision-portrait-t-shirt/11552088.html",
     "Title": "Vision",
     "Description": "The vibraminium android with the Mind Stone, never has he looked better.",
+    "Price": 55.23,
+    "Stock": 19,
     "Ratings": null
   },
   {
@@ -122,6 +140,8 @@
     "Url": "https://www.instagram.com/p/BNm6hZzDoEF/",
     "Title": "Wanda",
     "Description": "The scarlet witch, a powerful sorcer or a loving mother ? ",
+    "Price": 27.99,
+    "Stock": 6,
     "Ratings": null
   },
   {
@@ -131,6 +151,8 @@
     "Url": "https://www.vogueandcode.com/shop/hipster-dev-bro",
     "Title": "Superman",
     "Description": "Put on the symbol of Hope as the last son of krypton.",
+    "Price": 56.2,
+    "Stock": 9,
     "Ratings": null
   },
   {
@@ -140,6 +162,8 @@
     "Url": "https://www.vogueandcode.com/shop/pretty-girls-code-tee",
     "Title": "Batman",
     "Description": "The Dark Knight, The Caped Crusader, He\u0027s Vengence, He doesn\u0027t hide in the shadows, he is the shadows.",
+    "Price": 70.02,
+    "Stock": 82,
     "Ratings": null
   },
   {
@@ -149,6 +173,8 @@
     "Url": "https://www.aliexpress.com/i/1005003716140032.html",
     "Title": "Aquaman",
     "Description": "Put this on and feel like a King, The King of Atlantis",
+    "Price": 33.96,
+    "Stock": 58,
     "Ratings": null
   },
   {
@@ -158,6 +184,8 @@
     "Url": "https://www.sonsofgotham.com/products/dc-comics-wonder-woman-logo-mens-premium-slim-fit-t-shirt",
     "Title": "Wonder Woman",
     "Description": "The chosen Amazon warrior armed with her bullet proof bracelets and lasso of truth. Wonder Woman will always save the day",
+    "Price": 48.77,
+    "Stock": 24,
     "Ratings": null
   },
   {
@@ -167,8 +195,32 @@
     "Url": "https://www.instagram.com/p/BEXlpiZCnJ3",
     "Title": "Flash",
     "Description": "Put this on and become the Scarlet Speedster, the world\u0027s fastest man alive. The Flash!",
+    "Price": 61.34,
+    "Stock": 42,
     "Ratings": [
       4
     ]
+  },
+  {
+    "Id": "28771fbe-3a56-44ae-92ca-03e6f1ad0427",
+    "Maker": null,
+    "img": "https://musicart.xboxlive.com/7/e6b16500-0000-0000-0000-000000000002/504/image.jpg?w=1920\u0026h=1080",
+    "Url": "https://www.marvel.com/movies/ant-man-and-the-wasp-quantumania",
+    "Title": "Ant Man",
+    "Description": "This is an Ant Man page",
+    "Price": 0,
+    "Stock": 0,
+    "Ratings": null
+  },
+  {
+    "Id": "0a59ea5c-4c16-4b66-82b2-dcb4d5da978d",
+    "Maker": null,
+    "img": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRcOWCMyzxPcwCGimtB_aCXhRsJPxAsSAf9zNlztDcGKcAt-Deb",
+    "Url": "https://www.imdb.com/title/tt9362930/",
+    "Title": "Blue Beetle",
+    "Description": "This is Blue Beetle Page",
+    "Price": 0,
+    "Stock": 0,
+    "Ratings": null
   }
 ]

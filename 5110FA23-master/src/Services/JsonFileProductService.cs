@@ -116,6 +116,24 @@ namespace ContosoCrafts.WebSite.Services
             }
         }
 
+        public ProductModel CreateData()
+        {
+            var data = new ProductModel()
+            {
+                Id = System.Guid.NewGuid().ToString(),
+                Title = "Enter Title",
+                Description = "Enter Description",
+                Url = "Enter Url",
+                Image = "",
+            };
+
+            var newData = GetProducts().Append(data);
+
+            SaveProductsToJson(newData);
+            return data;
+
+        }
+
         private void SaveProductsToJson(IEnumerable<ProductModel> products)
         {
             using (var outputStream = File.OpenWrite(JsonFileName))

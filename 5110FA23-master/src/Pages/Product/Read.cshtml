@@ -6,6 +6,7 @@
 @{
     ViewData["Title"] = "Read page";
 }
+
 <div class="whitebox">
     <h1>Read</h1>
     <div class="content">
@@ -15,7 +16,17 @@
 
     <img src='@Model.Product.Image' width="388" height="400" alt='Image for @Model.Product.Title'>
     <p class="card-text">@Model.Product.Description</p>
-        
+    <p class="card-text">Price: $@Model.Product.Price</p> <!--Implemented Price-->
+        <p class="card-text">
+            @if (@Model.Product.Stock <= 10) {
+                <span>Items lefts: @Model.Product.Stock</span><br>
+                <span style="color: red">Hurry Up! Limited Stock</span>
+            }
+            else{
+                <span>Items lefts: @Model.Product.Stock</span>
+            }
+        </p> <!--Implemented Items Left-->
+
     <!--Created and styled update button -->
     <form method="post">
         <button class="btn btn-primary"><a asp-page="Update" asp-route-id="@Model.Product.Id" size="40px" style="color:#ffffff">Update</a></button>

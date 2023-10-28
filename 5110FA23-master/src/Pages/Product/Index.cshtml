@@ -19,8 +19,11 @@
 </style>
 
 <div class="container" >
-    <!--Created Create button-->
-    <button class="btn" style="background-color: blue"><a size="40px" style="color: white">Create</a></button> 
+    <!--Implemented a Create button-->
+    <form method="post">
+        <a asp-page="./Create" asp-route-id="@Model.Products" style="background-color: white; font-size: 20px; color:blue">+ Create</a>
+    </form>
+    &nbsp;
     <table class="table table-bordered bg-white">
         <thead>
             <tr>
