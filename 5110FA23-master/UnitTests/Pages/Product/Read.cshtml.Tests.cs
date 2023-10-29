@@ -78,7 +78,7 @@ namespace UnitTests.Pages.Product.Read
             // Arrange
 
             // Act
-            pageModel.OnGet("jenlooper-cactus");
+            pageModel.OnGet("t-challa");
 
             // Assert
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
@@ -90,11 +90,23 @@ namespace UnitTests.Pages.Product.Read
             // Arrange
 
             // Act
-            pageModel.OnGet("jenlooper-cactus");
+            pageModel.OnGet("t-challa");
 
             // Assert
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
             Assert.AreEqual("Black Panther", pageModel.Product.Title);
+        }
+        [Test]
+        public void OnGet_If_Read_Page_Does_Not_Show_Price_Should_Return_False()
+        {
+            //Arrange
+
+            //Act
+            pageModel.OnGet("tony-stark");
+
+            //Assert
+            Assert.AreNotEqual(false, pageModel.ModelState.IsValid);
+            Assert.AreNotEqual("Black Panther", pageModel.Product.Title);
         }
         #endregion OnGet
     }
