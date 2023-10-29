@@ -27,7 +27,7 @@ namespace ContosoCrafts.WebSite.Pages.Product
         {
             Product = ProductService.GetProducts().FirstOrDefault(m => m.Id.Equals(id));
         }
-
+        // created OnPost request to delete data
         public IActionResult OnPost()
         {
             if (!ModelState.IsValid)
