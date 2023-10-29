@@ -22,7 +22,7 @@
     "Title": "Iron Man",
     "Description": "Get this T-shirt and be prepared to become the armored avenger. YOU ARE IRON MAN",
     "Price": 19.99,
-    "Stock": 75,
+    "Stock": 6,
     "Ratings": null
   },
   {
@@ -55,7 +55,7 @@
     "Title": "Spider-Man",
     "Description": "Put this on and become everyone\u0027s favorite web slinger, our friendly neighborhood Spider-Man",
     "Price": 17.99,
-    "Stock": 40,
+    "Stock": 8,
     "Ratings": null
   },
   {
