@@ -116,6 +116,7 @@ namespace ContosoCrafts.WebSite.Services
             }
         }
 
+        // Create Data Method
         public ProductModel CreateData()
         {
             var data = new ProductModel()
@@ -134,6 +135,7 @@ namespace ContosoCrafts.WebSite.Services
 
         }
 
+        // Save product to json list
         private void SaveProductsToJson(IEnumerable<ProductModel> products)
         {
             using (var outputStream = File.OpenWrite(JsonFileName))

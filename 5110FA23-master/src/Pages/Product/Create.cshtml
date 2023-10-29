@@ -14,34 +14,40 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             @Html.HiddenFor(x=>x.Product.Id);
 
+            <!--Product Title-->
             <div class="form-group">
                 <label class="control-label" asp-for="Product.Title"></label>
                 <input asp-for="Product.Title" class="form-control" required placeholder="Enter Title">
                 <span class="text-danger" asp-validation-for="Product.Title"></span>
             </div>
 
+            <!--Product Description-->
             <div class="form-group">
                 <label class="control-label" asp-for="Product.Description"></label>
                 <input asp-for="Product.Description" class="form-control" required placeholder="Enter Description">
                 <span class="text-danger" asp-validation-for="Product.Description"></span>
             </div>
 
+            <!--Product URL-->
             <div class="form-group">
                 <label class="control-label" asp-for="Product.Url"></label>
                 <input asp-for="Product.Url" class="form-control" required placeholder="Enter Url">
                 <span class="text-danger" asp-validation-for="Product.Url"></span>
             </div>
-
+            
+            <!--Product Image-->
             <div class="form-group">
                 <label class="control-label" asp-for="Product.Image"></label>
                 <input asp-for="Product.Image" class="form-control" required placeholder="Enter Image Link">
                 <span class="text-danger" asp-validation-for="Product.Image"></span>
             </div>
 
+            <!--Save Button-->
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary">
             </div>
             &nbsp; &nbsp
+            <!--Cancel Button-->
             <div class="form-group">
                 <a asp-page="Index" class="btn btn-danger">Cancel</a>
             </div>

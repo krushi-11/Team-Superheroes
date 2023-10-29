@@ -15,30 +15,35 @@
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         @Html.HiddenFor(x=>x.Product.Id)
 
+        <!--Update Product Title-->
         <div class="form-group">
             <label asp-for="Product.Title" class="control-label"></label>
             <input asp-for="Product.Title" class="form-control" />
             <span asp-validation-for="Product.Title" class="text-danger"></span>
         </div>
 
+        <!--Update Product Description-->
         <div class="form-group">
             <label asp-for="Product.Description" class="control-label"></label>
             <input asp-for="Product.Description" class="form-control" />
             <span asp-validation-for="Product.Description" class="text-danger"></span>
         </div>
 
+        <!--Update Product URL-->
         <div class="form-group">
             <label asp-for="Product.Url" class="control-label"></label>
             <input asp-for="Product.Url" class="form-control" />
             <span asp-validation-for="Product.Url" class="text-danger"></span>
         </div>
 
+        <!--Update Product Image-->
         <div class="form-group">
             <label asp-for="Product.Image" class="control-label"></label>
             <input asp-for="Product.Image" class="form-control" />
             <span asp-validation-for="Product.Image" class="text-danger"></span>
         </div>
 
+        <!--Save Updated Information-->
         <div class="form-group">
             <input type="submit" value="Save" class="btn btn-primary"/>
         </div>

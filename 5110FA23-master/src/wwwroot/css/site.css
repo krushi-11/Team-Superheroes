@@ -7,7 +7,7 @@
 }
 
 body {
-    background-image: url(../assets/backgrd.jpg);
+    background-image: url(../assets/backgrd.jpg); /*background image for home page*/
     background-size: cover;
     enable-background:accumulate;
     background-position-x:center;
