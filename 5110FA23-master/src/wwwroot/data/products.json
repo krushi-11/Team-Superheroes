@@ -7,7 +7,7 @@
     "Title": "Black Panther",
     "Description": "Get this T-shirt and Enjoy the feel of Wakanda",
     "Price": 16.99,
-    "Stock": 30,
+    "Stock": 50,
     "Ratings": [
       2,
       3,
@@ -22,7 +22,7 @@
     "Title": "Iron Man",
     "Description": "Get this T-shirt and be prepared to become the armored avenger. YOU ARE IRON MAN",
     "Price": 19.99,
-    "Stock": 25,
+    "Stock": 75,
     "Ratings": null
   },
   {
@@ -55,7 +55,7 @@
     "Title": "Spider-Man",
     "Description": "Put this on and become everyone\u0027s favorite web slinger, our friendly neighborhood Spider-Man",
     "Price": 17.99,
-    "Stock": 20,
+    "Stock": 40,
     "Ratings": null
   },
   {
@@ -130,7 +130,7 @@
     "Title": "Vision",
     "Description": "The vibraminium android with the Mind Stone, never has he looked better.",
     "Price": 15.99,
-    "Stock": 19,
+    "Stock": 69,
     "Ratings": null
   },
   {
@@ -141,7 +141,7 @@
     "Title": "Wanda",
     "Description": "The scarlet witch, a powerful sorcer or a loving mother ? ",
     "Price": 21.99,
-    "Stock": 16,
+    "Stock": 76,
     "Ratings": null
   },
   {
@@ -152,7 +152,7 @@
     "Title": "Superman",
     "Description": "Put on the symbol of Hope as the last son of krypton.",
     "Price": 16.99,
-    "Stock": 19,
+    "Stock": 72,
     "Ratings": null
   },
   {
