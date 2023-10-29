@@ -139,16 +139,44 @@ namespace ContosoCrafts.WebSite.Services
         private void SaveProductsToJson(IEnumerable<ProductModel> products)
         {
             using (var outputStream = File.OpenWrite(JsonFileName))
-                {
-                    JsonSerializer.Serialize<IEnumerable<ProductModel>>(
-                        new Utf8JsonWriter(outputStream, new JsonWriterOptions
-                        {
-                            SkipValidation = true,
-                            Indented = true
-                        }),
-                        products
-                    );
-                }
+            {
+                JsonSerializer.Serialize<IEnumerable<ProductModel>>(
+                    new Utf8JsonWriter(outputStream, new JsonWriterOptions
+                    {
+                        SkipValidation = true,
+                        Indented = true
+                    }),
+                    products
+                );
+            }
+
+        }
+
+       // Save product after convertinbg it to json format
+        private void SaveProducts(IEnumerable<ProductModel> products)
+        {
+            var jsonProducts = JsonSerializer.Serialize(products,
+            new JsonSerializerOptions
+            {
+                WriteIndented = true
+            });
+
+            File.WriteAllText(JsonFileName, jsonProducts);
+        }
+
+        // Delete product 
+        public ProductModel DeleteData(string id)
+        {
+            // Get the current set, and remove the record with the specified ID from it
+            var products = GetProducts().ToList();
+            var productToDelete = products.FirstOrDefault(x => x.Id.Equals(id));
+            if (productToDelete != null)
+            {
+                products.Remove(productToDelete);
+                SaveProducts(products);
+            }
+
+            return productToDelete;
         }
     }
 }
