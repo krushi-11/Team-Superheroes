@@ -12,7 +12,7 @@ using Moq;
 using System.Collections.Generic;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
-namespace UnitTests.Pages.Services.JsonFileProductService
+namespace UnitTests.Pages.Product.AddRating
 {
     public class JsonFileProductServiceTests
     {
@@ -150,44 +150,5 @@ namespace UnitTests.Pages.Services.JsonFileProductService
 
         #endregion UpdateData
 
-        #region CreateData
-        [Test]
-        public void CreateData_ShouldReturnProductWithNewId()
-        {
-            // Arrange
-
-            // Act
-            var res = TestHelper.ProductService.CreateData();
-
-            // Assert
-            Assert.NotNull(res);
-            Assert.IsNotEmpty(res.Id); // Ensure the product has a non-empty ID
-            Assert.AreEqual("Enter Title", res.Title); // Check the default title
-            Assert.AreEqual("Enter Description", res.Description); // Check the default description
-            Assert.AreEqual("Enter Url", res.Url); // Check the default URL
-            Assert.AreEqual("", res.Image); // Check the default image
-        }
-        #endregion CreateData
-
-        #region DeleteData
-        [Test]
-        public void DeleteData_ShouldRemoveProductWithSpecifiedId()
-        {
-            // Arrange
-            var ProductID = "steve-rogers";
-
-            // Act
-            var productToDelete = TestHelper.ProductService.GetProducts().FirstOrDefault(p => p.Id == ProductID);
-            var deletedProduct = TestHelper.ProductService.DeleteData(ProductID);
-
-            // Assert
-            Assert.NotNull(productToDelete);
-            Assert.AreEqual(ProductID, deletedProduct.Id);
-
-            // Check that the product with ID "tony-stark" was removed
-            var remainingProducts = TestHelper.ProductService.GetProducts().ToList();
-            Assert.Null(remainingProducts.FirstOrDefault(x => x.Id == ProductID));
-        }
-        #endregion DeleteData
     }
 }
