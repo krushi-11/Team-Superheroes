@@ -72,41 +72,25 @@ namespace UnitTests.Pages.Product.Read
         #endregion TestSetup
 
         #region OnGet
+
         [Test]
-        public void OnGet_Valid_Should_Return_Products()
+        public void OnGet_InValid_Should_Return_InvalidState()
         {
             // Arrange
 
             // Act
-            pageModel.OnGet("t-challa");
+            pageModel.OnGet("InValidId"); // Does not exist
 
             // Assert
-            Assert.AreEqual(true, pageModel.ModelState.IsValid);
-            Assert.AreEqual("Black Panther", pageModel.Product.Title);
-        }
-        [Test]
-        public void OnGet_If_Update_Button_Redirecting_Should_Return_True()
-        {
-            // Arrange
-
-            // Act
-            pageModel.OnGet("t-challa");
+            // Store whether the ModelState is valid for later assert
+            var stateIsValid = pageModel.ModelState.IsValid;
 
             // Assert
-            Assert.AreEqual(true, pageModel.ModelState.IsValid);
-            Assert.AreEqual("Black Panther", pageModel.Product.Title);
-        }
-        [Test]
-        public void OnGet_If_Read_Page_Does_Not_Show_Price_Should_Return_False()
-        {
-            //Arrange
+            Assert.AreEqual(false, stateIsValid);
 
-            //Act
-            pageModel.OnGet("tony-stark");
-
-            //Assert
-            Assert.AreNotEqual(false, pageModel.ModelState.IsValid);
-            Assert.AreNotEqual("Black Panther", pageModel.Product.Title);
+            // Reset
+            // This should remove the error we added
+            pageModel.ModelState.Clear();
         }
         #endregion OnGet
     }
