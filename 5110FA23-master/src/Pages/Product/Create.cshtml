@@ -10,12 +10,12 @@
 
 <body>
     <div>
-        <form method="post">
+        <form method="post" class="whiteboxcrudi">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            @Html.HiddenFor(x=>x.Product.Id);
+            @Html.HiddenFor(x=>x.Product.Id)
 
             <!--Product Title-->
-            <div class="form-group">
+            <div>
                 <label class="control-label" asp-for="Product.Title"></label>
                 <input asp-for="Product.Title" class="form-control" required placeholder="Enter Title">
                 <span class="text-danger" asp-validation-for="Product.Title"></span>
@@ -23,7 +23,7 @@
 
             <!--Product Description-->
             <div class="form-group">
-                <label class="control-label" asp-for="Product.Description"></label>
+                <label style="border-left:medium" class="control-label" asp-for="Product.Description"></label>
                 <input asp-for="Product.Description" class="form-control" required placeholder="Enter Description">
                 <span class="text-danger" asp-validation-for="Product.Description"></span>
             </div>
@@ -47,7 +47,7 @@
                 <input type="submit" value="Save" class="btn btn-primary">
             </div>
 
-            &nbsp; &nbsp <!--Spacing-->
+            &nbsp; <!--Spacing-->
 
             <!--Cancel Button-->
             <div class="form-group">
