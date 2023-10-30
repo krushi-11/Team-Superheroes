@@ -106,7 +106,7 @@ namespace ContosoCrafts.WebSite.Services
                 productData.Url = updatedProduct.Url;
                 productData.Image = updatedProduct.Image;
 
-                SaveProductsToJson(products);
+                SaveProducts(products);
                 return productData;
             }
             else 
@@ -130,7 +130,7 @@ namespace ContosoCrafts.WebSite.Services
 
             var newData = GetProducts().Append(data);
 
-            SaveProductsToJson(newData);
+            SaveProducts(newData);
             return data;
 
         }
