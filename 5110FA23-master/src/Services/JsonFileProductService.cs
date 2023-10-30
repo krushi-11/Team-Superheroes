@@ -88,7 +88,7 @@ namespace ContosoCrafts.WebSite.Services
             data.Ratings = ratings.ToArray();
 
             // Save the data back to the data store
-            SaveProductsToJson(products);
+            SaveProducts(products);
 
             return true;
         }
@@ -133,24 +133,7 @@ namespace ContosoCrafts.WebSite.Services
             SaveProducts(newData);
             return data;
 
-        }
-
-        // Save product to json list
-        private void SaveProductsToJson(IEnumerable<ProductModel> products)
-        {
-            using (var outputStream = File.OpenWrite(JsonFileName))
-            {
-                JsonSerializer.Serialize<IEnumerable<ProductModel>>(
-                    new Utf8JsonWriter(outputStream, new JsonWriterOptions
-                    {
-                        SkipValidation = true,
-                        Indented = true
-                    }),
-                    products
-                );
-            }
-
-        }
+        } 
 
        // Save product after convertinbg it to json format
         private void SaveProducts(IEnumerable<ProductModel> products)
