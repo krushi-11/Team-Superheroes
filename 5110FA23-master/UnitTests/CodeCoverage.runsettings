@@ -32,20 +32,26 @@ Included items must then not match any entries in the exclude list to remain inc
 								<ModulePath>.*\.exe$</ModulePath>
 							</Include>
 							<Exclude>
+								<ModulePath>.*microsoft*</ModulePath>
 								<ModulePath>.*CPPUnitTestFramework.*</ModulePath>
 								<ModulePath>.*anglesharpwrappers.*</ModulePath>
 								<ModulePath>.*NUnit.*</ModulePath>
+								<ModulePath>.*bunit.*</ModulePath>
 								<ModulePath>.*moq.*</ModulePath>
 								<ModulePath>.*AspNetCoreGeneratedDocument.*</ModulePath>
-                <ModulePath>.*bunit.core.*</ModulePath>
-                <ModulePath>.*bunit.web.*</ModulePath>
-              </Exclude>
+								<ModulePath>.*biliweb.views.*</ModulePath>
+								<ModulePath>.*bunit.core.*</ModulePath>
+								<ModulePath>.*bunit.web.*</ModulePath>
+							</Exclude>
 						</ModulePaths>
 
 						<!-- Match fully qualified names of functions: -->
 						<!-- (Use "\." to delimit namespaces in C# or Visual Basic, "::" in C++.)  -->
 						<Functions>
 							<Exclude>
+								<Function>^ContosoCrafts.WebSite.Components.*</Function>
+								<Function>^ContosoCrafts.WebSite.Models.*</Function>
+								<Function>^ContosoCrafts.WebSite.Controllers.*</Function>
 								<Function>^Fabrikam\.UnitTest\..*</Function>
 								<Function>^std::.*</Function>
 								<Function>^ATL::.*</Function>
@@ -59,10 +65,10 @@ Included items must then not match any entries in the exclude list to remain inc
 								<Function>.*\.IdentityHostingStartup.*</Function>
 								<Function>.*\.ConfigurationManager.*</Function>
 								<Function>.*AspNetCoreGeneratedDocument.*</Function>
-                
-                <Function>.*\.Backend.Azure.*</Function>
-                <Function>.*\.Backend.Table.*</Function>
-              </Exclude>
+
+								<Function>.*\.Backend.Azure.*</Function>
+								<Function>.*\.Backend.Table.*</Function>
+							</Exclude>
 						</Functions>
 
 						<!-- Match attributes on any code element: -->
@@ -87,8 +93,8 @@ Included items must then not match any entries in the exclude list to remain inc
 								<Source>.*\\vc\\include\\.*</Source>
 								<Source>.*\.cshtml$</Source>
 
-                <Source>.*\TaskExtensions.cs$</Source>
-              </Exclude>
+								<Source>.*\TaskExtensions.cs$</Source>
+							</Exclude>
 						</Sources>
 
 						<!-- Match the company name property in the assembly: -->
