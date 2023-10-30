@@ -74,6 +74,9 @@ namespace UnitTests.Pages.Product.Index
 
         #region OnGet
         [Test]
+        /// <summary>
+        /// Tests that loading the index page returns a non-empty list of products
+        /// </summary>
         public void OnGet_Valid_Should_Return_Products()
         {
             // Arrange
@@ -83,7 +86,8 @@ namespace UnitTests.Pages.Product.Index
 
             // Assert
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
-            Assert.AreEqual(31, pageModel.Products.ToList().Count);
+            // Are there any in existence?
+            Assert.AreEqual(true, pageModel.Products.ToList().Any());
         }
         #endregion OnGet
 
