@@ -135,23 +135,6 @@ namespace ContosoCrafts.WebSite.Services
 
         }
 
-        // Save product to json list
-        private void SaveProductsToJson(IEnumerable<ProductModel> products)
-        {
-            using (var outputStream = File.OpenWrite(JsonFileName))
-            {
-                JsonSerializer.Serialize<IEnumerable<ProductModel>>(
-                    new Utf8JsonWriter(outputStream, new JsonWriterOptions
-                    {
-                        SkipValidation = true,
-                        Indented = true
-                    }),
-                    products
-                );
-            }
-
-        }
-
        // Save product after convertinbg it to json format
         private void SaveProducts(IEnumerable<ProductModel> products)
         {
