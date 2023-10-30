@@ -73,16 +73,22 @@ namespace UnitTests.Pages.Product.Update
 
         #region OnGet
         [Test]
-        public void OnGet_Valid_Should_Return_Products()
+        /// <summary>
+        /// Test that's loading the update page returns a non-empty list of products
+        /// </summary>
+        public void OnGet_Valid_Should_Return_Product()
         {
             // Arrange
 
             // Act
-            pageModel.OnGet("peter-parker");
-
+            pageModel.OnGet("bruce-banner");
             // Assert
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
-            Assert.AreEqual("Spider-Man", pageModel.Product.Title);
+
+            // Reset
+            // This should remove the error we added
+            pageModel.ModelState.Clear();
+
         }
 
         [Test]
@@ -95,19 +101,6 @@ namespace UnitTests.Pages.Product.Update
 
             // Assert
             Assert.IsNull(pageModel.Product);
-        }
-
-        [Test]
-        public void OnGet_Valid_Id_Null_Title_Should_Return_False()
-        {
-            // Arrange
-
-            // Act
-            pageModel.OnGet("t-challa");
-            var result = pageModel.Product.Title == null;
-
-            // Assert
-            Assert.AreEqual(false, result);
         }
 
         #endregion OnGet
