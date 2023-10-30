@@ -68,34 +68,50 @@ namespace UnitTests.Pages.Product.AddRating
             // Assert
             Assert.AreEqual(false, result);
         }
+        
         [Test]
-        public void
-        AddRating_InValid_Rating_LessRatingThanZero_Should_Return_False()
+        public void AddRating_InValid_Product_Rating_less_than_0_Should_Return_False()
         {
             // Arrange
+            // Get the First data item
+            var data = TestHelper.ProductService.GetProducts().First();
+
             // Act
-            var result = TestHelper.ProductService.AddRating("t-challa", -3);
-            // Assert
-            Assert.AreEqual(false, result);
-        }
-        [Test]
-        public void AddRating_InValid_Rating_GreaterThanFive_Should_Return_False()
-        {
-            // Arrange
-            // Act
-            var result = TestHelper.ProductService.AddRating("tony-stark", 7);
+            // Store the result of the AddRating method (which is being tested)
+            var result = TestHelper.ProductService.AddRating(data.Id, -2);
+
             // Assert
             Assert.AreEqual(false, result);
         }
 
         [Test]
-        public void AddRating_InValid_Rating_Should_Return_False()
+        public void AddRating_InValid_Product_Rating_more_5_Should_Return_False()
         {
             // Arrange
+            // Get the First data item
+            var data = TestHelper.ProductService.GetProducts().First();
+
             // Act
-            var result = TestHelper.ProductService.AddRating("sailorhg", 2);
+            // Store the result of the AddRating method (which is being tested)
+            var result = TestHelper.ProductService.AddRating(data.Id, 6);
+
             // Assert
             Assert.AreEqual(false, result);
+        }
+
+        [Test]
+        public void AddRating_Valid_Product_Id_Rating_null_Should_Return_new_Array()
+        {
+            // Arrange
+            // Get the Last data item
+            var data = TestHelper.ProductService.GetProducts().Last();
+
+            // Act
+            // Store the result of the AddRating method (which is being tested)
+            var result = TestHelper.ProductService.AddRating(data.Id, 0);
+
+            // Assert
+            Assert.AreEqual(true, result);
         }
 
         [Test]
