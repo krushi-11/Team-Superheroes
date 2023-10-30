@@ -11,6 +11,10 @@ using System;
 using Moq;
 using System.Collections.Generic;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using NUnit.Framework.Internal;
+using System.IO;
+using System.Runtime.Intrinsics.X86;
+using System.Text.RegularExpressions;
 
 namespace UnitTests.Pages.Product.AddRating
 {
@@ -150,5 +154,23 @@ namespace UnitTests.Pages.Product.AddRating
 
         #endregion UpdateData
 
+        #region CreateData
+        [Test]
+        public void CreateData_ShouldReturnProductWithNewId()
+        {
+            // Arrange
+
+            // Act
+            var product = TestHelper.ProductService.CreateData();
+
+            // Assert
+            Assert.NotNull(product);
+            Assert.IsNotEmpty(product.Id); // Ensure the product has a non-empty ID
+            Assert.AreEqual("Enter Title", product.Title); // Check the default title
+            Assert.AreEqual("Enter Description", product.Description); // Check the default description
+            Assert.AreEqual("Enter Url", product.Url); // Check the default URL
+            Assert.AreEqual("", product.Image); // Check the default image
+        }
+        #endregion CreateData
     }
 }
