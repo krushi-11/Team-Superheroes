@@ -89,13 +89,13 @@ namespace UnitTests.Pages.Product.AddRating
         }
 
         [Test]
-        public void AddRating_Valid_Rating_Should_Return_True()
+        public void AddRating_InValid_Rating_Should_Return_False()
         {
             // Arrange
             // Act
-            var result = TestHelper.ProductService.AddRating("sailorhg-bubblesortpic", 2);
+            var result = TestHelper.ProductService.AddRating("sailorhg", 2);
             // Assert
-            Assert.AreEqual(true, result);
+            Assert.AreEqual(false, result);
         }
 
         [Test]
