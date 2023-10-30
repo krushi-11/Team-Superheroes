@@ -88,7 +88,7 @@ namespace ContosoCrafts.WebSite.Services
             data.Ratings = ratings.ToArray();
 
             // Save the data back to the data store
-            SaveProductsToJson(products);
+            SaveProducts(products);
 
             return true;
         }
