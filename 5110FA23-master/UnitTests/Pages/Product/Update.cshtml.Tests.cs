@@ -78,7 +78,7 @@ namespace UnitTests.Pages.Product.Update
             // Arrange
 
             // Act
-            pageModel.OnGet("sailorhg-bubblesortpic");
+            pageModel.OnGet("peter-parker");
 
             // Assert
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
@@ -103,7 +103,7 @@ namespace UnitTests.Pages.Product.Update
             // Arrange
 
             // Act
-            pageModel.OnGet("sailorhg-bubblesortpic");
+            pageModel.OnGet("t-challa");
             var result = pageModel.Product.Title == null;
 
             // Assert
@@ -117,7 +117,7 @@ namespace UnitTests.Pages.Product.Update
         public void OnPost_Valid_Should_Return_Products()
         {
             // Arrange
-            pageModel.OnGet("sailorhg-corsage");
+            pageModel.OnGet("t-challa");
 
             // Act
             var result = pageModel.OnPost() as RedirectToPageResult;

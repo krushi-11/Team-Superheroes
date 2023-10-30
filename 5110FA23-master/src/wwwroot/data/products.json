@@ -198,16 +198,5 @@
     "Price": 14.99,
     "Stock": 60,
     "Ratings": null
-  },
-  {
-    "Id": "0a59ea5c-4c16-4b66-82b2-dcb4d5da978d",
-    "Maker": null,
-    "img": "https://images.appalachicanna.com/2023/06/design-blue-beetle-movie-august-18-2023-poster-shirt-women.jpg",
-    "Url": "https://www.imdb.com/title/tt9362930/",
-    "Title": "Blue Beetle",
-    "Description": "This is Blue Beetle Page",
-    "Price": 10.99,
-    "Stock": 40,
-    "Ratings": null
   }
 ]

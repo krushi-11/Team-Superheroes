@@ -74,7 +74,7 @@ namespace UnitTests.Pages.Product.AddRating
         {
             // Arrange
             // Act
-            var result = TestHelper.ProductService.AddRating("jenlooper-cactus", -3);
+            var result = TestHelper.ProductService.AddRating("t-challa", -3);
             // Assert
             Assert.AreEqual(false, result);
         }
@@ -83,7 +83,7 @@ namespace UnitTests.Pages.Product.AddRating
         {
             // Arrange
             // Act
-            var result = TestHelper.ProductService.AddRating("jenlooper-cactus", 7);
+            var result = TestHelper.ProductService.AddRating("tony-stark", 7);
             // Assert
             Assert.AreEqual(false, result);
         }
@@ -102,7 +102,7 @@ namespace UnitTests.Pages.Product.AddRating
         public void AddRating_InitializeRatingsArrayIfNull()
         {
             // Arrange
-            var productId = "jenlooper-cactus";
+            var productId = "tony-stark";
             var rating = 2;
 
             // Create a product with null Ratings
