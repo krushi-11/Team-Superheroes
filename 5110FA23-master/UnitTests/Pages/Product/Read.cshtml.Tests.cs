@@ -87,10 +87,6 @@ namespace UnitTests.Pages.Product.Read
 
             // Assert
             Assert.AreEqual(false, stateIsValid);
-
-            // Reset
-            // This should remove the error we added
-            pageModel.ModelState.Clear();
         }
         #endregion OnGet
     }
