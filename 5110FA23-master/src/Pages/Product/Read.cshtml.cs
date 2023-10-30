@@ -30,16 +30,9 @@ namespace ContosoCrafts.WebSite.Pages.Product
         /// REST Get request
         /// </summary>
         /// <param name="id"></param>
-        public IActionResult OnGet(string id)
+        public void OnGet(string id)
         {
             Product = ProductService.GetProducts().FirstOrDefault(m => m.Id.Equals(id));
-            if (Product == null)
-            {
-                this.ModelState.AddModelError("bogus", "bogus error");
-                return RedirectToPage("./Index"); // Probably should be an error message
-            }
-
-            return Page();
         }
     }
 }
