@@ -17,7 +17,7 @@ namespace ContosoCrafts.WebSite.Pages.Product
             ProductService = productService;
         }
         public ProductModel Product { get; set; }
-        public IActionResult OnGet()
+        public IActionResult OnPost()
         {
             Product = ProductService.CreateData();
             return RedirectToPage("./Update", new { Id = Product.Id });
