@@ -167,7 +167,7 @@ ul {
 }
 .whitebox { /*adding the dimensions for whitebox*/
     width: 1150px;/*setting the width of the box*/
-    height: 100%;
+    height: 100%;/*setting the height of box*/
     position: relative;/*making the position relative*/
     display: block;/*displaying the type of box*/
     left: 0%;/*setting the position from left side*/
@@ -178,7 +178,7 @@ ul {
 }
 .whiteboxcrudi { /*adding the dimensions for whiteboxcrudi*/
     width: auto; /*setting the width of the box*/
-    height: auto;
+    height: auto;/*setting the height of the box*/
     position: relative; /*making the position relative*/
     display: block; /*displaying the type of box*/
     left: 0%; /*setting the position from left side*/
