@@ -74,19 +74,16 @@ namespace UnitTests.Pages.Product.Read
         #region OnGet
 
         [Test]
-        public void OnGet_InValid_Should_Return_InvalidState()
+        public void OnGet_Valid_Should_Return_Products()
         {
             // Arrange
 
             // Act
-            pageModel.OnGet("InValidId"); // Does not exist
+            pageModel.OnGet("t-challa");
 
             // Assert
-            // Store whether the ModelState is valid for later assert
-            var stateIsValid = pageModel.ModelState.IsValid;
-
-            // Assert
-            Assert.AreEqual(false, stateIsValid);
+            Assert.AreEqual(true, pageModel.ModelState.IsValid);
+            Assert.AreEqual("Black Panther", pageModel.Product.Title);
         }
         #endregion OnGet
     }
