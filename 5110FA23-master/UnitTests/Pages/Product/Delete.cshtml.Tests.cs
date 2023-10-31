@@ -134,6 +134,7 @@ namespace UnitTests.Pages.Product.Delete
 
         #endregion OnGet
 
+        // Wrote unit test for OnPost if the product is valid return true
         #region OnPost
         [Test]
         public void OnPost_Valid_Should_Return_Products()
