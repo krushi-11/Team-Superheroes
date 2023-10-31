@@ -103,6 +103,7 @@ namespace UnitTests.Pages.Product.Delete
         /// <summary>
         /// Test that's loading the update page returns a non-empty list of products
         /// </summary>
+        /// Wrote Unit test for OnGet request
         public void OnGet_Valid_Should_Return_Product()
         {
             // Arrange
