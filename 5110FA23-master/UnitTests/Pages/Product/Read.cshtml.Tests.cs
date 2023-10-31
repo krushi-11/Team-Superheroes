@@ -79,11 +79,11 @@ namespace UnitTests.Pages.Product.Read
             // Arrange
 
             // Act
-            pageModel.OnGet("t-challa");
+            pageModel.OnGet("mind-stone");
 
             // Assert
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
-            Assert.AreEqual("Black Panther", pageModel.Product.Title);
+            Assert.AreEqual("Vision", pageModel.Product.Title);
         }
         [Test]
         public void OnGet_If_Update_Button_Redirects_Should_Return_True()
