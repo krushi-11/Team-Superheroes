@@ -148,18 +148,21 @@ namespace ContosoCrafts.WebSite.Services
         }
 
         // Delete product 
-        public ProductModel DeleteData(string id)
+        public bool DeleteData(string id)
         {
             // Get the current set, and remove the record with the specified ID from it
             var products = GetProducts().ToList();
             var productToDelete = products.FirstOrDefault(x => x.Id.Equals(id));
-            if (productToDelete != null)
-            {
+            if (productToDelete != null){
                 products.Remove(productToDelete);
                 SaveProducts(products);
+                return true;
+            
+            }else{
+                return false; 
             }
+            
 
-            return productToDelete;
         }
     }
 }
