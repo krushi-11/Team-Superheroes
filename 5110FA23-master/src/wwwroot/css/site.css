@@ -22,13 +22,13 @@ for details on configuring this project to bundle and minify static web assets. 
 }
 
 .card-columns .card-body {
-    height: 100px;
+    height: 45px;/*changed the height of the cards*/
     font-family: 'Nunito', sans-serif;
     background: #fbfafd;
 }
 
 .card-columns .card-img {
-    height: 330px;
+    height: 310px;
     vertical-align: bottom;
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
@@ -206,4 +206,8 @@ ul {
     box-shadow: 0 15px 20px rgba(0,0,0,.8); /*giving shadow to the box*/
     text-align: center; /*aligning the text to the centre*/
     border-radius: 20px; /*setting the border radius for box*/
+}
+.navImgLogo{
+    /*adding the dimensions for logo*/
+    width: 130px;
 }
