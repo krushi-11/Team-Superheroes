@@ -117,25 +117,22 @@ namespace ContosoCrafts.WebSite.Services
         }
 
         // Create Data Method
-        public ProductModel CreateData()
+        public ProductModel CreateData(ProductModel productModel)
         {
-            var data = new ProductModel()
-            {
-                Id = System.Guid.NewGuid().ToString(),
-                Title = "Enter Title",
-                Description = "Enter Description",
-                Url = "Enter Url",
-                Image = "",
-            };
+            productModel.Id = System.Guid.NewGuid().ToString();
 
-            var newData = GetProducts().Append(data);
+            // Get the current set, and append the new record to it becuase IEnumerable does not have Add
+            var dataSet = GetProducts();
+            dataSet = dataSet.Append(productModel);
 
-            SaveProducts(newData);
-            return data;
+            // Update the products.json with newly created products
+            SaveProducts(dataSet);
 
+            //Return newly created data
+            return productModel;
         }
 
-       // Save product after convertinbg it to json format
+        // Save product after converting it to json format
         private void SaveProducts(IEnumerable<ProductModel> products)
         {
             var jsonProducts = JsonSerializer.Serialize(products,
