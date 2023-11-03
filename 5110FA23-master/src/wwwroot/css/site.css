@@ -176,7 +176,7 @@ ul {
     text-align: center;/*aligning the text to the centre*/
     border-radius: 10px;/*setting the border radius for box*/
 }
-
+/*Styling for Create.cshtml page*/
 .whiteboxcrudi {
     padding: 20px;
     background-color: white;
