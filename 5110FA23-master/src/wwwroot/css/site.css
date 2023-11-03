@@ -176,6 +176,16 @@ ul {
     text-align: center;/*aligning the text to the centre*/
     border-radius: 10px;/*setting the border radius for box*/
 }
+
+.whiteboxcrudi {
+    padding: 20px;
+    background-color: white;
+    border: 2px solid black;
+}
+
+.control-label {
+    border-left: medium;
+}
 .whiteboxcrudi { /*adding the dimensions for whiteboxcrudi*/
     width: auto; /*setting the width of the box*/
     height: auto;/*setting the height of the box*/
