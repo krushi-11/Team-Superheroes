@@ -96,8 +96,6 @@ namespace ContosoCrafts.WebSite.Services
         // Update Data Method
         public ProductModel UpdateData(ProductModel updatedProduct)
         {
-            if(updatedProduct!= null)
-            {
                 var products = GetProducts();
                 var productData = products.FirstOrDefault(x=>x.Id.Equals(updatedProduct.Id));
 
@@ -110,12 +108,6 @@ namespace ContosoCrafts.WebSite.Services
 
                 SaveProducts(products);
                 return productData;
-            }
-            else 
-            {
-                System.Console.WriteLine("Data is null");
-                return null; 
-            }
         }
 
         // Create Data Method
