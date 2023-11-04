@@ -205,9 +205,9 @@ ul {
 
 /* Style for the Create button */
 .create-button {
-    background-color: white;
+    background-color: red;
     font-size: 20px;
-    color: blue;
+    color: white;
 }
 
 
