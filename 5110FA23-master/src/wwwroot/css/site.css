@@ -90,6 +90,17 @@ a {
         border-color: #e9a8a6;
     }
 
+.btn-customised {
+    color: #fff;
+    background-color: #f01628;
+    border-color: #f0e816;
+}
+    .btn-customised:hover {
+        color: #fff;
+        background-color: #7ebdf7;
+        border-color: #7ebdf7;
+    }
+
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
     color: #fff;
     background-color: #1b6ec2;
