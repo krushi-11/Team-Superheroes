@@ -197,17 +197,30 @@ ul {
     color: blue;
 }
 
+
+/*Style for Index Page*/
 .table-bordered {
-    border: 2px solid black; /* Adjust the border width as needed */
+    border: 2px solid black; 
 }
 
 th, td {
-    color: black; /* Change the color of the text for the Title */
+    color: black; 
 }
 
 a {
-    color: blue; /* Change the color of the link for "Read" */
+    color: blue; 
 }
+
+/* Style for product titles in the table */
+.product-title {
+    text-decoration-color: initial;
+}
+
+/* Style for the "Read" and "Delete" links */
+.read-delete-links {
+    font-size: 20px;
+}
+
 
 .whiteboxcrudi { /*adding the dimensions for whiteboxcrudi*/
     width: auto; /*setting the width of the box*/

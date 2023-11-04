@@ -3,6 +3,7 @@
 @{
     ViewData["Title"] = "Index page";
 }
+<!--Referencing styling done in site.css page-->
 <link rel ="stylesheet" type="text/css" href ="site.css" />
 <div class="container" >
     <!--Implemented a Create button-->
@@ -22,10 +23,10 @@
             @foreach (var product in Model.Products)
             {
                 <tr>
-                    <td style="text-decoration-color: initial">@product.Title</td>
-                    <td><a asp-page="Read" asp-route-id="@product.Id" size="20px">Read</a>
+                    <td>@product.Title</td>
+                    <td><a asp-page="Read" asp-route-id="@product.Id">Read</a>
                         <!--Created Delete button-->
-                        <a asp-page="Delete" asp-route-id="@product.Id" size="20px">Delete</a>
+                        <a asp-page="Delete" asp-route-id="@product.Id">Delete</a>
                     </td>
                 </tr>
             }
