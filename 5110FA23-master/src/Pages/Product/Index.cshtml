@@ -11,7 +11,7 @@
         <a asp-page="./Create" asp-route-id="@Model.Products" class="create-button">+ Create</a>
     </form>
 
-    &nbsp;
+    &nbsp; <!--Spacing in between-->
     <table class="table table-bordered bg-white">
         <thead>
             <tr>
@@ -25,9 +25,11 @@
                 <tr>
                     <td>@product.Title</td>
                     <!--Style for Read and Delete button moved to css file-->
-                    <td><a asp-page="Read" asp-route-id="@product.Id">Read</a>
+                    <td>
+                        <button class="btn btn-light btn-customised"><a asp-page="Read" asp-route-id="@product.Id" style="color: #fff">Read</a></button>
+                        &nbsp; &nbsp; <!--Spacing between the Buttons-->
                         <!--Created Delete button-->
-                        <a asp-page="Delete" asp-route-id="@product.Id">Delete</a>
+                        <button class="btn btn-light btn-customised"><a asp-page="Delete" asp-route-id="@product.Id" style="color: #fff">Delete</a></button>
                     </td>
                 </tr>
             }
