@@ -46,6 +46,20 @@
                 <span class="text-danger" asp-validation-for="Product.Image"></span>
             </div>
 
+            <!-- Product Price -->
+            <div class="form-group">
+                <label class="control-label" asp-for="Product.Price"></label>
+                <input asp-for="Product.Price" class="form-control" required placeholder="Enter Price">
+                <span class="text-danger" asp-validation-for="Product.Price"></span>
+            </div>
+
+            <!-- Product Stock -->
+            <div class="form-group">
+                <label class="control-label" asp-for="Product.Stock"></label>
+                <input asp-for="Product.Stock" class="form-control" required placeholder="Enter Stock">
+                <span class="text-danger" asp-validation-for="Product.Stock"></span>
+            </div>
+
             <!-- Save Button -->
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary">
