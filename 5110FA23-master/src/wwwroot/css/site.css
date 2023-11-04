@@ -186,6 +186,29 @@ ul {
 .control-label {
     border-left: medium;
 }
+.container {
+    margin-top: 20px;
+}
+
+/* Style for the Create button */
+.create-button {
+    background-color: white;
+    font-size: 20px;
+    color: blue;
+}
+
+.table-bordered {
+    border: 2px solid black; /* Adjust the border width as needed */
+}
+
+th, td {
+    color: black; /* Change the color of the text for the Title */
+}
+
+a {
+    color: blue; /* Change the color of the link for "Read" */
+}
+
 .whiteboxcrudi { /*adding the dimensions for whiteboxcrudi*/
     width: auto; /*setting the width of the box*/
     height: auto;/*setting the height of the box*/

@@ -3,26 +3,13 @@
 @{
     ViewData["Title"] = "Index page";
 }
-
-<style>
-    .table-bordered {
-        border: 2px solid black; /* Adjust the border width as needed */
-    }
-
-    th, td {
-        color: black; /* Change the color of the text for the Title */
-    }
-
-    a {
-        color: blue; /* Change the color of the link for "Read" */
-    }
-</style>
-
+<link rel ="stylesheet" type="text/css" href ="site.css" />
 <div class="container" >
     <!--Implemented a Create button-->
     <form method="post">
-        <a asp-page="./Create" asp-route-id="@Model.Products" style="background-color: white; font-size: 20px; color:blue">+ Create</a>
+        <a asp-page="./Create" asp-route-id="@Model.Products" class="create-button">+ Create</a>
     </form>
+
     &nbsp;
     <table class="table table-bordered bg-white">
         <thead>
