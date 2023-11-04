@@ -105,6 +105,8 @@ namespace ContosoCrafts.WebSite.Services
                 productData.Description = updatedProduct.Description;
                 productData.Url = updatedProduct.Url;
                 productData.Image = updatedProduct.Image;
+                productData.Price = updatedProduct.Price;
+                productData.Stock = updatedProduct.Stock;
 
                 SaveProducts(products);
                 return productData;
