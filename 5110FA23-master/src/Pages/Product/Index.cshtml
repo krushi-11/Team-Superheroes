@@ -24,6 +24,7 @@
             {
                 <tr>
                     <td>@product.Title</td>
+                    <!--Style for Read and Delete button moved to css file-->
                     <td><a asp-page="Read" asp-route-id="@product.Id">Read</a>
                         <!--Created Delete button-->
                         <a asp-page="Delete" asp-route-id="@product.Id">Delete</a>

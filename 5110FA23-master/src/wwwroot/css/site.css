@@ -211,12 +211,12 @@ a {
     color: blue; 
 }
 
-/* Style for product titles in the table */
+/* Style for product titles in the Index pages table */
 .product-title {
     text-decoration-color: initial;
 }
 
-/* Style for the "Read" and "Delete" links */
+/* Style for the "Read" and "Delete" links on Index page*/
 .read-delete-links {
     font-size: 20px;
 }
