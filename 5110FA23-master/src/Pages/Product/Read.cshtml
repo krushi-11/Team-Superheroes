@@ -6,8 +6,10 @@
 @{
     ViewData["Title"] = "Read page";
 }
+
 <!--Added whitebox on the background to make text visible-->
 <div class="whitebox">
+    &nbsp; <!--Added Spacing-->
     <h1>Read</h1>
         <div class="content">
             <h5 class="title" id="productTitle">@Model.Product.Title</h5>
@@ -29,8 +31,9 @@
 
             <!--Created and styled update button -->
             <form method="post">
-                <button class="btn btn-primary"><a asp-page="Update" asp-route-id="@Model.Product.Id" size="40px" style="color:#ffffff">Update</a></button>
+            <button class="btn btn-light btn-customised box-shadow"><a asp-page="Update" asp-route-id="@Model.Product.Id" size="40px" style="color:#ffffff">Update</a></button>
             </form>
+            &nbsp; <!--Added Spacing inbetween-->
 
         </div>
 </div>
