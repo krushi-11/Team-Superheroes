@@ -120,7 +120,15 @@
     "Description": "The skilled archer Clint Barton, SHIELD needs you to put on your suit and head out for a mission.",
     "Price": 19.99,
     "Stock": 36,
-    "Ratings": null
+    "Ratings": [
+      2,
+      2,
+      4,
+      5,
+      2,
+      2,
+      1
+    ]
   },
   {
     "Id": "mind-stone",
@@ -131,7 +139,11 @@
     "Description": "The vibraminium android with the Mind Stone, never has he looked better.",
     "Price": 15.99,
     "Stock": 69,
-    "Ratings": null
+    "Ratings": [
+      2,
+      2,
+      4
+    ]
   },
   {
     "Id": "scarlet-witch",
