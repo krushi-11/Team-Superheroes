@@ -72,10 +72,10 @@ namespace UnitTests.Pages.Product.Delete
             };
         }
 
+        // Delete Data Method in JsonFileProductService File
         #region DeleteData
 
         // Unit test for DeleteData if product is invalid then return false
-
         [Test]
         public void DeleteData_Invalid_Product_Should_Return_False()
         {
@@ -87,7 +87,6 @@ namespace UnitTests.Pages.Product.Delete
         }
 
         // Unit test for DeleteData if product is valid it removes the product and return true
-
         [Test]
         public void DeleteData_Product_Should_Return_True()
         {
@@ -96,14 +95,15 @@ namespace UnitTests.Pages.Product.Delete
             Assert.IsTrue(result);
          
         }
-        #endregion DeleteData
 
+        #endregion DeleteData
+        // Ending Delete Data Method in JsonFileProductService File
+
+
+        // OnGet Method in Delete.cshtml.cs file
         #region OnGet
+
         [Test]
-        /// <summary>
-        /// Test that's loading the update page returns a non-empty list of products
-        /// </summary>
-        /// Wrote Unit test for OnGet request
         public void OnGet_Valid_Should_Return_Product()
         {
             // Arrange
@@ -116,7 +116,6 @@ namespace UnitTests.Pages.Product.Delete
             // Reset
             // This should remove the error we added
             pageModel.ModelState.Clear();
-
         }
 
         // Wrote unit test, if invalid product should return null
@@ -133,9 +132,13 @@ namespace UnitTests.Pages.Product.Delete
         }
 
         #endregion OnGet
+        // Ending OnGet Method in Delete.cshtml.cs file
 
-        // Wrote unit test for OnPost if the product is valid return true
+
+        // OnPost Method in Delete.cshtml.cs file
         #region OnPost
+
+        // If the Product is Valid return true
         [Test]
         public void OnPost_Valid_Should_Return_Products()
         {
@@ -150,6 +153,7 @@ namespace UnitTests.Pages.Product.Delete
             Assert.AreEqual(true, result.PageName.Contains("Index"));
         }
 
+        // Unit Test for If the Product is Not Valid it Return to the Page
         [Test]
         public void OnPost_InValid_Model_Not_Valid_Return_Page()
         {
