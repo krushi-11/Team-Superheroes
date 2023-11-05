@@ -7,17 +7,15 @@
     ViewData["Title"] = "Delete Page";
 }
 
-<h1>Delete Product</h1>
+<h1>Delete Product</h1> <!-- Heading -->
 
 <div class="container">
+    <form method="post" class="whitebox"> <!-- HTML Form -->
 
-    <form method="post" class="whitebox">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        @Html.HiddenFor(x=>x.Product.Id)
+        @Html.HiddenFor(x=>x.Product.Id) <!-- Check for product which matches the ID -->
 
-        <h1>Confirm to Delete item</h1>
-
-        
+        <h1>Confirm to Delete item</h1> <!-- Heading -->
 
         <!--Delete Product Title-->
         <div class="form-group">
@@ -70,13 +68,12 @@
         <div class="form-group">
             <a asp-page="/Product/Index" style="color:blue">Cancel</a>
         </div>
-    </form>
 
+    </form>
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    } <!-- Script Validation -->
 }
-    
-
-
