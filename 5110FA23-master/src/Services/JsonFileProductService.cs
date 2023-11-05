@@ -1,12 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net.Http.Json;
 using System.Text.Json;
-
 using ContosoCrafts.WebSite.Models;
-
 using Microsoft.AspNetCore.Hosting;
 
 namespace ContosoCrafts.WebSite.Services
@@ -22,10 +21,13 @@ namespace ContosoCrafts.WebSite.Services
 
         private string JsonFileName
         {
-            get { return Path.Combine(WebHostEnvironment.WebRootPath, "data", "products.json"); }
+            get
+            { 
+                return Path.Combine(WebHostEnvironment.WebRootPath, "data", "products.json"); // Path to Json File
+            }
         }
 
-        public IEnumerable<ProductModel> GetProducts()
+        public IEnumerable<ProductModel> GetProducts() // Get all Products from Json File
         {
             using(var jsonFileReader = File.OpenText(JsonFileName))
             {
@@ -46,16 +48,15 @@ namespace ContosoCrafts.WebSite.Services
         /// </summary>
         /// <param name="productId"></param>
         /// <param name="rating"></param>
-        public bool AddRating(string productId, int rating)
+        public bool AddRating(string productId, int rating) // Add Rating Method
         {
             var products = GetProducts();
+
             // If the ProductID is invalid, return
             if (string.IsNullOrEmpty(productId))
             {
                 return false;
             }
-
-            
 
             // Look up the product, if it does not exist, return
             var data = products.FirstOrDefault(x => x.Id.Equals(productId));
@@ -93,22 +94,25 @@ namespace ContosoCrafts.WebSite.Services
             return true;
         }
 
+
         // Update Data Method
         public ProductModel UpdateData(ProductModel updatedProduct)
         {
-                var products = GetProducts();
-                var productData = products.FirstOrDefault(x=>x.Id.Equals(updatedProduct.Id));
+                var products = GetProducts(); // Get the Products
+                var productData = products.FirstOrDefault(x=>x.Id.Equals(updatedProduct.Id)); // Filter by id
 
-                productData.Title = updatedProduct.Title;
-                productData.Description = updatedProduct.Description;
-                productData.Url = updatedProduct.Url;
-                productData.Image = updatedProduct.Image;
-                productData.Price = updatedProduct.Price;
-                productData.Stock = updatedProduct.Stock;
+                productData.Title = updatedProduct.Title; // Set Old Title to Updated Title
+                productData.Description = updatedProduct.Description; // Set Old Description to Updated Description
+                productData.Url = updatedProduct.Url; // Set Old Url to Updated Url
+                productData.Image = updatedProduct.Image; // Set Old Image to Updated Image
+                productData.Price = updatedProduct.Price; // Set Old Price to Updated Price
+                productData.Stock = updatedProduct.Stock; // Set Old Stock to Updated Stock
 
-                SaveProducts(products);
+                SaveProducts(products); // Save the Updated List
+
                 return productData;
         }
+
 
         // Create Data Method
         public ProductModel CreateData(ProductModel productModel)
@@ -126,6 +130,7 @@ namespace ContosoCrafts.WebSite.Services
             return productModel;
         }
 
+
         // Save product after converting it to json format
         private void SaveProducts(IEnumerable<ProductModel> products)
         {
@@ -135,25 +140,29 @@ namespace ContosoCrafts.WebSite.Services
                 WriteIndented = true
             });
 
-            File.WriteAllText(JsonFileName, jsonProducts);
+            File.WriteAllText(JsonFileName, jsonProducts); // Writes it back to the Json File
         }
 
-        // Delete product 
+
+        // Delete Data Method 
         public bool DeleteData(string id)
         {
             // Get the current set, and remove the record with the specified ID from it
             var products = GetProducts().ToList();
             var productToDelete = products.FirstOrDefault(x => x.Id.Equals(id));
-            if (productToDelete != null){
+
+            // Null Check
+            if (productToDelete != null)
+            {
                 products.Remove(productToDelete);
                 SaveProducts(products);
                 return true;
-            
-            }else{
-                return false; 
             }
-            
 
+            else
+            {
+                return false; //If the Product is NULL
+            }
         }
     }
 }
