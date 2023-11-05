@@ -1,15 +1,10 @@
 using System.Collections.Generic;
-
 using Microsoft.AspNetCore.Mvc.RazorPages;
-
 using ContosoCrafts.WebSite.Models;
 using ContosoCrafts.WebSite.Services;
 
 namespace ContosoCrafts.WebSite.Pages.Product
 {
-    /// <summary>
-    /// Sai Vikshit Kode
-    /// </summary>
     public class IndexModel : PageModel
     {
         /// <summary>
@@ -32,7 +27,7 @@ namespace ContosoCrafts.WebSite.Pages.Product
         /// </summary>
         public void OnGet()
         {
-            Products = ProductService.GetProducts();
+            Products = ProductService.GetProducts(); // Get all the Products available
         }
     }
 }
