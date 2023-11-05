@@ -1,11 +1,14 @@
-﻿.checked {
+﻿/*Style for checked items*/
+.checked {
     color: orange;
 }
 
+/*Style for clickable star icons*/
 .fa-star {
     cursor: pointer;
 }
 
+/*Background and styling for the body*/
 body {
     background-image: url(https://www.photomural.com/media/catalog/product/cache/2/thumbnail/9df78eab33525d08d6e5fb8d27136e95/I/A/IADX10-065.jpg); /*background image for home page*/
     background-size: cover;
@@ -18,17 +21,21 @@ body {
 
 /* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
+
+/*Styling for card images on hover*/
 .card-columns .card:hover .card-img {
     opacity: 1;
     -webkit-transform-style: preserve-3d;
 }
 
+/*styling for card body*/
 .card-columns .card-body {
     height: 45px;/*changed the height of the cards*/
     font-family: 'Nunito', sans-serif;
     background: #fbfafd;
 }
 
+/*Styling for card images*/
 .card-columns .card-img {
     height: 310px;
     vertical-align: bottom;
@@ -46,6 +53,7 @@ for details on configuring this project to bundle and minify static web assets. 
     background-size: cover; /* Resize the background image to cover the entire container */
 }
 
+/*Styling for card on hover*/
 .card-columns .card:hover {
     transform: scale(1.05);
     box-shadow: 0 10px 20px rgba(37,33,82,.12), 0 4px 8px rgba(37,33,82,.06);
@@ -55,7 +63,7 @@ for details on configuring this project to bundle and minify static web assets. 
     background: #fbfafd;
 }
 
-
+/*Style for navbar*/
 a.navbar-brand {
     white-space: normal;
     font-family: 'Yellowtail', cursive;
@@ -70,6 +78,7 @@ a {
     margin: 5px 5px 5px 5px;/*Adjusted the position of Delete button in index page*/
 }
 
+/*Styling for Update button*/
 .btn-update {
     background-color: red;
     color: white;
@@ -80,6 +89,7 @@ a {
     border-radius: 10px
 }
 
+/*Styling for primary button*/
 .btn-primary {
     color: #fff;
     background-color: #252152;
@@ -103,6 +113,7 @@ a {
         border-color: #7ebdf7;
     }
 
+/*Styling for navar items*/
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
     color: #fff;
     background-color: #1b6ec2;
@@ -129,10 +140,12 @@ html {
     border-bottom: 1px solid #e5e5e5;
 }
 
+/*Styling for button shadow*/
 .box-shadow {
     box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
 
+/*Styling for accept button policy*/
 button.accept-policy {
     font-size: 1rem;
     line-height: inherit;
