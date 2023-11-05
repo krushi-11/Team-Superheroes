@@ -6,6 +6,10 @@
 @{
     ViewData["Title"] = "Read page";
 }
+<!--Referencing styles in site.css-->
+<head>
+    <link rel="stylesheet" type="text/css" href="site.css">
+</head>
 
 <!--Added whitebox on the background to make text visible-->
 <div class="whitebox">
@@ -22,16 +26,16 @@
                 <p class="card-text">
                     @if (@Model.Product.Stock <= 10) {
                         <span>Items lefts: @Model.Product.Stock</span><br>
-                        <span style="color: red">Hurry Up! Limited Stock</span>
+                        <span>Hurry Up! Limited Stock</span>
                     }
                     else{
                         <span>Items lefts: @Model.Product.Stock</span>
                     }
                 </p> <!--Implemented Items Left in Stock-->
 
-            <!--Created and styled update button -->
+            <!--Created update button -->
             <form method="post">
-            <button class="btn btn-light btn-customised box-shadow"><a asp-page="Update" asp-route-id="@Model.Product.Id" size="40px" style="color:#ffffff">Update</a></button>
+            <button class="btn btn-light btn-customised box-shadow"><a asp-page="Update" asp-route-id="@Model.Product.Id">Update</a></button>
             </form>
             &nbsp; <!--Added Spacing inbetween-->
 
