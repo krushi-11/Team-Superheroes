@@ -21,16 +21,17 @@ namespace ContosoCrafts.WebSite.Pages.Product
 
 
         [BindProperty]
-        public ProductModel Product { get; set; }
+        public ProductModel Product { get; set; } /*Getting the Product from ProductModel*/
 
-        public void OnGet(string id)
+        public void OnGet(string id) /*On Get Method to fetch product details by Id*/
         {
             Product = ProductService.GetProducts().FirstOrDefault(m => m.Id.Equals(id));
         }
-        // created OnPost request to delete data
+
+        // OnPost Request to Delete Data
         public IActionResult OnPost()
         {
-            if (!ModelState.IsValid)
+            if (!ModelState.IsValid) // State Validation
             {
                 // Handle the case where ModelState is not valid
                 return Page();
@@ -40,8 +41,6 @@ namespace ContosoCrafts.WebSite.Pages.Product
 
             // Redirect to a confirmation page or a product list page
             return RedirectToPage("./Index");
-
         }
-
     }
 }
