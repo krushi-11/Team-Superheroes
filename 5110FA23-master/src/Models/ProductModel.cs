@@ -15,15 +15,15 @@ namespace ContosoCrafts.WebSite.Models
 
         public string Url { get; set; } // UrlModel of the Product
 
-        [MaxLength(50, ErrorMessage = "Title must not exceed 50 characters.")]
+        [MaxLength(50, ErrorMessage = "Title must not exceed 50 characters.")] // Limit Title to only 50 Characters
         public string Title { get; set; } // TitleModel of the Product
 
         public string Description { get; set; } // DescriptionModel of the Product
 
-        [Range(0, float.MaxValue, ErrorMessage = "Price should be only Positive.")]
+        [Range(0, float.MaxValue, ErrorMessage = "Price should be only Positive.")] // Limit Price to be only Positive
         public float Price { get; set; } // PriceModel of the Product
 
-        [Range(0, int.MaxValue, ErrorMessage = "Price must be non-negative.")]
+        [Range(0, int.MaxValue, ErrorMessage = "Price must be non-negative.")] // Limit Stock to be only Positive
         public int Stock { get; set; } // StockModel of the Product
 
         public int[] Ratings { get; set; } // RatingsModel of the Product
