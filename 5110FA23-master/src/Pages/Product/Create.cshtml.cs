@@ -19,10 +19,10 @@ namespace ContosoCrafts.WebSite.Pages.Product
             ProductService = productService;
         }
         [BindProperty]
-        public ProductModel Product { get; set; }
-        public IActionResult OnPost()
+        public ProductModel Product { get; set; } /*Getting the Product from ProductModel*/
+        public IActionResult OnPost() /*OnPost Method to send data*/
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid) /*State Validation Check*/
             {
                 // Save the product to the database (or in this case, the JSON file)
                 ProductService.CreateData(Product);
