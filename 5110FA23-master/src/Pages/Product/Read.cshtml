@@ -6,7 +6,7 @@
 @{
     ViewData["Title"] = "Read page";
 }
-
+<!--Referencing styles in site.css-->
 <head>
     <link rel="stylesheet" type="text/css" href="site.css">
 </head>
@@ -33,7 +33,7 @@
                     }
                 </p> <!--Implemented Items Left in Stock-->
 
-            <!--Created and styled update button -->
+            <!--Created update button -->
             <form method="post">
             <button class="btn btn-light btn-customised box-shadow"><a asp-page="Update" asp-route-id="@Model.Product.Id">Update</a></button>
             </form>
