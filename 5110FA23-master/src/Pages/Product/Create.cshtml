@@ -7,16 +7,19 @@
 }
 
 <h1>Create a New Product</h1>
+
 <!-- Referencing styling done in site.css page -->
 <head>
+    <!-- Header -->
     <link rel="stylesheet" type="text/css" href="site.css">
 </head>
 
 <body>
     <div>
-        <form method="post" class="whiteboxcrudi">
+        <form method="post" class="whiteboxcrudi"> <!-- HTML Form -->
+
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            @Html.HiddenFor(x => x.Product.Id)
+            @Html.HiddenFor(x => x.Product.Id) <!-- Check for product which matches the ID -->
 
             <!-- Product Title -->
             <div>
@@ -70,7 +73,9 @@
                 <a asp-page="Index" class="btn btn-danger">Cancel</a>
             </div>
 
+            <!-- Verification -->
             <input name="__RequestVerificationToken" type="hidden" value="">
+
         </form>
     </div>
 </body>
