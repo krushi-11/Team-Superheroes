@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using ContosoCrafts.WebSite.Pages.Product;
+﻿using ContosoCrafts.WebSite.Pages.Product;
 using ContosoCrafts.WebSite.Services;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -11,7 +10,6 @@ using Microsoft.AspNetCore.Routing;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.Extensions.Logging;
 using Moq;
-
 using NUnit.Framework;
 
 
@@ -89,5 +87,3 @@ namespace UnitTests.Pages.Product.Create
         #endregion OnPost
     }
 }
-
-        
