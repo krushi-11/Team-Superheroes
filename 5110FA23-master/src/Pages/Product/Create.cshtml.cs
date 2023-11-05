@@ -2,8 +2,6 @@ using ContosoCrafts.WebSite.Models;
 using ContosoCrafts.WebSite.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.IO;
-using System;
 
 namespace ContosoCrafts.WebSite.Pages.Product
 {
