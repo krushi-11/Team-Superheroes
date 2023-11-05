@@ -12,8 +12,6 @@ using Microsoft.Extensions.Logging;
 using Moq;
 using NUnit.Framework;
 
-
-
 namespace UnitTests.Pages.Product.Create
 {
     public class CreateTests
