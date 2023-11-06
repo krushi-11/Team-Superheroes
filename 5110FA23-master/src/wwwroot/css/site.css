@@ -301,3 +301,11 @@ a {
     /*adding the dimensions for logo*/
     width: 130px;
 }
+.textcolor{
+    font-size: 25px;/*setting the font size*/
+    color: rgba(255,255,255,.9);/*changing color of text*/
+}
+.color {
+    font-size: 40px; /*setting the font size*/
+    color: rgba(255,255,255,.9); /*changing color of text*/
+}

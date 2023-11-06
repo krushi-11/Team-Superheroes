@@ -3,9 +3,14 @@
 @{
     ViewData["Title"] = "Privacy Policy";
 }
+
 <!--Added red box behind the text to make it visible on background-->
 <div class="privacy-box">
-    <h1>@ViewData["Title"]</h1>
-    <!--Changed text color to white-->
-    <p style="color:white; font-size: 25px">Use this page to detail your site's privacy policy.</p>
+    
+    <!--The title for privacy page-->
+    <h1 class="color">@ViewData["Title"]</h1>
+    
+    <!--The text for privacy page-->
+    <p class="textcolor">Use this page to detail your site's privacy policy.</p>
+
 </div>
