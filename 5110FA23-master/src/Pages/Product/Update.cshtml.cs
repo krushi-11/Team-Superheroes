@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using ContosoCrafts.WebSite.Services;
 using ContosoCrafts.WebSite.Models;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace ContosoCrafts.WebSite.Pages.Product
 {
