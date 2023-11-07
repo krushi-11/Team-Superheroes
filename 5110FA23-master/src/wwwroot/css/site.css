@@ -243,7 +243,8 @@ ul {
 
 /*Style for Index Page*/
 .table-bordered {
-    border: 2px solid black; 
+    border-radius: 20px;
+    opacity: 0.9;
 }
 
 th, td {
