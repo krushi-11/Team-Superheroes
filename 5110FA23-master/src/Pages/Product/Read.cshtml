@@ -13,7 +13,8 @@
 
 <!--Added whitebox on the background to make text visible-->
 <div class="whitebox">
-    &nbsp; <!--Added Spacing-->
+    &nbsp; 
+    <!--Added Spacing-->
     <h1>Read</h1>
         <div class="content">
             <h5 class="title" id="productTitle">@Model.Product.Title</h5>
@@ -24,7 +25,8 @@
             <p class="card-text">@Model.Product.Description</p>
             <p class="card-text">Price: $@Model.Product.Price</p> <!--Implemented Price-->
                 <p class="card-text">
-                    @if (@Model.Product.Stock <= 10) {
+                    @if (@Model.Product.Stock <= 10) 
+                    {
                         <span>Items lefts: @Model.Product.Stock</span><br>
                         <span>Hurry Up! Limited Stock</span>
                     }
@@ -37,7 +39,8 @@
             <form method="post">
             <button class="btn btn-light btn-customised box-shadow"><a asp-page="Update" asp-route-id="@Model.Product.Id">Update</a></button>
             </form>
-            &nbsp; <!--Added Spacing inbetween-->
+            &nbsp;
+            <!--Added Spacing inbetween-->
 
         </div>
 </div>
