@@ -91,11 +91,11 @@ namespace UnitTests.Pages.Product.Read
             //Arrange
 
             //Act
-            pageModel.OnGet("tony-stark");
+            pageModel.OnGet("steven-strange");
 
             //Assert
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
-            Assert.AreEqual("Iron Man", pageModel.Product.Title);
+            Assert.AreEqual("Doctor Strange", pageModel.Product.Title);
         }
         #endregion OnGet
     }
