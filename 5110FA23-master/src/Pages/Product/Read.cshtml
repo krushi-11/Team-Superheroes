@@ -14,13 +14,15 @@
 <!--Added whitebox on the background to make text visible-->
 <div class="whitebox">
     &nbsp; 
+    
     <!--Added Spacing-->
+
     <h1>Read</h1>
         <div class="content">
             <h5 class="title" id="productTitle">@Model.Product.Title</h5>
-
+            
             <!--class="card-img" -->
-
+            
             <img src='@Model.Product.Image' width="388" height="400" alt='Image for @Model.Product.Title'>
             <p class="card-text">@Model.Product.Description</p>
             <p class="card-text">Price: $@Model.Product.Price</p> <!--Implemented Price-->
@@ -31,9 +33,9 @@
                         <span>Hurry Up! Limited Stock</span>
                     }
                     else{
-                        <span>Items lefts: @Model.Product.Stock</span>
+                <span>Items lefts: @Model.Product.Stock</span> <!--Implemented Items Left in Stock-->
                     }
-                </p> <!--Implemented Items Left in Stock-->
+                </p> 
 
             <!--Created update button -->
             <form method="post">
