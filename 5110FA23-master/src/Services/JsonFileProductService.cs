@@ -19,6 +19,7 @@ namespace ContosoCrafts.WebSite.Services
 
         public IWebHostEnvironment WebHostEnvironment { get; }
 
+        //Json file
         private string JsonFileName
         {
             get
