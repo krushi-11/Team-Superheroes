@@ -11,12 +11,13 @@ using Microsoft.AspNetCore.Routing;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.Extensions.Logging;
 using Moq;
-
 using NUnit.Framework;
 using ContosoCrafts.WebSite.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
+using Unity;
+using ContosoCrafts.WebSite.Services;
 
 
 
@@ -90,10 +91,9 @@ namespace UnitTests.Pages.Product.Delete
         [Test]
         public void DeleteData_Product_Should_Return_True()
         {
-            string productId = "thunder-god";
+            string productId = "tony-stark";
             var result = pageModel.ProductService.DeleteData(productId);
             Assert.IsTrue(result);
-         
         }
 
         #endregion DeleteData
