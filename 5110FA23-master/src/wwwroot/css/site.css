@@ -310,3 +310,7 @@ a {
     font-size: 40px; /*setting the font size*/
     color: rgba(255,255,255,.9); /*changing color of text*/
 }
+/*styling for cancel button on delete page*/
+.form-group {
+    color:blue;
+}
