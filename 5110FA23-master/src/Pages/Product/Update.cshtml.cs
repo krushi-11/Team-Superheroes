@@ -15,7 +15,9 @@ namespace ContosoCrafts.WebSite.Pages.Product
         /// </summary>
         public UpdateModel(JsonFileProductService productService)
         {
+            
             ProductService = productService;
+        
         }
 
         [BindProperty]
@@ -23,7 +25,9 @@ namespace ContosoCrafts.WebSite.Pages.Product
 
         public void OnGet(string id)
         {
+
             Product = ProductService.GetProducts().FirstOrDefault(m => m.Id.Equals(id));
+        
         }
 
         // OnPost Method to Update Data
