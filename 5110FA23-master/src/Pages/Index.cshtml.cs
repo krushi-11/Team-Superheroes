@@ -8,6 +8,7 @@ using ContosoCrafts.WebSite.Services;
 
 namespace ContosoCrafts.WebSite.Pages
 {
+    //Index page model
     public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;
@@ -18,7 +19,7 @@ namespace ContosoCrafts.WebSite.Pages
             _logger = logger;
             ProductService = productService;
         }
-
+        //JsonFileProductService
         public JsonFileProductService ProductService { get; }
         public IEnumerable<ProductModel> Products { get; private set; }
 
