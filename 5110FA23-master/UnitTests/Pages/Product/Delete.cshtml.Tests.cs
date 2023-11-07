@@ -91,9 +91,16 @@ namespace UnitTests.Pages.Product.Delete
         [Test]
         public void DeleteData_Product_Should_Return_True()
         {
-            string productId = "tony-stark";
+            var originalData = File.ReadAllText("../../../../src/bin/Debug/net7.0/wwwroot/data/products.json");
+            string productId = "steven-strange";
+            var products = pageModel.ProductService.GetProducts().ToList();
+            var productToDelete = products.FirstOrDefault(x => x.Id.Equals(productId));
             var result = pageModel.ProductService.DeleteData(productId);
+            /*pageModel.ProductService.CreateData(productToDelete);*/
+
+            File.WriteAllText("../../../../src/bin/Debug/net7.0/wwwroot/data/products.json", originalData);
             Assert.IsTrue(result);
+
         }
 
         #endregion DeleteData
@@ -142,14 +149,16 @@ namespace UnitTests.Pages.Product.Delete
         [Test]
         public void OnPost_Valid_Should_Return_Products()
         {
+            var originalData = File.ReadAllText("../../../../src/bin/Debug/net7.0/wwwroot/data/products.json");
             // Arrange
-            pageModel.OnGet("steve-rogers");
+            pageModel.OnGet("steven-strange");
 
             // Act
             var result = pageModel.OnPost() as RedirectToPageResult;
 
             // Assert
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
+            File.WriteAllText("../../../../src/bin/Debug/net7.0/wwwroot/data/products.json", originalData);
             Assert.AreEqual(true, result.PageName.Contains("Index"));
         }
 
