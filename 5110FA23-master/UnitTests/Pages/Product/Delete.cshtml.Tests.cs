@@ -180,7 +180,3 @@ namespace UnitTests.Pages.Product.Delete
         #endregion OnPost
     }
 }
-
-
-
-
