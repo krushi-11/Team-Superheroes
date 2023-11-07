@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using ContosoCrafts.WebSite.Pages.Product;
+﻿using ContosoCrafts.WebSite.Pages.Product;
 using ContosoCrafts.WebSite.Services;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -13,10 +12,6 @@ using Microsoft.Extensions.Logging;
 using Moq;
 
 using NUnit.Framework;
-using ContosoCrafts.WebSite.Models;
-using System.Collections.Generic;
-using System.IO;
-using System.Text.Json;
 
 
 

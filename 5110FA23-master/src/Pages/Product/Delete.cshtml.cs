@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using ContosoCrafts.WebSite.Services;
 using ContosoCrafts.WebSite.Models;
 using System.Linq;
-using System.Threading.Tasks;
+
 
 namespace ContosoCrafts.WebSite.Pages.Product
 {
@@ -12,7 +12,7 @@ namespace ContosoCrafts.WebSite.Pages.Product
         public JsonFileProductService ProductService { get; }
 
         /// <summary>
-        /// Defualt Construtor
+        /// Default Construtor
         /// </summary>
         
         public DeleteModel(JsonFileProductService productService)
