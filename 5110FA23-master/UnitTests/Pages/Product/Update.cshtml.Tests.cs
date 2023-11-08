@@ -81,6 +81,7 @@ namespace UnitTests.Pages.Product.Update
 
             // Act
             pageModel.OnGet("bruce-banner");
+
             // Assert
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
 
@@ -104,6 +105,9 @@ namespace UnitTests.Pages.Product.Update
 
             // Assert
             Assert.IsNull(pageModel.Product);
+
+            // Reset
+            pageModel.ModelState.Clear();
         }
 
         #endregion OnGet
@@ -129,6 +133,9 @@ namespace UnitTests.Pages.Product.Update
             // Assert
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
             Assert.AreEqual(true, result.PageName.Contains("Index"));
+
+            // Reset
+            pageModel.ModelState.Clear();
         }
 
         /// <summary>
@@ -156,6 +163,9 @@ namespace UnitTests.Pages.Product.Update
 
             // Assert
             Assert.AreEqual(false, pageModel.ModelState.IsValid);
+
+            // Reset
+            pageModel.ModelState.Clear();
         }
 
         #endregion OnPost
