@@ -81,6 +81,9 @@ namespace UnitTests.Pages.Product.Create
 
             // Assert
             Assert.AreEqual(false, pageModel.ModelState.IsValid); // Checking if model state is not valid
+
+            // Reset
+            pageModel.ModelState.Clear();
         }
 
         [Test]
@@ -101,6 +104,9 @@ namespace UnitTests.Pages.Product.Create
             // Assert
             Assert.AreEqual(true, pageModel.ModelState.IsValid); // Checking if model state is valid
             Assert.AreEqual(true, result.PageName.Contains("Index")); // Checking if the page name contains "Index"
+
+            // Reset
+            pageModel.ModelState.Clear();
         }
 
         #endregion OnPost
