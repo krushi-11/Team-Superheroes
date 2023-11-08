@@ -92,6 +92,9 @@ namespace UnitTests.Pages.Product.Read
             // Assert
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
             Assert.AreEqual("Vision", pageModel.Product.Title);
+
+            // Reset
+            pageModel.ModelState.Clear();
         }
 
         // Test case for checking if the Update button redirects properly
@@ -106,6 +109,9 @@ namespace UnitTests.Pages.Product.Read
             //Assert
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
             Assert.AreEqual("Doctor Strange", pageModel.Product.Title);
+
+            // Reset
+            pageModel.ModelState.Clear();
         }
         #endregion OnGet
         // Ending OnGet Method in Read.cshtml.cs file
