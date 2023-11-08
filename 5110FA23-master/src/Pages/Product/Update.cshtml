@@ -7,70 +7,71 @@
     ViewData["Title"] = "Update Page";
 }
 
-<h1>Update Product</h1>
-<!--Update page-->
+<h1>Update Product</h1> <!-- Heading -->
+<!-- Update page -->
 <div class="whiteboxcrudi">
 
     <form method="post">
-        
+
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        @Html.HiddenFor(x=>x.Product.Id)
-
-        <!--Update Product Title-->
+        @Html.HiddenFor(x => x.Product.Id) <!-- Hidden input for Product ID -->
+        <!-- Update Product Title -->
         <div class="form-group">
-            <label asp-for="Product.Title" class="control-label"></label>
-            <input asp-for="Product.Title" class="form-control" />
-            <span asp-validation-for="Product.Title" class="text-danger"></span>
+            <label asp-for="Product.Title" class="control-label"></label> <!-- Label for Product Title -->
+            <input asp-for="Product.Title" class="form-control" /> <!-- Input for Product Title -->
+            <span asp-validation-for="Product.Title" class="text-danger"></span> <!-- Validation message for Product Title -->
         </div>
 
-        <!--Update Product Description-->
+        <!-- Update Product Description -->
         <div class="form-group">
-            <label asp-for="Product.Description" class="control-label"></label>
-            <input asp-for="Product.Description" class="form-control" />
-            <span asp-validation-for="Product.Description" class="text-danger"></span>
+            <label asp-for="Product.Description" class="control-label"></label> <!-- Label for Product Description -->
+            <input asp-for="Product.Description" class="form-control" /> <!-- Input for Product Description -->
+            <span asp-validation-for="Product.Description" class="text-danger"></span> <!-- Validation message for Product Description -->
         </div>
 
-        <!--Update Product URL-->
+        <!-- Update Product URL -->
         <div class="form-group">
-            <label asp-for="Product.Url" class="control-label"></label>
-            <input asp-for="Product.Url" class="form-control" />
-            <span asp-validation-for="Product.Url" class="text-danger"></span>
+            <label asp-for="Product.Url" class="control-label"></label> <!-- Label for Product URL -->
+            <input asp-for="Product.Url" class="form-control" /> <!-- Input for Product URL -->
+            <span asp-validation-for="Product.Url" class="text-danger"></span> <!-- Validation message for Product URL -->
         </div>
 
-        <!--Update Product Image-->
+        <!-- Update Product Image -->
         <div class="form-group">
-            <label asp-for="Product.Image" class="control-label"></label>
-            <input asp-for="Product.Image" class="form-control" />
-            <span asp-validation-for="Product.Image" class="text-danger"></span>
+            <label asp-for="Product.Image" class="control-label"></label> <!-- Label for Product Image -->
+            <input asp-for="Product.Image" class="form-control" /> <!-- Input for Product Image -->
+            <span asp-validation-for="Product.Image" class="text-danger"></span> <!-- Validation message for Product Image -->
         </div>
 
-        <!--Update Product Price-->
+        <!-- Update Product Price -->
         <div class="form-group">
-            <label asp-for="Product.Price" class="control-label"></label>
-            <input asp-for="Product.Price" class="form-control" />
-            <span asp-validation-for="Product.Price" class="text-danger"></span>
+            <label asp-for="Product.Price" class="control-label"></label> <!-- Label for Product Price -->
+            <input asp-for="Product.Price" class="form-control" /> <!-- Input for Product Price -->
+            <span asp-validation-for="Product.Price" class="text-danger"></span> <!-- Validation message for Product Price -->
         </div>
 
-        <!--Update Product Stock-->
+        <!-- Update Product Stock -->
         <div class="form-group">
-            <label asp-for="Product.Stock" class="control-label"></label>
-            <input asp-for="Product.Stock" class="form-control" />
-            <span asp-validation-for="Product.Stock" class="text-danger"></span>
+            <label asp-for="Product.Stock" class="control-label"></label> <!-- Label for Product Stock -->
+            <input asp-for="Product.Stock" class="form-control" /> <!-- Input for Product Stock -->
+            <span asp-validation-for="Product.Stock" class="text-danger"></span> <!-- Validation message for Product Stock -->
         </div>
 
-        <!--Save Updated Information-->
+        <!-- Save Updated Information -->
         <div class="form-group">
-            <input type="submit" value="Save" class="btn btn-primary"/>
+            <input type="submit" value="Save" class="btn btn-primary" /> <!-- Save button -->
         </div>
 
-        <!--Back to Products-->
+        <!-- Back to Products -->
         <div class="form-group">
-            <a asp-page="/Product/Index">Back to Product List</a>
+            <a asp-page="/Product/Index">Back to Product List</a> <!-- Back to Product List button -->
         </div>
     </form>
 
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    } <!-- Script Validation -->
 }

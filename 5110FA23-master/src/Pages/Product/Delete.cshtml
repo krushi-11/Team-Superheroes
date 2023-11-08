@@ -10,63 +10,63 @@
 <h1>Delete Product</h1> <!-- Heading -->
 
 <div class="container">
-    <form method="post" class="whitebox"> <!-- HTML Form -->
+    <form method="post" class="whitebox">
+        <!-- HTML Form -->
 
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        @Html.HiddenFor(x=>x.Product.Id) <!-- Check for product which matches the ID -->
+        @Html.HiddenFor(x=>x.Product.Id) <!-- Hidden input for Product ID -->
 
         <h1>Confirm to Delete item</h1> <!-- Heading -->
-
-        <!--Delete Product Title-->
+        <!-- Delete Product Title -->
         <div class="form-group">
-            <label asp-for="Product.Title" class="control-label"></label>
-            <input asp-for="Product.Title" class="form-control" />
-            <span asp-validation-for="Product.Title" class="text-danger"></span>
+            <label asp-for="Product.Title" class="control-label"></label> <!-- Label for Product Title -->
+            <input asp-for="Product.Title" class="form-control" /> <!-- Input for Product Title -->
+            <span asp-validation-for="Product.Title" class="text-danger"></span> <!-- Validation message for Product Title -->
         </div>
 
-        <!--Delete Product Description-->
+        <!-- Delete Product Description -->
         <div class="form-group">
-            <label asp-for="Product.Description" class="control-label"></label>
-            <input asp-for="Product.Description" class="form-control" />
-            <span asp-validation-for="Product.Description" class="text-danger"></span>
+            <label asp-for="Product.Description" class="control-label"></label> <!-- Label for Product Description -->
+            <input asp-for="Product.Description" class="form-control" /> <!-- Input for Product Description -->
+            <span asp-validation-for="Product.Description" class="text-danger"></span> <!-- Validation message for Product Description -->
         </div>
 
-        <!--Delete Product URL-->
+        <!-- Delete Product URL -->
         <div class="form-group">
-            <label asp-for="Product.Url" class="control-label"></label>
-            <input asp-for="Product.Url" class="form-control" />
-            <span asp-validation-for="Product.Url" class="text-danger"></span>
+            <label asp-for="Product.Url" class="control-label"></label> <!-- Label for Product URL -->
+            <input asp-for="Product.Url" class="form-control" /> <!-- Input for Product URL -->
+            <span asp-validation-for="Product.Url" class="text-danger"></span> <!-- Validation message for Product URL -->
         </div>
 
-        <!--Delete Product Image-->
+        <!-- Delete Product Image -->
         <div class="form-group">
-            <label asp-for="Product.Image" class="control-label"></label>
-            <input asp-for="Product.Image" class="form-control" />
-            <span asp-validation-for="Product.Image" class="text-danger"></span>
+            <label asp-for="Product.Image" class="control-label"></label> <!-- Label for Product Image -->
+            <input asp-for="Product.Image" class="form-control" /> <!-- Input for Product Image -->
+            <span asp-validation-for="Product.Image" class="text-danger"></span> <!-- Validation message for Product Image -->
         </div>
 
-        <!--Delete Product Price-->
+        <!-- Delete Product Price -->
         <div class="form-group">
-            <label asp-for="Product.Price" class="control-label"></label>
-            <input asp-for="Product.Price" class="form-control" />
-            <span asp-validation-for="Product.Price" class="text-danger"></span>
+            <label asp-for="Product.Price" class="control-label"></label> <!-- Label for Product Price -->
+            <input asp-for="Product.Price" class="form-control" /> <!-- Input for Product Price -->
+            <span asp-validation-for="Product.Price" class="text-danger"></span> <!-- Validation message for Product Price -->
         </div>
 
-        <!--Delete Product Stock-->
+        <!-- Delete Product Stock -->
         <div class="form-group">
-            <label asp-for="Product.Stock" class="control-label"></label>
-            <input asp-for="Product.Stock" class="form-control" />
-            <span asp-validation-for="Product.Stock" class="text-danger"></span>
+            <label asp-for="Product.Stock" class="control-label"></label> <!-- Label for Product Stock -->
+            <input asp-for="Product.Stock" class="form-control" /> <!-- Input for Product Stock -->
+            <span asp-validation-for="Product.Stock" class="text-danger"></span> <!-- Validation message for Product Stock -->
         </div>
 
-        <!--Delete Updated Information-->
+        <!-- Delete Updated Information -->
         <div class="form-group">
-            <input type="submit" value="Delete" class="btn btn-primary" />
+            <input type="submit" value="Delete" class="btn btn-primary" /> <!-- Delete button -->
         </div>
 
-        <!--Back to Products-->
+        <!-- Back to Products -->
         <div class="form-group">
-            <a asp-page="/Product/Index">Cancel</a>
+            <a asp-page="/Product/Index">Cancel</a> <!-- Cancel button that redirects to the Product Index page -->
         </div>
 
     </form>

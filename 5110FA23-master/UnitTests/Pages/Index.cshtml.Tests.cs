@@ -51,11 +51,13 @@ namespace UnitTests.Pages.Index
                 ViewData = viewData,
             };
 
+            ///creating variable mockWebHostEnvironment
             var mockWebHostEnvironment = new Mock<IWebHostEnvironment>();
             mockWebHostEnvironment.Setup(m => m.EnvironmentName).Returns("Hosting:UnitTestEnvironment");
             mockWebHostEnvironment.Setup(m => m.WebRootPath).Returns("../../../../src/bin/Debug/net7.0/wwwroot");
             mockWebHostEnvironment.Setup(m => m.ContentRootPath).Returns("./data/");
 
+            ///creating variable MockLoggerDirect
             var MockLoggerDirect = Mock.Of<ILogger<IndexModel>>();
             JsonFileProductService productService;
 

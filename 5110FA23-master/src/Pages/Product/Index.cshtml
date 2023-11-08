@@ -3,36 +3,37 @@
 @{
     ViewData["Title"] = "Index page";
 }
-<!--Referencing styling done in site.css page-->
-<link rel ="stylesheet" type="text/css" href ="site.css" />
-<div class="container" >
-    <!--Implemented a Create button-->
+<!-- Referencing styling done in site.css page -->
+<link rel="stylesheet" type="text/css" href="site.css" />
+<div class="container">
+    <!-- Implemented a Create button -->
     <form method="post">
-        <a asp-page="./Create" asp-route-id="@Model.Products" class="create-button">+ Create</a>
+        <a asp-page="./Create" asp-route-id="@Model.Products" class="create-button">+ Create</a> <!-- Create button -->
     </form>
 
-    &nbsp; 
-    <!--Spacing in between-->
+    &nbsp;
+    <!-- Spacing in between -->
+
     <table class="table table-bordered bg-white">
         <thead>
             <tr>
-                <th >Title</th>
-                <th >Action</th>
+                <th>Title</th> <!-- Table header for Title -->
+                <th>Action</th> <!-- Table header for Action -->
             </tr>
         </thead>
         <tbody>
             @foreach (var product in Model.Products)
             {
                 <tr>
-                    <td>@product.Title</td>
-                    <!--Style for Read and Delete button moved to css file-->
+                    <td>@product.Title</td> <!-- Displaying the product title -->
+                    <!-- Style for Read and Delete button moved to css file -->
                     <td>
-                        <button class="btn btn-light btn-customised"><a asp-page="Read" asp-route-id="@product.Id" style="color: #fff">Read</a></button>
-                        &nbsp; 
+                        <button class="btn btn-light btn-customised"><a asp-page="Read" asp-route-id="@product.Id">Read</a></button> <!-- Read button -->
                         &nbsp;
-                        <!--Spacing between the Buttons-->
-                        <!--Created Delete button-->
-                        <button class="btn btn-light btn-customised"><a asp-page="Delete" asp-route-id="@product.Id" style="color: #fff">Delete</a></button>
+                        &nbsp;
+                        <!-- Spacing between the Buttons -->
+                        <!-- Created Delete button -->
+                        <button class="btn btn-light btn-customised"><a asp-page="Delete" asp-route-id="@product.Id">Delete</a></button> <!-- Delete button -->
                     </td>
                 </tr>
             }

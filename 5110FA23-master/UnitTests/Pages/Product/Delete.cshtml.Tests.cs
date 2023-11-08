@@ -20,6 +20,7 @@ namespace UnitTests.Pages.Product.Delete
     [TestFixture]
     public class DeleteTests
     {
+        // Declaration of necessary testing objects
         public static IUrlHelperFactory urlHelperFactory;
         public static DefaultHttpContext httpContextDefault;
         public static IWebHostEnvironment webHostEnvironment;
@@ -29,49 +30,58 @@ namespace UnitTests.Pages.Product.Delete
         public static ViewDataDictionary viewData;
         public static TempDataDictionary tempData;
         public static PageContext pageContext;
-
         public static DeleteModel pageModel;
 
         [SetUp]
         public void TestInitialize()
 
         {
+            // Setting up the default HTTP context
             httpContextDefault = new DefaultHttpContext()
             {
                 //RequestServices = serviceProviderMock.Object,
             };
 
+            // Initializing the ModelState
             modelState = new ModelStateDictionary();
 
+            // Creating an ActionContext for the page
             actionContext = new ActionContext(httpContextDefault, httpContextDefault.GetRouteData(), new PageActionDescriptor(), modelState);
 
+            // Setting up the model metadata provider and related objects
             modelMetadataProvider = new EmptyModelMetadataProvider();
             viewData = new ViewDataDictionary(modelMetadataProvider, modelState);
             tempData = new TempDataDictionary(httpContextDefault, Mock.Of<ITempDataProvider>());
 
+            // Creating a PageContext with the provided action context
             pageContext = new PageContext(actionContext)
             {
                 ViewData = viewData,
             };
+
+            ///creating variable mockWebHostEnvironment
             var mockWebHostEnvironment = new Mock<IWebHostEnvironment>();
             mockWebHostEnvironment.Setup(m => m.EnvironmentName).Returns("Hosting:UnitTestEnvironment");
             mockWebHostEnvironment.Setup(m => m.WebRootPath).Returns("../../../../src/bin/Debug/net7.0/wwwroot");
             mockWebHostEnvironment.Setup(m => m.ContentRootPath).Returns("./data/");
 
+            ///creating variable MockLoggerDirect
             var MockLoggerDirect = Mock.Of<ILogger<DeleteModel>>();
-            JsonFileProductService productService= new JsonFileProductService(mockWebHostEnvironment.Object);
+            JsonFileProductService productService = new JsonFileProductService(mockWebHostEnvironment.Object);
             pageModel = new DeleteModel(productService)
             {
+                // Additional setup for the pageModel can be added here if necessary
             };
         }
 
         // Delete Data Method in JsonFileProductService File
         #region DeleteData
 
-        // Unit test for DeleteData if product is invalid then return false
+        // Unit test for DeleteData: if the product is invalid, it should return false
         [Test]
         public void DeleteData_Invalid_Product_Should_Return_False()
         {
+            ///creating variable productId and response
             var productId = "Test";
             var response = pageModel.ProductService.DeleteData(productId);
 
@@ -79,16 +89,16 @@ namespace UnitTests.Pages.Product.Delete
 
         }
 
-        // Unit test for DeleteData if product is valid it removes the product and return true
+        // Unit test for DeleteData: if the product is valid, it removes the product and returns true
         [Test]
         public void DeleteData_Product_Should_Return_True()
         {
+            ///creating variables
             var originalData = File.ReadAllText("../../../../src/bin/Debug/net7.0/wwwroot/data/products.json");
             string productId = "steven-strange";
             var products = pageModel.ProductService.GetProducts().ToList();
             var productToDelete = products.FirstOrDefault(x => x.Id.Equals(productId));
             var result = pageModel.ProductService.DeleteData(productId);
-            /*pageModel.ProductService.CreateData(productToDelete);*/
 
             File.WriteAllText("../../../../src/bin/Debug/net7.0/wwwroot/data/products.json", originalData);
             Assert.IsTrue(result);
@@ -101,6 +111,7 @@ namespace UnitTests.Pages.Product.Delete
         // OnGet Method in Delete.cshtml.cs file
         #region OnGet
 
+        // Unit test for checking if the valid product is returned
         [Test]
         public void OnGet_Valid_Should_Return_Product()
         {
@@ -116,7 +127,7 @@ namespace UnitTests.Pages.Product.Delete
             pageModel.ModelState.Clear();
         }
 
-        // Wrote unit test, if invalid product should return null
+        // Unit test for checking if an invalid product doesn't return any products
         [Test]
         public void OnGet_InValid_Should_Not_Return_Products()
         {
@@ -129,21 +140,23 @@ namespace UnitTests.Pages.Product.Delete
             Assert.IsNull(pageModel.Product);
         }
 
-        #endregion OnGet
+        #endregion OnGet
         // Ending OnGet Method in Delete.cshtml.cs file
 
         // OnPost Method in Delete.cshtml.cs file
         #region OnPost
 
-        // If the Product is Valid return true
+        // If the Product is Valid, it should return true
         [Test]
         public void OnPost_Valid_Should_Return_Products()
         {
+            ///creating variable originalData
             var originalData = File.ReadAllText("../../../../src/bin/Debug/net7.0/wwwroot/data/products.json");
             // Arrange
             pageModel.OnGet("steven-strange");
 
             // Act
+            ///creating variable result
             var result = pageModel.OnPost() as RedirectToPageResult;
 
             // Assert
@@ -152,7 +165,7 @@ namespace UnitTests.Pages.Product.Delete
             Assert.AreEqual(true, result.PageName.Contains("Index"));
         }
 
-        // Unit Test for If the Product is Not Valid it Return to the Page
+        // Unit Test for checking if an invalid model returns to the page
         [Test]
         public void OnPost_InValid_Model_Not_Valid_Return_Page()
         {

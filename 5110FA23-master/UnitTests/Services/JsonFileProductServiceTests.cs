@@ -35,7 +35,7 @@ namespace UnitTests.Services
             // Arrange
 
             // Act
-
+            ///creating variable check
             var check = TestHelper.ProductService.AddRating(null, 2);
 
             // Assert
@@ -50,6 +50,7 @@ namespace UnitTests.Services
             // Arrange
 
             // Act
+            ///creating variable check
             var check = TestHelper.ProductService.AddRating("InvalidId", 3);
 
             // Assert
@@ -61,6 +62,7 @@ namespace UnitTests.Services
         {
             // Arrange
             // Act
+            ///creating variable result
             var result = TestHelper.ProductService.AddRating(null, 1);
             // Assert
             Assert.AreEqual(false, result);
@@ -71,6 +73,7 @@ namespace UnitTests.Services
         {
             // Arrange
             // Act
+            ///creating variable result
             var result = TestHelper.ProductService.AddRating(" ", 3);
             // Assert
             Assert.AreEqual(false, result);
@@ -80,6 +83,7 @@ namespace UnitTests.Services
         {
             // Arrange
             // Act
+            ///creating variable result
             var result = TestHelper.ProductService.AddRating("20", 3);
             // Assert
             Assert.AreEqual(false, result);
@@ -90,10 +94,12 @@ namespace UnitTests.Services
         {
             // Arrange
             // Get the First data item
+            ///creating variable data
             var data = TestHelper.ProductService.GetProducts().First();
 
             // Act
             // Store the result of the AddRating method (which is being tested)
+            ///creating variable result
             var result = TestHelper.ProductService.AddRating(data.Id, -2);
 
             // Assert
@@ -105,10 +111,12 @@ namespace UnitTests.Services
         {
             // Arrange
             // Get the First data item
+            ///creating variable data
             var data = TestHelper.ProductService.GetProducts().First();
 
             // Act
             // Store the result of the AddRating method (which is being tested)
+            ///creating variable result
             var result = TestHelper.ProductService.AddRating(data.Id, 6);
 
             // Assert
@@ -120,10 +128,12 @@ namespace UnitTests.Services
         {
             // Arrange
             // Get the Last data item
+            ///creating variable data
             var data = TestHelper.ProductService.GetProducts().Last();
 
             // Act
             // Store the result of the AddRating method (which is being tested)
+            ///creating variable result
             var result = TestHelper.ProductService.AddRating(data.Id, 0);
 
             // Assert
@@ -134,6 +144,7 @@ namespace UnitTests.Services
         public void AddRating_InitializeRatingsArrayIfNull()
         {
             // Arrange
+            ///creating variable productId and rating
             var productId = "tony-stark";
             var rating = 2;
 
@@ -145,6 +156,7 @@ namespace UnitTests.Services
             };
 
             // Act
+            ///creating variable result
             var result = TestHelper.ProductService.AddRating(productId, rating);
 
             // Assert
@@ -161,11 +173,13 @@ namespace UnitTests.Services
         public void UpdateData_Valid_Updated_Value_Matches_Should_Return_true()
         {
             // Arrange
+            ///creating variable data and data1
             var data = TestHelper.ProductService.GetProducts().FirstOrDefault();
             var data1 = data;
             data1.Title = "Test";
 
             // Act
+            ///creating variable result
             var result = TestHelper.ProductService.UpdateData(data1);
 
             // Assert

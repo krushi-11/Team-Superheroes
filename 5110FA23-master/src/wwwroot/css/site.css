@@ -314,3 +314,8 @@ a {
 .form-group {
     color:blue;
 }
+
+/*Styling for Read and delete button*/
+.btn btn-light btn-customised {
+    color: #fff;
+}
