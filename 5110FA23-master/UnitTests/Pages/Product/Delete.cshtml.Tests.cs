@@ -58,11 +58,14 @@ namespace UnitTests.Pages.Product.Delete
             {
                 ViewData = viewData,
             };
+
+            ///creating variable mockWebHostEnvironment
             var mockWebHostEnvironment = new Mock<IWebHostEnvironment>();
             mockWebHostEnvironment.Setup(m => m.EnvironmentName).Returns("Hosting:UnitTestEnvironment");
             mockWebHostEnvironment.Setup(m => m.WebRootPath).Returns("../../../../src/bin/Debug/net7.0/wwwroot");
             mockWebHostEnvironment.Setup(m => m.ContentRootPath).Returns("./data/");
 
+            ///creating variable MockLoggerDirect
             var MockLoggerDirect = Mock.Of<ILogger<DeleteModel>>();
             JsonFileProductService productService = new JsonFileProductService(mockWebHostEnvironment.Object);
             pageModel = new DeleteModel(productService)
@@ -78,6 +81,7 @@ namespace UnitTests.Pages.Product.Delete
         [Test]
         public void DeleteData_Invalid_Product_Should_Return_False()
         {
+            ///creating variable productId and response
             var productId = "Test";
             var response = pageModel.ProductService.DeleteData(productId);
 
@@ -89,6 +93,7 @@ namespace UnitTests.Pages.Product.Delete
         [Test]
         public void DeleteData_Product_Should_Return_True()
         {
+            ///creating variables
             var originalData = File.ReadAllText("../../../../src/bin/Debug/net7.0/wwwroot/data/products.json");
             string productId = "steven-strange";
             var products = pageModel.ProductService.GetProducts().ToList();
@@ -145,11 +150,13 @@ namespace UnitTests.Pages.Product.Delete
         [Test]
         public void OnPost_Valid_Should_Return_Products()
         {
+            ///creating variable originalData
             var originalData = File.ReadAllText("../../../../src/bin/Debug/net7.0/wwwroot/data/products.json");
             // Arrange
             pageModel.OnGet("steven-strange");
 
             // Act
+            ///creating variable result
             var result = pageModel.OnPost() as RedirectToPageResult;
 
             // Assert
