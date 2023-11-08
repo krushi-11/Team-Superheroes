@@ -18,51 +18,49 @@ namespace UnitTests.Pages.Product.Create
     public class CreateTests
     {
         #region TestSetup
-        public static IUrlHelperFactory urlHelperFactory;
-        public static DefaultHttpContext httpContextDefault;
-        public static IWebHostEnvironment webHostEnvironment;
-        public static ModelStateDictionary modelState;
-        public static ActionContext actionContext;
-        public static EmptyModelMetadataProvider modelMetadataProvider;
-        public static ViewDataDictionary viewData;
-        public static TempDataDictionary tempData;
-        public static PageContext pageContext;
+        public static IUrlHelperFactory urlHelperFactory; // Factory for URL helper
+        public static DefaultHttpContext httpContextDefault; // Default HTTP context
+        public static IWebHostEnvironment webHostEnvironment; // Web host environment
+        public static ModelStateDictionary modelState; // Dictionary for model state
+        public static ActionContext actionContext; // Action context
+        public static EmptyModelMetadataProvider modelMetadataProvider; // Model metadata provider
+        public static ViewDataDictionary viewData; // View data dictionary
+        public static TempDataDictionary tempData; // Temporary data dictionary
+        public static PageContext pageContext; // Page context
 
-        public static CreateModel pageModel;
+        public static CreateModel pageModel; // Instance of the CreateModel
 
         [SetUp]
         public void TestInitialize()
         {
-            httpContextDefault = new DefaultHttpContext()
-            {
-                //RequestServices = serviceProviderMock.Object,
-            };
+            httpContextDefault = new DefaultHttpContext(); // Creating a new default HTTP context
 
-            modelState = new ModelStateDictionary();
+            modelState = new ModelStateDictionary(); // Initializing a new model state dictionary
 
-            actionContext = new ActionContext(httpContextDefault, httpContextDefault.GetRouteData(), new PageActionDescriptor(), modelState);
+            actionContext = new ActionContext(httpContextDefault, httpContextDefault.GetRouteData(), new PageActionDescriptor(), modelState); // Creating a new action context
 
-            modelMetadataProvider = new EmptyModelMetadataProvider();
-            viewData = new ViewDataDictionary(modelMetadataProvider, modelState);
-            tempData = new TempDataDictionary(httpContextDefault, Mock.Of<ITempDataProvider>());
+            modelMetadataProvider = new EmptyModelMetadataProvider(); // Initializing an empty model metadata provider
+            viewData = new ViewDataDictionary(modelMetadataProvider, modelState); // Creating a new view data dictionary
+            tempData = new TempDataDictionary(httpContextDefault, Mock.Of<ITempDataProvider>()); // Creating a new temporary data dictionary
 
             pageContext = new PageContext(actionContext)
             {
-                ViewData = viewData,
+                ViewData = viewData, // Setting view data
             };
 
-            var mockWebHostEnvironment = new Mock<IWebHostEnvironment>();
-            mockWebHostEnvironment.Setup(m => m.EnvironmentName).Returns("Hosting:UnitTestEnvironment");
-            mockWebHostEnvironment.Setup(m => m.WebRootPath).Returns("../../../../src/bin/Debug/net7.0/wwwroot");
-            mockWebHostEnvironment.Setup(m => m.ContentRootPath).Returns("./data/");
+            var mockWebHostEnvironment = new Mock<IWebHostEnvironment>(); // Mocking the web host environment
+            mockWebHostEnvironment.Setup(m => m.EnvironmentName).Returns("Hosting:UnitTestEnvironment"); // Setting up environment name
+            mockWebHostEnvironment.Setup(m => m.WebRootPath).Returns("../../../../src/bin/Debug/net7.0/wwwroot"); // Setting up web root path
+            mockWebHostEnvironment.Setup(m => m.ContentRootPath).Returns("./data/"); // Setting up content root path
 
-            var MockLoggerDirect = Mock.Of<ILogger<IndexModel>>();
-            JsonFileProductService productService;
+            var MockLoggerDirect = Mock.Of<ILogger<IndexModel>>(); // Mocking the logger
 
-            productService = new JsonFileProductService(mockWebHostEnvironment.Object);
+            JsonFileProductService productService; // JSON file product service
+            productService = new JsonFileProductService(mockWebHostEnvironment.Object); // Initializing JSON file product service
 
-            pageModel = new CreateModel(productService)
+            pageModel = new CreateModel(productService) // Creating a new instance of CreateModel
             {
+                // Additional setup if needed
             };
         }
         #endregion TestSetup
@@ -73,33 +71,33 @@ namespace UnitTests.Pages.Product.Create
         [Test]
         public void OnPost_InValid_Model_NotValid_Return_Page()
         {
-            //Arrange
+            // Arrange
 
-            //Act
-            pageModel.ModelState.AddModelError("-light", "");
-            var result = pageModel.OnPost() as ActionResult;
+            // Act
+            pageModel.ModelState.AddModelError("-light", ""); // Adding model error
+            var result = pageModel.OnPost() as ActionResult; // Executing OnPost method
 
-            //Assert
-            Assert.AreEqual(false, pageModel.ModelState.IsValid);
+            // Assert
+            Assert.AreEqual(false, pageModel.ModelState.IsValid); // Checking if model state is not valid
         }
 
         [Test]
         public void OnPost_Valid_Should_Return_True()
         {
-            //Arrange
-            pageModel.Product = new ProductModel
+            // Arrange
+            pageModel.Product = new ProductModel // Creating a new ProductModel instance
             {
-                Title = "test",
-                Image = "test",
-                Description = "test",
+                Title = "test", // Setting the title
+                Image = "test", // Setting the image
+                Description = "test", // Setting the description
             };
 
-            //Act
-            var result = pageModel.OnPost() as RedirectToPageResult;
+            // Act
+            var result = pageModel.OnPost() as RedirectToPageResult; // Executing OnPost method
 
-            //Assert
-            Assert.AreEqual(true, pageModel.ModelState.IsValid);
-            Assert.AreEqual(true, result.PageName.Contains("Index"));
+            // Assert
+            Assert.AreEqual(true, pageModel.ModelState.IsValid); // Checking if model state is valid
+            Assert.AreEqual(true, result.PageName.Contains("Index")); // Checking if the page name contains "Index"
         }
 
         #endregion OnPost
