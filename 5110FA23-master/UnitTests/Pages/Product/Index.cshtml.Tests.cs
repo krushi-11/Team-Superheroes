@@ -97,8 +97,12 @@ namespace UnitTests.Pages.Product.Index
 
             // Assert
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
+
             // Are there any products in existence?
             Assert.AreEqual(true, pageModel.Products.ToList().Any());
+
+            // Reset
+            pageModel.ModelState.Clear();
         }
 
         // Unit test to check whether the delete button redirects to the delete page or not
@@ -112,8 +116,12 @@ namespace UnitTests.Pages.Product.Index
 
             // Assert
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
+
             // Are they redirecting to the correct page?
             Assert.AreEqual(true, pageModel.Products.ToList().Any());
+
+            // Reset
+            pageModel.ModelState.Clear();
         }
         #endregion OnGet
         // Ending OnGet Method in Index.cshtml.cs file
