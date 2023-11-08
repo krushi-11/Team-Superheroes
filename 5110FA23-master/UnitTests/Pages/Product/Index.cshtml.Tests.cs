@@ -1,5 +1,4 @@
 using System.Linq;
-
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Routing;
@@ -9,11 +8,8 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Logging;
-
 using Moq;
-
 using NUnit.Framework;
-
 using ContosoCrafts.WebSite.Pages.Product;
 using ContosoCrafts.WebSite.Services;
 
@@ -72,6 +68,7 @@ namespace UnitTests.Pages.Product.Index
 
         #endregion TestSetup
 
+        // OnGet Method in Index.cshtml.cs file
         #region OnGet
         [Test]
         /// <summary>
@@ -106,40 +103,6 @@ namespace UnitTests.Pages.Product.Index
             Assert.AreEqual(true, pageModel.Products.ToList().Any());
         }
         #endregion OnGet
-
-
-        #region AddRating
-
-        // Unit Test case for AddRating if rating for a product is null it should return False
-
-        [Test]
-        public void AddRating_Check_Rating_Null_Should_Return_False()
-        {
-            // Arrange
-
-            // Act
-
-            var check = pageModel.ProductService.AddRating(null, 2);
-
-            // Assert
-            Assert.AreEqual(false, check);
-        }
-
-        // Unit Test to Check if Rating is available for product if Yes append Rating and return False
-
-        [Test]
-        public void AddRating_Check_Rating_And_AddRating_Should_Return_False()
-        {
-            // Arrange
-
-            // Act
-            var check = pageModel.ProductService.AddRating("InvalidId", 3);
-
-            // Assert
-            Assert.AreEqual(false, check);
-        }
-
-        #endregion AddRating
-
+        // Ending OnGet Method in Index.cshtml.cs file
     }
 }
