@@ -138,6 +138,9 @@ namespace UnitTests.Pages.Product.Delete
 
             // Assert
             Assert.IsNull(pageModel.Product);
+
+            // Reset
+            pageModel.ModelState.Clear();
         }
 
         #endregion OnGet
@@ -163,6 +166,9 @@ namespace UnitTests.Pages.Product.Delete
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
             File.WriteAllText("../../../../src/bin/Debug/net7.0/wwwroot/data/products.json", originalData);
             Assert.AreEqual(true, result.PageName.Contains("Index"));
+
+            // Reset
+            pageModel.ModelState.Clear();
         }
 
         // Unit Test for checking if an invalid model returns to the page
@@ -187,6 +193,9 @@ namespace UnitTests.Pages.Product.Delete
 
             // Assert
             Assert.AreEqual(false, pageModel.ModelState.IsValid);
+
+            // Reset
+            pageModel.ModelState.Clear();
         }
 
         #endregion OnPost
