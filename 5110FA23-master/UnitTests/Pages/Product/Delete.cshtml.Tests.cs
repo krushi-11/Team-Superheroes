@@ -12,18 +12,10 @@ using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.Extensions.Logging;
 using Moq;
 using NUnit.Framework;
-using ContosoCrafts.WebSite.Models;
-using System.Collections.Generic;
 using System.IO;
-using System.Text.Json;
-using Unity;
-using ContosoCrafts.WebSite.Services;
-
-
 
 namespace UnitTests.Pages.Product.Delete
 {
-
 
     [TestFixture]
     public class DeleteTests
@@ -106,7 +98,6 @@ namespace UnitTests.Pages.Product.Delete
         #endregion DeleteData
         // Ending Delete Data Method in JsonFileProductService File
 
-
         // OnGet Method in Delete.cshtml.cs file
         #region OnGet
 
@@ -140,7 +131,6 @@ namespace UnitTests.Pages.Product.Delete
 
         #endregion OnGet
         // Ending OnGet Method in Delete.cshtml.cs file
-
 
         // OnPost Method in Delete.cshtml.cs file
         #region OnPost
@@ -187,5 +177,6 @@ namespace UnitTests.Pages.Product.Delete
         }
 
         #endregion OnPost
+        // Ending OnPost Method in Delete.cshtml.cs file
     }
 }
