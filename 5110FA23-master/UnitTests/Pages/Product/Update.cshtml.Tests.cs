@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using ContosoCrafts.WebSite.Pages.Product;
+﻿using ContosoCrafts.WebSite.Pages.Product;
 using ContosoCrafts.WebSite.Services;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -11,10 +10,7 @@ using Microsoft.AspNetCore.Routing;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.Extensions.Logging;
 using Moq;
-
 using NUnit.Framework;
-
-
 
 namespace UnitTests.Pages.Product.Update
 {
@@ -71,6 +67,7 @@ namespace UnitTests.Pages.Product.Update
 
         #endregion TestSetup
 
+        // OnGet Method in Update.cshtml.cs file
         #region OnGet
         [Test]
         /// <summary>
@@ -104,7 +101,9 @@ namespace UnitTests.Pages.Product.Update
         }
 
         #endregion OnGet
+        // Ending OnGet Method in Update.cshtml.cs file
 
+        // OnPost Method in Update.cshtml.cs file
         #region OnPost
         [Test]
         public void OnPost_Valid_Should_Return_Products()
@@ -144,6 +143,6 @@ namespace UnitTests.Pages.Product.Update
         }
 
         #endregion OnPost
-
+        // Ending OnPost Method in Update.cshtml.cs file
     }
 }
