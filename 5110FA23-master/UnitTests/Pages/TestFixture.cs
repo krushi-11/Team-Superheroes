@@ -24,7 +24,7 @@ namespace UnitTests
             // C:\repos\5110\ClassBaseline\src\bin\Debug\net5.0\wwwroot\data
 
 
-
+            ///creating variables
             var DataWebPath = "../../../../src/bin/Debug/net7.0/wwwroot/data";
             var DataUTDirectory = "wwwroot";
             var DataUTPath = DataUTDirectory + "/data";
@@ -39,10 +39,12 @@ namespace UnitTests
             Directory.CreateDirectory(DataUTPath);
 
             // Copy over all data files
+            ///creating variable filePaths
             var filePaths = Directory.GetFiles(DataWebPath);
             foreach (var filename in filePaths)
             {
                 string OriginalFilePathName = filename.ToString();
+                ///creating variable newFilePathName
                 var newFilePathName = OriginalFilePathName.Replace(DataWebPath, DataUTPath);
 
                 File.Copy(OriginalFilePathName, newFilePathName);
