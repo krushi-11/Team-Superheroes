@@ -1,5 +1,3 @@
-using System.Diagnostics;
-
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Routing;
@@ -9,11 +7,8 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Logging;
-
 using NUnit.Framework;
-
 using Moq;
-
 using ContosoCrafts.WebSite.Pages;
 using ContosoCrafts.WebSite.Services;
 
@@ -77,6 +72,7 @@ namespace UnitTests.Pages.Privacy
 
         #endregion TestSetup
 
+        // OnGet Method in Privacy.cshtml.cs file
         #region OnGet
         [Test]
         public void OnGet_Valid_Activity_Set_Should_Return_RequestId()
@@ -93,5 +89,6 @@ namespace UnitTests.Pages.Privacy
         }
 
         #endregion OnGet
+        // Ending OnGet Method in Privacy.cshtml.cs file
     }
 }
