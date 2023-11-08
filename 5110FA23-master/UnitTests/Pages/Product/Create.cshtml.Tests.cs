@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.Extensions.Logging;
 using Moq;
 using NUnit.Framework;
+using ContosoCrafts.WebSite.Models;
 
 namespace UnitTests.Pages.Product.Create
 {
@@ -66,22 +67,42 @@ namespace UnitTests.Pages.Product.Create
         }
         #endregion TestSetup
 
+        // OnPost Method in Create.cshtml File
         #region OnPost
-        
-        // Model State Validation Test Case
-        [Test]
-        public void OnPost_Valid_Should_Return_Products()
-        {
-            // Arrange
 
-            // Act
+        [Test]
+        public void OnPost_InValid_Model_NotValid_Return_Page()
+        {
+            //Arrange
+
+            //Act
+            pageModel.ModelState.AddModelError("-light", "");
+            var result = pageModel.OnPost() as ActionResult;
+
+            //Assert
+            Assert.AreEqual(false, pageModel.ModelState.IsValid);
+        }
+
+        [Test]
+        public void OnPost_Valid_Should_Return_True()
+        {
+            //Arrange
+            pageModel.Product = new ProductModel
+            {
+                Title = "test",
+                Image = "test",
+                Description = "test",
+            };
+
+            //Act
             var result = pageModel.OnPost() as RedirectToPageResult;
 
-            // Assert
+            //Assert
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
-            Assert.AreEqual(true, result.PageName.Contains("./Update"));
+            Assert.AreEqual(true, result.PageName.Contains("Index"));
         }
 
         #endregion OnPost
+        // Ending OnPost Method in Create.cshtml File
     }
 }
