@@ -48,11 +48,13 @@ namespace UnitTests.Pages.Product.Create
                 ViewData = viewData, // Setting view data
             };
 
+            ///creating variable mockWebHostEnvironment
             var mockWebHostEnvironment = new Mock<IWebHostEnvironment>(); // Mocking the web host environment
             mockWebHostEnvironment.Setup(m => m.EnvironmentName).Returns("Hosting:UnitTestEnvironment"); // Setting up environment name
             mockWebHostEnvironment.Setup(m => m.WebRootPath).Returns("../../../../src/bin/Debug/net7.0/wwwroot"); // Setting up web root path
             mockWebHostEnvironment.Setup(m => m.ContentRootPath).Returns("./data/"); // Setting up content root path
 
+            ///creating variable MockLoggerDirect
             var MockLoggerDirect = Mock.Of<ILogger<IndexModel>>(); // Mocking the logger
 
             JsonFileProductService productService; // JSON file product service
@@ -93,6 +95,7 @@ namespace UnitTests.Pages.Product.Create
             };
 
             // Act
+            ///creating variable result
             var result = pageModel.OnPost() as RedirectToPageResult; // Executing OnPost method
 
             // Assert
