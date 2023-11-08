@@ -243,7 +243,8 @@ ul {
 
 /*Style for Index Page*/
 .table-bordered {
-    border: 2px solid black; 
+    border-radius: 20px;
+    opacity: 0.9;
 }
 
 th, td {
@@ -308,4 +309,8 @@ a {
 .color {
     font-size: 40px; /*setting the font size*/
     color: rgba(255,255,255,.9); /*changing color of text*/
+}
+/*styling for cancel button on delete page*/
+.form-group {
+    color:blue;
 }

@@ -88,6 +88,10 @@ namespace UnitTests.Pages.Product.Update
 
         }
 
+        /// <summary>
+        /// unit test if getting invalid product gives null
+        /// </summary>
+
         [Test]
         public void OnGet_InValid_Should_Not_Return_Products()
         {
@@ -105,6 +109,11 @@ namespace UnitTests.Pages.Product.Update
 
         // OnPost Method in Update.cshtml.cs file
         #region OnPost
+
+        /// <summary>
+        /// Unit test if valid will return products
+        /// </summary>
+
         [Test]
         public void OnPost_Valid_Should_Return_Products()
         {
@@ -118,6 +127,10 @@ namespace UnitTests.Pages.Product.Update
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
             Assert.AreEqual(true, result.PageName.Contains("Index"));
         }
+
+        /// <summary>
+        /// Unit test if invalid model should return false
+        /// </summary>
 
         [Test]
         public void OnPost_InValid_Model_Not_Valid_Return_Page()
