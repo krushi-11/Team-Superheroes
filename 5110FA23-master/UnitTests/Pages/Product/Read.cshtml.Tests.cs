@@ -32,6 +32,7 @@ namespace UnitTests.Pages.Product.Read
         [SetUp]
         public void TestInitialize()
         {
+            // Creating necessary objects for testing
             httpContextDefault = new DefaultHttpContext()
             {
                 //RequestServices = serviceProviderMock.Object,
@@ -50,6 +51,8 @@ namespace UnitTests.Pages.Product.Read
                 ViewData = viewData,
             };
 
+            // Setting up a mock WebHostEnvironment
+
             var mockWebHostEnvironment = new Mock<IWebHostEnvironment>();
             mockWebHostEnvironment.Setup(m => m.EnvironmentName).Returns("Hosting:UnitTestEnvironment");
             mockWebHostEnvironment.Setup(m => m.WebRootPath).Returns("../../../../src/bin/Debug/net7.0/wwwroot");
@@ -58,10 +61,15 @@ namespace UnitTests.Pages.Product.Read
             var MockLoggerDirect = Mock.Of<ILogger<IndexModel>>();
             JsonFileProductService productService;
 
+
+            // Creating a JsonFileProductService instance
             productService = new JsonFileProductService(mockWebHostEnvironment.Object);
 
+
+            // Initializing the pageModel with the productService
             pageModel = new ReadModel(productService)
             {
+                // Additional setup for the pageModel can be added here if necessary
             };
         }
 
@@ -70,6 +78,7 @@ namespace UnitTests.Pages.Product.Read
         // OnGet Method in Read.cshtml.cs file
         #region OnGet
 
+        // Test case for the OnGet method when a valid product is requested
         [Test]
         public void OnGet_Valid_Should_Return_Products()
         {
@@ -82,6 +91,8 @@ namespace UnitTests.Pages.Product.Read
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
             Assert.AreEqual("Vision", pageModel.Product.Title);
         }
+
+        // Test case for checking if the Update button redirects properly
         [Test]
         public void OnGet_If_Update_Button_Redirects_Should_Return_True()
         {
