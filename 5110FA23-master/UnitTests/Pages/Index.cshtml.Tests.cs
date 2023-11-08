@@ -1,5 +1,4 @@
 using System.Linq;
-
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Routing;
@@ -9,11 +8,8 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Logging;
-
 using Moq;
-
 using NUnit.Framework;
-
 using ContosoCrafts.WebSite.Pages;
 using ContosoCrafts.WebSite.Services;
 
@@ -72,6 +68,7 @@ namespace UnitTests.Pages.Index
 
         #endregion TestSetup
 
+        // OnGet Method in Index.cshtml.cs file
         #region OnGet
         [Test]
         /// <summary>
@@ -90,5 +87,6 @@ namespace UnitTests.Pages.Index
             Assert.AreEqual(true, pageModel.Products.ToList().Any());
         }
         #endregion OnGet
+        // Ending OnGet Method in Index.cshtml.cs file
     }
 }
