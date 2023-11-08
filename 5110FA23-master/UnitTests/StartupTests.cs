@@ -1,6 +1,5 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Hosting;
-
 using NUnit.Framework;
 
 namespace UnitTests.Pages.Startup
@@ -20,6 +19,7 @@ namespace UnitTests.Pages.Startup
         }
         #endregion TestSetup
 
+        // Configure Services Method in Startup.cs file
         #region ConfigureServices
         [Test]
         public void Startup_ConfigureServices_Valid_Defaut_Should_Pass()
@@ -28,7 +28,9 @@ namespace UnitTests.Pages.Startup
             Assert.IsNotNull(webHost);
         }
         #endregion ConfigureServices
+        // Ending Configure Services Method in Startup.cs file
 
+        // Configure Method in Startup.cs file
         #region Configure
         [Test]
         public void Startup_Configure_Valid_Defaut_Should_Pass()
@@ -38,5 +40,6 @@ namespace UnitTests.Pages.Startup
         }
 
         #endregion Configure
+        // Ending Configure Method in Startup.cs file
     }
 }
