@@ -5,7 +5,7 @@ namespace ContosoCrafts.WebSite.Pages
 {
     public class AboutUsModel : PageModel
     {
-        private readonly ILogger<AboutUsModel> _logger;
+        public readonly ILogger<AboutUsModel> _logger;
 
         public AboutUsModel(ILogger<AboutUsModel> logger)
         {
