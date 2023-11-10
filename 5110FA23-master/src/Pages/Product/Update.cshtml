@@ -57,15 +57,18 @@
             <span asp-validation-for="Product.Stock" class="text-danger"></span> <!-- Validation message for Product Stock -->
         </div>
 
-        <!-- Save Updated Information -->
-        <div class="form-group">
-            <input type="submit" value="Save" class="btn btn-primary" /> <!-- Save button -->
+        <div class="row">
+            <!-- Save Updated Information -->
+            <div class="form-group">
+                <input style="margin-left:15px" type="submit" value="Save" class="btn btn-success" /> <!-- Save button -->
+            </div>
+            &nbsp; &nbsp;
+            <!-- Back to Products -->
+            <div class="form-group">
+                <button asp-page="./Product/Index" class="btn btn-danger">Cancel</button> <!-- Back to Product List button -->
+            </div>
         </div>
-
-        <!-- Back to Products -->
-        <div class="form-group">
-            <a asp-page="/Product/Index">Back to Product List</a> <!-- Back to Product List button -->
-        </div>
+        
     </form>
 
 </div>
