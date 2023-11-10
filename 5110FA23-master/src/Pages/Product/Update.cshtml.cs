@@ -27,7 +27,11 @@ namespace ContosoCrafts.WebSite.Pages.Product
         {
 
             Product = ProductService.GetProducts().FirstOrDefault(m => m.Id.Equals(id));
-        
+            if (Product == null)
+            {
+                ModelState.AddModelError("OnGet", "Update Onget Error");
+            }
+
         }
 
         // OnPost Method to Update Data
