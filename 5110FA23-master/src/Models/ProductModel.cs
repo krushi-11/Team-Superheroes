@@ -9,12 +9,17 @@ namespace ContosoCrafts.WebSite.Models
         public string Id { get; set; } // IdModel of the Product
 
         public string Maker { get; set; } // MakerModel of the Product
-        
+
+        [Required(ErrorMessage = "Image is required.")] // Ensure Image is not null
+        [Url(ErrorMessage = "Invalid URL for Image.")] // Ensure Image is a valid URL
         [JsonPropertyName("img")]
         public string Image { get; set; } // ImageModel of the Product
 
+        [Required(ErrorMessage = "Url is required.")] // Ensure Url is not null
+        [Url(ErrorMessage = "Invalid URL.")] // Ensure Url is a valid URL
         public string Url { get; set; } // UrlModel of the Product
 
+        [Required(ErrorMessage = "Title is required.")] // Ensure Title is not null
         [MaxLength(50, ErrorMessage = "Title must not exceed 50 characters.")] // Limit Title to only 50 Characters
         public string Title { get; set; } // TitleModel of the Product
 
@@ -23,7 +28,7 @@ namespace ContosoCrafts.WebSite.Models
         [Range(0, float.MaxValue, ErrorMessage = "Price should be only Positive.")] // Limit Price to be only Positive
         public float Price { get; set; } // PriceModel of the Product
 
-        [Range(0, int.MaxValue, ErrorMessage = "Price must be non-negative.")] // Limit Stock to be only Positive
+        [RegularExpression(@"^\d+$", ErrorMessage = "Stock must be Positive and Non-Decimal Number.")] // Ensure Stock is a non-negative integer
         public int Stock { get; set; } // StockModel of the Product
 
         public int[] Ratings { get; set; } // RatingsModel of the Product
