@@ -1,9 +1,6 @@
-using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Net.Http.Json;
 using System.Text.Json;
 using ContosoCrafts.WebSite.Models;
 using Microsoft.AspNetCore.Hosting;
