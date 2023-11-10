@@ -77,7 +77,9 @@ namespace UnitTests.Pages.Product.Read
 
         #endregion TestSetup
 
-        // OnGet Method in Read.cshtml.cs file
+        /// <summary>
+        /// OnGet Method in Read.cshtml.cs file
+        /// </summary>
         #region OnGet
 
         // Test case for the OnGet method when a valid product is requested
@@ -114,6 +116,6 @@ namespace UnitTests.Pages.Product.Read
             pageModel.ModelState.Clear();
         }
         #endregion OnGet
-        // Ending OnGet Method in Read.cshtml.cs file
+        /// Ending OnGet Method in Read.cshtml.cs file
     }
 }

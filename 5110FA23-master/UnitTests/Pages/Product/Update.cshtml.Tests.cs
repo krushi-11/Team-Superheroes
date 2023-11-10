@@ -69,7 +69,7 @@ namespace UnitTests.Pages.Product.Update
 
         #endregion TestSetup
 
-        // OnGet Method in Update.cshtml.cs file
+        /// OnGet Method in Update.cshtml.cs file
         #region OnGet
         [Test]
         /// <summary>
@@ -111,9 +111,9 @@ namespace UnitTests.Pages.Product.Update
         }
 
         #endregion OnGet
-        // Ending OnGet Method in Update.cshtml.cs file
+        /// Ending OnGet Method in Update.cshtml.cs file
 
-        // OnPost Method in Update.cshtml.cs file
+        /// OnPost Method in Update.cshtml.cs file
         #region OnPost
 
         /// <summary>
@@ -169,6 +169,6 @@ namespace UnitTests.Pages.Product.Update
         }
 
         #endregion OnPost
-        // Ending OnPost Method in Update.cshtml.cs file
+        /// Ending OnPost Method in Update.cshtml.cs file
     }
 }

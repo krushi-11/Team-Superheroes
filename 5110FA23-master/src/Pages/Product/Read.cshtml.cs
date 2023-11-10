@@ -8,7 +8,9 @@ namespace ContosoCrafts.WebSite.Pages.Product
 {
     public class ReadModel : PageModel
     {
-        // Data middletier
+        /// <summary>
+        /// Data middletier
+        /// </summary>
         public JsonFileProductService ProductService { get; }
 
         
@@ -21,14 +23,16 @@ namespace ContosoCrafts.WebSite.Pages.Product
             ProductService = productService;
         }
 
-        // The data to show
+        /// <summary>
+        /// The data to show
+        /// </summary>
         public ProductModel Product;
 
         
         /// REST Get request
         
         /// <param name="id"></param>
-        public void OnGet(string id) // OnGet Request to Get Products by id
+        public void OnGet(string id) /// OnGet Request to Get Products by id
         {
             Product = ProductService.GetProducts().FirstOrDefault(m => m.Id.Equals(id));
         }
