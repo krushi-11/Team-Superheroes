@@ -218,9 +218,12 @@ ul {
 
 /* Style for the Create button */
 .create-button {
-    background-color: red;
-    font-size: 20px;
+    background-color: #007bff;
     color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
 }
 
 /*Style for Update Button on Read Page*/
