@@ -21,8 +21,9 @@
 
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             @Html.HiddenFor(x => x.Product.Id) <!-- Hidden input for Product ID -->
+
             <!-- Product Title -->
-            <div>
+            <div class="form-group">
                 <label class="control-label" asp-for="Product.Title"></label> <!-- Label for Product Title -->
                 <input asp-for="Product.Title" class="form-control" required placeholder="Enter Title"> <!-- Input for Product Title -->
                 <span class="text-danger" asp-validation-for="Product.Title"></span> <!-- Validation message for Product Title -->
@@ -63,14 +64,18 @@
                 <span class="text-danger" asp-validation-for="Product.Stock"></span> <!-- Validation message for Product Stock -->
             </div>
 
-            <!-- Save Button -->
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary"> <!-- Save button -->
-            </div>
+            <div class="row">
+                <!-- Save Button -->
+                <div class="form-group">
+                    <input style="margin-left:15px" type="submit" value="Save" class="btn btn-success" /> <!-- Save button -->
+                </div>
 
-            <!-- Cancel Button -->
-            <div class="form-group">
-                <a asp-page="Index" class="btn btn-danger">Cancel</a> <!-- Cancel button that redirects to the Index page -->
+                &nbsp; &nbsp;
+
+                <!-- Cancel Button -->
+                <div>
+                    <a asp-page="Index" class="link-button2">Cancel</a> <!-- Back to Product List button -->
+                </div>
             </div>
 
             <!-- Verification -->
