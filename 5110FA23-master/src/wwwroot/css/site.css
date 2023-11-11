@@ -64,7 +64,6 @@ for details on configuring this project to bundle and minify static web assets. 
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
     background-size: cover; /* Resize the background image to cover the entire container */
-    #opacity: .8;
 }
 
 .modal .card-img {
@@ -252,10 +251,11 @@ ul {
 .addtocart {
     background-color: maroon;
     color: white;
-    padding: 10px 20px;
+    padding: 8px 18px;
     border: none;
     border-radius: 5px;
     text-decoration: none;
+    flex: auto;
 }
 
 /*Styling for hover over add to cart button*/
