@@ -17,7 +17,29 @@ body {
     
 }
 
+.link-button {
+    background-color: #4CAF50; /* Green */
+    border-radius:5px;
+    border: none;
+    color: white;
+    padding: 6px 13px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
 
+.link-button2 {
+    background-color: #FF0000; /* Red */
+    border-radius: 5px;
+    border: none;
+    color: white;
+    padding: 6px 13px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
 
 /* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
