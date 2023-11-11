@@ -80,7 +80,7 @@ namespace UnitTests.Pages.Product.Index
 
         #endregion TestSetup
 
-        // OnGet Method in Index.cshtml.cs file
+        /// OnGet Method in Index.cshtml.cs file
         #region OnGet
 
         // Test case for the OnGet method when the index page returns a non-empty list of products
@@ -124,6 +124,6 @@ namespace UnitTests.Pages.Product.Index
             pageModel.ModelState.Clear();
         }
         #endregion OnGet
-        // Ending OnGet Method in Index.cshtml.cs file
+        /// Ending OnGet Method in Index.cshtml.cs file
     }
 }
