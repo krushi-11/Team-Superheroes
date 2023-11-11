@@ -28,12 +28,12 @@
                     <td>@product.Title</td> <!-- Displaying the product title -->
                     <!-- Style for Read and Delete button moved to css file -->
                     <td>
-                        <button class="btn btn-light btn-customised"><a asp-page="Read" asp-route-id="@product.Id">Read</a></button> <!-- Read button -->
+                        <a asp-page="Read" asp-route-id="@product.Id" class="link-button">Read</a> <!-- Read button -->
                         &nbsp;
                         &nbsp;
                         <!-- Spacing between the Buttons -->
                         <!-- Created Delete button -->
-                        <button class="btn btn-light btn-customised"><a asp-page="Delete" asp-route-id="@product.Id">Delete</a></button> <!-- Delete button -->
+                        <a asp-page="Delete" asp-route-id="@product.Id" class="link-button2">Delete</a> <!-- Delete button -->
                     </td>
                 </tr>
             }
