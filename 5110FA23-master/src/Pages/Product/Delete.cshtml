@@ -17,6 +17,7 @@
         @Html.HiddenFor(x=>x.Product.Id) <!-- Hidden input for Product ID -->
 
         <h1>Confirm to Delete item</h1> <!-- Heading -->
+
         <!-- Delete Product Title -->
         <div class="form-group">
             <label asp-for="Product.Title" class="control-label"></label> <!-- Label for Product Title -->
@@ -61,13 +62,14 @@
 
         <!-- Delete Updated Information -->
         <div class="form-group">
-            <input type="submit" value="Delete" class="btn btn-primary" /> <!-- Delete button -->
+            <input style="margin-left:15px" type="submit" value="Delete" class="btn btn-success" /> <!-- Delete Button -->
         </div>
 
         <!-- Back to Products -->
         <div class="form-group">
-            <a asp-page="/Product/Index">Cancel</a> <!-- Cancel button that redirects to the Product Index page -->
+            <button asp-page="./Product/Index" class="btn btn-danger" style="margin-left:15px">Cancel</button> <!-- Back to Product List button -->
         </div>
+        &nbsp;
 
     </form>
 </div>
