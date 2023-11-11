@@ -248,6 +248,7 @@ ul {
     text-decoration: none;
 }
 
+/*Styling for add to cart button*/
 .addtocart {
     background-color: maroon;
     color: white;
@@ -257,6 +258,7 @@ ul {
     text-decoration: none;
 }
 
+/*Styling for hover over add to cart button*/
     .addtocart:hover {
         background-color: orangered;
     }
