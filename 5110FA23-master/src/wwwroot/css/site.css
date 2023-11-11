@@ -248,6 +248,19 @@ ul {
     text-decoration: none;
 }
 
+.addtocart {
+    background-color: maroon;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+    .addtocart:hover {
+        background-color: orangered;
+    }
+
 /*Style for Update Button on Read Page*/
 .btn-customised {
     background-color: #007bff;
