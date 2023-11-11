@@ -37,8 +37,12 @@
 
         <!-- Created update button -->
         <form method="post">
-            <button class="btn btn-light btn-customised box-shadow"><a asp-page="Update" asp-route-id="@Model.Product.Id">Update</a></button> <!-- Update button -->
+            <a class="link-button" asp-page="Update" asp-route-id="@Model.Product.Id">Update</a> <!-- Update button -->
         </form>
+
+        <div>
+            <a asp-page="Index" class="link-button2">Cancel</a> <!-- Back to Product List button -->
+        </div>
         &nbsp;
         <!-- Added Spacing in between -->
 
