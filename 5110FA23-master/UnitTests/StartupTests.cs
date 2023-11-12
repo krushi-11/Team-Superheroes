@@ -69,5 +69,5 @@ namespace UnitTests.Pages.Startup
         }
 
         #endregion Configure
-����}
-}
+        }
+    }
