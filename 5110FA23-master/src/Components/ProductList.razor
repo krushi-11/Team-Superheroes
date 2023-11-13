@@ -1,7 +1,9 @@
 @using ContosoCrafts.WebSite.Models
 @using ContosoCrafts.WebSite.Services
 @using Microsoft.AspNetCore.Components.Web
+@using Microsoft.JSInterop;
 @inject JsonFileProductService ProductService
+@inject IJSRuntime JSRuntime
 
 <div class="card-columns">
     @foreach (var product in ProductService.GetProducts())
@@ -14,7 +16,7 @@
             </div>
             <div class="card-footer">
                 <small class="text-muted"><button @onclick="(e => SelectProduct(product.Id))" 
-                  data-toggle="modal" data-target="#productModal" class="btn btn-primary">More Info</button>
+                   class="btn btn-primary">More Info</button>
                 </small>
                 <!--Created Add to Cart button-->
                 <button class="addtocart" @onclick="(e => AddToCart(product))">Add to Cart</button>
@@ -45,14 +47,13 @@
             </div>
             <div class="card-body">
                 <p class="card-text">@selectedProduct.Description</p>
-                            <small>Shopping Cart</small>
-
-                            <ul>
-                                @foreach (var item in ShoppingCart)
-                                {
-                                    <li>@item.Title - $@item.Price - 1 shirt</li>
-                                }
-                            </ul>
+                <small>Shopping Cart</small>
+                <ul>
+                    @foreach (var item in ShoppingCart)
+                    {
+                        <li>@item.Title - $@item.Price - 1 shirt</li>
+                    }
+                </ul>
             </div>
           </div>
         </div>
@@ -70,11 +71,11 @@
             var currentStar = i;
             if(i<=currentRating)
             {
-              <span class="fa fa-star checked" @onclick="(e => SubmitRating(currentStar))"></span>
+                <span class="fa fa-smile checked" @onclick="(e => SubmitRating(currentStar))">&#xf118;</span>
             }
             else
             {
-              <span class="fa fa-star" @onclick="(e => SubmitRating(currentStar))"></span>
+                <span class="fa fa-neutral" @onclick="(e => SubmitRating(currentStar))">&#xf119;</span>
             }
           }
         </div>
