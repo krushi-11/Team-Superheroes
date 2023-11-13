@@ -14,7 +14,11 @@
       4,
       2,
       4,
-      5
+      5,
+      4,
+      1,
+      1,
+      1
     ]
   },
   {
@@ -168,7 +172,10 @@
     "Description": "Put on the symbol of Hope as the last son of krypton.",
     "Price": 16.99,
     "Stock": 72,
-    "Ratings": null
+    "Ratings": [
+      2,
+      2
+    ]
   },
   {
     "Id": "bruce-wayne",
