@@ -16,7 +16,8 @@
             </div>
             <div class="card-footer">
                 <small class="text-muted">
-                    <button @onclick="(e => SelectProduct(product.Id))" data-toggle="modal" data-target="#productModal" class="btn btn-primary">More Info</button>
+                    <button @onclick="(e => SelectProduct(product.Id))" 
+                        data-toggle="modal" data-target="#productModal" class="btn btn-primary">More Info</button>
                 </small>
                 <!--Created Add to Cart button-->
                 <button class="addtocart" @onclick="(e => AddToCart(product))">Add to Cart</button>
@@ -138,6 +139,5 @@
         StateHasChanged();
         Console.WriteLine("Added to Cart");
         Task.Delay(2000).ContinueWith(_ => productAddedToCart = null);
-        // You can add additional logic here, e.g., display a confirmation message
     }
 }
