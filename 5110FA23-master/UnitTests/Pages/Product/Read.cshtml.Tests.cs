@@ -115,6 +115,21 @@ namespace UnitTests.Pages.Product.Read
             // Reset
             pageModel.ModelState.Clear();
         }
+        [Test]
+        public void OnGet_If_Cancel_Button_Redirects_To_Products_Index_Page_Should_Return_True()
+        {
+            //Arrange
+
+            //Act
+            pageModel.OnGet("steven-strange");
+
+            //Assert
+            Assert.AreEqual(true, pageModel.ModelState.IsValid);
+            Assert.AreEqual("Doctor Strange", pageModel.Product.Title);
+
+            // Reset
+            pageModel.ModelState.Clear();
+        }
         #endregion OnGet
         /// Ending OnGet Method in Read.cshtml.cs file
     }
