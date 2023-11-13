@@ -142,6 +142,17 @@ namespace UnitTests.Pages.Product.Delete
             // Reset
             pageModel.ModelState.Clear();
         }
+        //Unit Test for checking cancel button works or not
+        [Test]
+        public void OnGet_If_Cancel_Button_Redirects_To_Index_Page_Should_Return_True()
+        {
+            // Arrange
+
+            // Act
+            pageModel.OnGet("bruce-banner");
+            // Assert
+            Assert.AreEqual(true, pageModel.ModelState.IsValid);
+        }
 
         #endregion OnGet
         // Ending OnGet Method in Delete.cshtml.cs file
