@@ -12,14 +12,14 @@ namespace UnitTests.Pages
         [Test]
         public void OnGet_ShouldReturnPageResult()
         {
-            // Arrange
+            /// Arrange
             var loggerMock = new Mock<ILogger<PrivacyModel>>();
             var privacyModel = new PrivacyModel(loggerMock.Object);
 
-            // Act
+            /// Act
             privacyModel.OnGet();
 
-            // Assert
+            /// Assert
             var result = privacyModel.Page();
             Assert.IsInstanceOf<PageResult>(result);
         }
