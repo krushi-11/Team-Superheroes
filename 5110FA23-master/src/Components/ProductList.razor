@@ -15,8 +15,8 @@
                 <h5 class="card-title">@product.Title</h5>
             </div>
             <div class="card-footer">
-                <small class="text-muted"><button @onclick="(e => SelectProduct(product.Id))" 
-                   class="btn btn-primary">More Info</button>
+                <small class="text-muted">
+                    <button @onclick="(e => SelectProduct(product.Id))" data-toggle="modal" data-target="#productModal" class="btn btn-primary">More Info</button>
                 </small>
                 <!--Created Add to Cart button-->
                 <button class="addtocart" @onclick="(e => AddToCart(product))">Add to Cart</button>
