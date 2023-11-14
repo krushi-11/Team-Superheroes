@@ -16,7 +16,7 @@ namespace ContosoCrafts.WebSite.Services
 
         public IWebHostEnvironment WebHostEnvironment { get; }
 
-        //Json file
+        ///Json file
         private string JsonFileName
         {
             get
@@ -25,7 +25,8 @@ namespace ContosoCrafts.WebSite.Services
             }
         }
 
-        public IEnumerable<ProductModel> GetProducts() // Get all Products from Json File
+        /// Get all Products from Json File
+        public IEnumerable<ProductModel> GetProducts() 
         {
             using(var jsonFileReader = File.OpenText(JsonFileName))
             {
@@ -46,7 +47,10 @@ namespace ContosoCrafts.WebSite.Services
         /// </summary>
         /// <param name="productId"></param>
         /// <param name="rating"></param>
-        public bool AddRating(string productId, int rating) // Add Rating Method
+         
+
+        /// Add Rating Method
+        public bool AddRating(string productId, int rating) 
         {
             var products = GetProducts();
 
@@ -93,7 +97,7 @@ namespace ContosoCrafts.WebSite.Services
         }
 
 
-        // Update Data Method
+        /// Update Data Method
         public ProductModel UpdateData(ProductModel updatedProduct)
         {
                 var products = GetProducts(); // Get the Products
@@ -112,7 +116,7 @@ namespace ContosoCrafts.WebSite.Services
         }
 
 
-        // Create Data Method
+        /// Create Data Method
         public ProductModel CreateData(ProductModel productModel)
         {
             productModel.Id = System.Guid.NewGuid().ToString();
@@ -129,7 +133,7 @@ namespace ContosoCrafts.WebSite.Services
         }
 
 
-        // Save product after converting it to json format
+        /// Save product after converting it to json format
         private void SaveProducts(IEnumerable<ProductModel> products)
         {
             var jsonProducts = JsonSerializer.Serialize(products,
@@ -142,7 +146,7 @@ namespace ContosoCrafts.WebSite.Services
         }
 
 
-        // Delete Data Method 
+        /// Delete Data Method 
         public bool DeleteData(string id)
         {
             // Get the current set, and remove the record with the specified ID from it
