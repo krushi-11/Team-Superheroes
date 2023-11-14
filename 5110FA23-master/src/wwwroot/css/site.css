@@ -223,15 +223,17 @@ ul {
 }
 /*styling for background box on read page*/
 .whitebox { /*adding the dimensions for whitebox*/
-    width: 1150px;/*setting the width of the box*/
-    height: 100%;/*setting the height of box*/
-    position: relative;/*making the position relative*/
-    display: block;/*displaying the type of box*/
-    left: 0%;/*setting the position from left side*/
-    background: rgba(255,255,255,.9);/*color for the box*/
-    box-shadow: 0 15px 20px rgba(0,0,0,.8);/*giving shadow to the box*/
-    text-align: center;/*aligning the text to the centre*/
-    border-radius: 10px;/*setting the border radius for box*/
+    width: auto; /*setting the width of the box*/
+    height: auto; /*setting the height of the box*/
+    position: relative; /*making the position relative*/
+    display: block; /*displaying the type of box*/
+    left: 0%; /*setting the position from left side*/
+    background: rgba(255,255,255,.9); /*color for the box*/
+    box-shadow: 0 15px 20px rgba(0,0,0,.8); /*giving shadow to the box*/
+    border-radius: 10px; /*setting the border radius for box*/
+    padding: 20px;
+    background-color: white;
+    border: 2px solid black;
 }
 /*Styling for Create.cshtml page*/
 .whiteboxcrudi {
