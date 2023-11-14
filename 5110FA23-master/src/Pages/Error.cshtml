@@ -4,9 +4,13 @@
     ViewData["Title"] = "Error";
 }
 
+<!--Page Title-->
 <h1 class="text-danger">Error.</h1>
+
+<!-- Error Message -->
 <h2 class="text-danger">An error occurred while processing your request.</h2>
 
+<!-- Display Request ID if available -->
 @if (Model.ShowRequestId)
 {
     <p>
@@ -14,10 +18,15 @@
     </p>
 }
 
+<!-- Development Mode Section -->
 <h3>Development Mode</h3>
+
+//Development mode information.
 <p>
     Swapping to the <strong>Development</strong> environment displays detailed information about the error that occurred.
 </p>
+
+<!-- Development Mode Information -->
 <p>
     <strong>The Development environment shouldn't be enabled for deployed applications.</strong>
     It can result in displaying sensitive information from exceptions to end users.

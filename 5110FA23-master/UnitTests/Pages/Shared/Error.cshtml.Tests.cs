@@ -15,9 +15,11 @@ using ContosoCrafts.WebSite.Services;
 
 namespace UnitTests.Pages.Shared
 {
+    // Class for testing Error Razor Page
     public class ErrorTests
     {
         #region TestSetup
+        // Common setup for testing
         public static IUrlHelperFactory urlHelperFactory;
         public static DefaultHttpContext httpContextDefault;
         public static IWebHostEnvironment webHostEnvironment;
@@ -28,11 +30,14 @@ namespace UnitTests.Pages.Shared
         public static TempDataDictionary tempData;
         public static PageContext pageContext;
 
+        // Instance of the ErrorModel for testing
         public static ErrorModel pageModel;
 
+        // Test initialization method
         [SetUp]
         public void TestInitialize()
         {
+            // Setting up the HttpContext and other necessary components for testing
             httpContextDefault = new DefaultHttpContext()
             {
                 TraceIdentifier = "trace",
@@ -54,18 +59,21 @@ namespace UnitTests.Pages.Shared
                 HttpContext = httpContextDefault
             };
 
-            ///creating variable mockWebHostEnvironment
+            ///creating a mockWebHostEnvironment
             var mockWebHostEnvironment = new Mock<IWebHostEnvironment>();
             mockWebHostEnvironment.Setup(m => m.EnvironmentName).Returns("Hosting:UnitTestEnvironment");
             mockWebHostEnvironment.Setup(m => m.WebRootPath).Returns("../../../../src/bin/Debug/net7.0/wwwroot");
             mockWebHostEnvironment.Setup(m => m.ContentRootPath).Returns("./data/");
 
-            ///creating variable MockLoggerDirect
+            ///creating a MockLoggerDirect
             var MockLoggerDirect = Mock.Of<ILogger<ErrorModel>>();
+
+            // Creating a JsonFileProductService for testing
             JsonFileProductService productService;
 
             productService = new JsonFileProductService(mockWebHostEnvironment.Object);
 
+            // Creating an instance of ErrorModel for testing
             pageModel = new ErrorModel(MockLoggerDirect)
             {
                 PageContext = pageContext,
@@ -81,7 +89,6 @@ namespace UnitTests.Pages.Shared
         public void OnGet_Valid_Activity_Set_Should_Return_RequestId()
         {
             // Arrange
-
             Activity activity = new Activity("activity");
             activity.Start();
 
@@ -96,6 +103,7 @@ namespace UnitTests.Pages.Shared
             Assert.AreEqual(activity.Id, pageModel.RequestId);
         }
 
+        // Test for invalid activity (null)
         [Test]
         public void OnGet_InValid_Activity_Null_Should_Return_TraceIdentifier()
         {
