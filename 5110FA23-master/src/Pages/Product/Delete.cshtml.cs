@@ -22,10 +22,12 @@ namespace ContosoCrafts.WebSite.Pages.Product
 
 
         [BindProperty]
-        public ProductModel Product { get; set; } /*Getting the Product from ProductModel*/
 
+        ///Getting the Product from ProductModel
+        public ProductModel Product { get; set; }
 
-        public void OnGet(string id) /*On Get Method to fetch product details by Id*/
+        ///On Get Method to fetch product details by Id
+        public void OnGet(string id)
 
         {
             Product = ProductService.GetProducts().FirstOrDefault(m => m.Id.Equals(id));
