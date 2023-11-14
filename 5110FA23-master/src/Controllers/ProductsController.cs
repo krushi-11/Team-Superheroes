@@ -18,14 +18,14 @@ namespace ContosoCrafts.WebSite.Controllers
 
         public JsonFileProductService ProductService { get; }
 
-        // Get all Products from Json File
+        /// Get all Products from Json File
         [HttpGet]
         public IEnumerable<ProductModel> Get()
         {
             return ProductService.GetProducts();
         }
 
-        // Requesting Rating from User
+        /// Requesting Rating from User
         [HttpPatch]
         public ActionResult Patch([FromBody] RatingRequest request)
         {
@@ -34,7 +34,7 @@ namespace ContosoCrafts.WebSite.Controllers
             return Ok();
         }
 
-        // ProductModel To Request Rating from User
+        /// ProductModel To Request Rating from User
         public class RatingRequest
         {
             public string ProductId { get; set; }
