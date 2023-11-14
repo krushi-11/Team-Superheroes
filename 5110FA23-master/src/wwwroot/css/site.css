@@ -331,7 +331,7 @@ a {
     position: relative; /*making the position relative*/
     display: inline-block; /*displaying the type of box*/
     left: 15%; /*setting the position from left side*/
-    background: rgb(255 0 0); /*color for the box*/
+    background: #e5e5e5; /*color for the box*/
     box-shadow: 0 15px 20px rgba(0,0,0,.8); /*giving shadow to the box*/
     text-align: center; /*aligning the text to the centre*/
     border-radius: 20px; /*setting the border radius for box*/
@@ -343,10 +343,11 @@ a {
     position: relative; /*making the position relative*/
     display: inline-block; /*displaying the type of box*/
     left: 25%; /*setting the position from left side*/
-    background: rgb(255 0 0); /*color for the box*/
+    background: #e5e5e5; /*color for the box*/
     box-shadow: 0 15px 20px rgba(0,0,0,.8); /*giving shadow to the box*/
     text-align: center; /*aligning the text to the centre*/
     border-radius: 20px; /*setting the border radius for box*/
+    opacity: 0.9;
 }
 .navImgLogo{
     /*adding the dimensions for logo*/
@@ -354,11 +355,11 @@ a {
 }
 .textcolor{
     font-size: 25px;/*setting the font size*/
-    color: rgba(255,255,255,.9);/*changing color of text*/
+    color: rgba(0,0,0,.8);/*changing color of text*/
 }
 .color {
     font-size: 40px; /*setting the font size*/
-    color: rgba(255,255,255,.9); /*changing color of text*/
+    color: rgba(0,0,0,.8); /*changing color of text*/
 }
 /*styling for cancel button on delete page*/
 .form-group {
@@ -368,4 +369,7 @@ a {
 /*Styling for Read and delete button*/
 .btn btn-light btn-customised {
     color: #fff;
+}
+.text-black{
+    color: rgba(0,0,0,.8);
 }
