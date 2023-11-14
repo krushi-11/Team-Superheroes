@@ -30,7 +30,11 @@
     "Description": "Get this T-shirt and be prepared to become the armored avenger. YOU ARE IRON MAN",
     "Price": 19.99,
     "Stock": 6,
-    "Ratings": null
+    "Ratings": [
+      2,
+      2,
+      4
+    ]
   },
   {
     "Id": "steve-rogers",
