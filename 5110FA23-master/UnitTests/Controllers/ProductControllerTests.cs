@@ -24,7 +24,10 @@ namespace UnitTests.Controllers
             testProductController = new ProductsController(TestHelper.ProductService);
         }
 
-        #endregion
+        #endregion TestSetup
+
+        // Testing the ProductController.cs file
+        #region ControllerTests
 
         /// <summary>
         /// Testing if get is valid should return products
@@ -79,5 +82,8 @@ namespace UnitTests.Controllers
             //Assert
             Assert.AreEqual(200, okResult.StatusCode);
         }
+
+        #endregion ControllerTests
+        // Ending Testing for ProductController.cs file
     }
 }
