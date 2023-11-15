@@ -10,6 +10,9 @@ namespace UnitTests.Pages.Startup
     /// </summary>
     public class StartupTests
     {
+        /// <summary>
+        /// Test Initialise
+        /// </summary>
         #region TestSetup
 
         /// <summary>
