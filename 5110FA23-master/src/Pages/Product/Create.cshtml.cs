@@ -17,10 +17,16 @@ namespace ContosoCrafts.WebSite.Pages.Product
             ProductService = productService;
         }
 
+        /// <summary>
+        /// Getting the Product from ProductModel
+        /// </summary>
         [BindProperty]
-        public ProductModel Product { get; set; } ///Getting the Product from ProductModel
+        public ProductModel Product { get; set; }
 
-        public IActionResult OnPost() ///OnPost Method to send data
+        /// <summary>
+        /// OnPost Method to send data
+        /// </summary>
+        public IActionResult OnPost()
         {
 
             if (ModelState.IsValid) ///State Validation Check
