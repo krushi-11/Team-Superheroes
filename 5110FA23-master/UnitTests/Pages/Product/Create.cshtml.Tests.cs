@@ -17,6 +17,9 @@ namespace UnitTests.Pages.Product.Create
 {
     public class CreateTests
     {
+        /// <summary>
+        /// Test initialize
+        /// </summary>
         #region TestSetup
         public static IUrlHelperFactory urlHelperFactory; // Factory for URL helper
         public static DefaultHttpContext httpContextDefault; // Default HTTP context
@@ -70,6 +73,9 @@ namespace UnitTests.Pages.Product.Create
         // OnPost Method in Create.cshtml File
         #region OnPost
 
+        /// <summary>
+        /// On Posting Invalid Model is Not Valid and should Return Page
+        /// </summary>
         [Test]
         public void OnPost_InValid_Model_NotValid_Return_Page()
         {
@@ -86,6 +92,9 @@ namespace UnitTests.Pages.Product.Create
             pageModel.ModelState.Clear();
         }
 
+        /// <summary>
+        /// On Posting Valid it should return True 
+        /// </summary>
         [Test]
         public void OnPost_Valid_Should_Return_True()
         {
