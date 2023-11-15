@@ -17,6 +17,9 @@ namespace UnitTests.Pages.Shared
 {
     public class IndexTests
     {
+        /// <summary>
+        /// Test Initialise
+        /// </summary>
         #region TestSetup
         public static IUrlHelperFactory urlHelperFactory;
         public static DefaultHttpContext httpContextDefault;
@@ -72,10 +75,11 @@ namespace UnitTests.Pages.Shared
 
         // OnGet Method in Index.cshtml.cs file
         #region OnGet
-        [Test]
+
         /// <summary>
         /// Tests that loading the index page returns a non-empty list of products
         /// </summary>
+        [Test]
         public void OnGet_Valid_Should_Return_Products()
         {
             // Arrange
@@ -88,6 +92,7 @@ namespace UnitTests.Pages.Shared
             // Are there any in existence?
             Assert.AreEqual(true, pageModel.Products.ToList().Any());
         }
+
         #endregion OnGet
         // Ending OnGet Method in Index.cshtml.cs file
     }
