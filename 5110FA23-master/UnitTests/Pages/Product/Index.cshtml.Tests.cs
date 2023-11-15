@@ -17,6 +17,9 @@ namespace UnitTests.Pages.Product.Index
 {
     public class IndexTests
     {
+        /// <summary>
+        /// Test Initialise
+        /// </summary>
         #region TestSetup
 
         // Declaration of necessary testing objects
@@ -83,11 +86,10 @@ namespace UnitTests.Pages.Product.Index
         /// OnGet Method in Index.cshtml.cs file
         #region OnGet
 
-        // Test case for the OnGet method when the index page returns a non-empty list of products
-        [Test]
         /// <summary>
-        /// Tests that loading the index page returns a non-empty list of products
+        /// Test case for the OnGet method when the index page returns a non-empty list of products
         /// </summary>
+        [Test]
         public void OnGet_Valid_Should_Return_Products()
         {
             // Arrange
@@ -105,7 +107,9 @@ namespace UnitTests.Pages.Product.Index
             pageModel.ModelState.Clear();
         }
 
-        // Unit test to check whether the delete button redirects to the delete page or not
+        /// <summary>
+        /// Unit test to check whether the delete button redirects to the delete page or not
+        /// </summary>
         [Test]
         public void OnGet_If_Delete_Button_Redirects_Should_True()
         {
