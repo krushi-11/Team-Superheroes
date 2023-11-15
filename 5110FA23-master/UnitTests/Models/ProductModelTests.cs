@@ -17,6 +17,9 @@ namespace UnitTests.Models
     [TestFixture]
     public class ProductModelTests
     {
+        /// <summary>
+        /// Test initialize
+        /// </summary>
         #region TestSetup
         public static IUrlHelperFactory urlHelperFactory;
         public static DefaultHttpContext httpContextDefault;
@@ -69,8 +72,11 @@ namespace UnitTests.Models
         #endregion TestSetup
 
         // Testing the ProductModel.cs file
-        #region Testing
+        #region ModelTests
 
+        /// <summary>
+        /// To String should return a Json String
+        /// </summary>
         [Test]
         public void ToString_ReturnsJsonString()
         {
@@ -96,7 +102,7 @@ namespace UnitTests.Models
             Assert.DoesNotThrow(() => System.Text.Json.JsonDocument.Parse(json));
         }
 
-        #endregion Testing
+        #endregion ModelTests
         // Ending Testing in the ProductModel.cs file
     }
 }
