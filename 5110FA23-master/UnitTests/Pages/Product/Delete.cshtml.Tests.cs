@@ -16,11 +16,13 @@ using System.IO;
 
 namespace UnitTests.Pages.Product.Delete
 {
-
     [TestFixture]
     public class DeleteTests
     {
-        // Declaration of necessary testing objects
+        /// <summary>
+        /// Test initialize
+        /// </summary>
+        #region TestSetup
         public static IUrlHelperFactory urlHelperFactory;
         public static DefaultHttpContext httpContextDefault;
         public static IWebHostEnvironment webHostEnvironment;
@@ -74,10 +76,14 @@ namespace UnitTests.Pages.Product.Delete
             };
         }
 
+        #endregion TestSetup
+
         // Delete Data Method in JsonFileProductService File
         #region DeleteData
 
-        // Unit test for DeleteData: if the product is invalid, it should return false
+        /// <summary>
+        /// if the product is invalid, it should return false
+        /// </summary>
         [Test]
         public void DeleteData_Invalid_Product_Should_Return_False()
         {
@@ -89,7 +95,9 @@ namespace UnitTests.Pages.Product.Delete
 
         }
 
-        // Unit test for DeleteData: if the product is valid, it removes the product and returns true
+        /// <summary>
+        /// If the product is valid, it removes the product and returns true
+        /// </summary>
         [Test]
         public void DeleteData_Product_Should_Return_True()
         {
@@ -111,7 +119,9 @@ namespace UnitTests.Pages.Product.Delete
         // OnGet Method in Delete.cshtml.cs file
         #region OnGet
 
-        // Unit test for checking if the valid product is returned
+        /// <summary>
+        /// Unit test for checking if the valid product is returned
+        /// </summary>
         [Test]
         public void OnGet_Valid_Should_Return_Product()
         {
@@ -127,7 +137,9 @@ namespace UnitTests.Pages.Product.Delete
             pageModel.ModelState.Clear();
         }
 
-        // Unit test for checking if an invalid product doesn't return any products
+        /// <summary>
+        /// Unit test for checking if an invalid product doesn't return any products
+        /// </summary>
         [Test]
         public void OnGet_InValid_Should_Not_Return_Products()
         {
@@ -142,7 +154,10 @@ namespace UnitTests.Pages.Product.Delete
             // Reset
             pageModel.ModelState.Clear();
         }
-        //Unit Test for checking cancel button works or not
+
+        /// <summary>
+        /// Unit Test for checking cancel button works or not
+        /// </summary>
         [Test]
         public void OnGet_If_Cancel_Button_Redirects_To_Index_Page_Should_Return_True()
         {
@@ -160,7 +175,9 @@ namespace UnitTests.Pages.Product.Delete
         // OnPost Method in Delete.cshtml.cs file
         #region OnPost
 
-        // If the Product is Valid, it should return true
+        /// <summary>
+        /// If the Product is Valid, it should return true
+        /// </summary>
         [Test]
         public void OnPost_Valid_Should_Return_Products()
         {
@@ -182,7 +199,9 @@ namespace UnitTests.Pages.Product.Delete
             pageModel.ModelState.Clear();
         }
 
-        // Unit Test for checking if an invalid model returns to the page
+        /// <summary>
+        /// Unit Test for checking if an invalid model returns to the page
+        /// </summary>
         [Test]
         public void OnPost_InValid_Model_Not_Valid_Return_Page()
         {
