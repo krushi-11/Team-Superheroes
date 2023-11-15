@@ -18,6 +18,9 @@ namespace UnitTests.Pages.Shared
     // Class for testing Error Razor Page
     public class ErrorTests
     {
+        /// <summary>
+        /// Test Initialise
+        /// </summary>
         #region TestSetup
         // Common setup for testing
         public static IUrlHelperFactory urlHelperFactory;
@@ -85,6 +88,10 @@ namespace UnitTests.Pages.Shared
 
         // OnGet Method in Error.cshtml.cs file
         #region OnGet
+
+        /// <summary>
+        /// On Get Valid Activity should return a requestID 
+        /// </summary>
         [Test]
         public void OnGet_Valid_Activity_Set_Should_Return_RequestId()
         {
@@ -103,7 +110,9 @@ namespace UnitTests.Pages.Shared
             Assert.AreEqual(activity.Id, pageModel.RequestId);
         }
 
-        // Test for invalid activity (null)
+        /// <summary>
+        /// Test for invalid activity (null)
+        /// </summary>
         [Test]
         public void OnGet_InValid_Activity_Null_Should_Return_TraceIdentifier()
         {
@@ -119,6 +128,7 @@ namespace UnitTests.Pages.Shared
             Assert.AreEqual("trace", pageModel.RequestId);
             Assert.AreEqual(true, pageModel.ShowRequestId);
         }
+
         #endregion OnGet
         // Ending OnGet Method in Error.cshtml.cs file
     }
