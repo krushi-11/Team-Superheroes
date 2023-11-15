@@ -13,6 +13,7 @@
     cursor: pointer;
 }
 
+/* Style for clickable neutral face icons */
 .fa-neutral {
     cursor: pointer;
 }
@@ -26,6 +27,7 @@ body {
     
 }
 
+/* Custom Button CSS class1 for CRUDI buttons */
 .link-button {
     background-color: #4CAF50; /* Green */
     border-radius:5px;
@@ -38,6 +40,7 @@ body {
     font-size: 16px;
 }
 
+/* Custom Button CSS class2 for CRUDI buttons */
 .link-button2 {
     background-color: #FF0000; /* Red */
     border-radius: 5px;
@@ -89,6 +92,7 @@ for details on configuring this project to bundle and minify static web assets. 
     box-shadow: 0 10px 20px rgba(37,33,82,.12), 0 4px 8px rgba(37,33,82,.06);
 }
 
+/* Card footer class */
 .card-footer {
     background: #fbfafd;
 }
@@ -132,6 +136,7 @@ a {
         border-color: #e9a8a6;
     }
 
+/* Customised Button CSS class*/
 .btn-customised {
     color: #fff;
     background-color: #f01628;
