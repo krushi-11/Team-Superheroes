@@ -9,6 +9,9 @@ namespace UnitTests.Pages
     [TestFixture]
     public class PrivacyModelTests
     {
+        /// <summary>
+        /// OnGet method should return the Page result
+        /// </summary>
         [Test]
         public void OnGet_ShouldReturnPageResult()
         {
