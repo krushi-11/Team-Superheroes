@@ -16,6 +16,9 @@ namespace UnitTests.Pages.Shared
 {
     public class AboutUs
     {
+        /// <summary>
+        /// Test Initialise
+        /// </summary>
         #region TestSetup
         public static IUrlHelperFactory urlHelperFactory;
         public static DefaultHttpContext httpContextDefault;
@@ -74,6 +77,9 @@ namespace UnitTests.Pages.Shared
 
         #endregion TestSetup
 
+        /// <summary>
+        /// Test Case which loads Logger
+        /// </summary>
         [Test]
         public void Constructor_SetsLogger()
         {
@@ -87,6 +93,9 @@ namespace UnitTests.Pages.Shared
             Assert.AreEqual(logger, pageModel._logger);
         }
 
+        /// <summary>
+        /// On Get method should not throw exception
+        /// </summary>
         [Test]
         public void OnGet_DoesNotThrowException()
         {
