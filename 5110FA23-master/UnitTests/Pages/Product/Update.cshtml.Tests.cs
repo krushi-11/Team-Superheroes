@@ -16,6 +16,9 @@ namespace UnitTests.Pages.Product.Update
 {
     public class UpdateTests
     {
+        /// <summary>
+        /// Test initialize
+        /// </summary>
         #region TestSetup
         public static IUrlHelperFactory urlHelperFactory;
         public static DefaultHttpContext httpContextDefault;
@@ -71,10 +74,11 @@ namespace UnitTests.Pages.Product.Update
 
         /// OnGet Method in Update.cshtml.cs file
         #region OnGet
-        [Test]
+
         /// <summary>
         /// Test that's loading the update page returns a non-empty list of products
         /// </summary>
+        [Test]
         public void OnGet_Valid_Should_Return_Product()
         {
             // Arrange
@@ -92,9 +96,8 @@ namespace UnitTests.Pages.Product.Update
         }
 
         /// <summary>
-        /// unit test if getting invalid product gives null
+        /// Unit test if getting invalid product gives null
         /// </summary>
-
         [Test]
         public void OnGet_InValid_Should_Not_Return_Products()
         {
@@ -119,7 +122,6 @@ namespace UnitTests.Pages.Product.Update
         /// <summary>
         /// Unit test if valid will return products
         /// </summary>
-
         [Test]
         public void OnPost_Valid_Should_Return_Products()
         {
@@ -141,7 +143,6 @@ namespace UnitTests.Pages.Product.Update
         /// <summary>
         /// Unit test if invalid model should return false
         /// </summary>
-
         [Test]
         public void OnPost_InValid_Model_Not_Valid_Return_Page()
         {
