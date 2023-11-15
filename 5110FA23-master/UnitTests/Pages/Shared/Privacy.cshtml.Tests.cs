@@ -16,6 +16,9 @@ namespace UnitTests.Pages.Shared
 {
     public class PrivacyTests
     {
+        /// <summary>
+        /// Tests that loading the index page returns a non-empty list of products
+        /// </summary>
         #region TestSetup
         public static IUrlHelperFactory urlHelperFactory;
         public static DefaultHttpContext httpContextDefault;
@@ -76,6 +79,10 @@ namespace UnitTests.Pages.Shared
 
         // OnGet Method in Privacy.cshtml.cs file
         #region OnGet
+
+        /// <summary>
+        /// OnGetting Valid Activity Set Should Return RequestId
+        /// </summary>
         [Test]
         public void OnGet_Valid_Activity_Set_Should_Return_RequestId()
         {
