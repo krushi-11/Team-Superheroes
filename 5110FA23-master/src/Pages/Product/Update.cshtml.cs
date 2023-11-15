@@ -20,9 +20,15 @@ namespace ContosoCrafts.WebSite.Pages.Product
         
         }
 
+        /// <summary>
+        /// Getting Product from Product Model
+        /// </summary>
         [BindProperty]
-        public ProductModel Product { get; set; } /// Getting Product from Product Model
+        public ProductModel Product { get; set; }
 
+        /// <summary>
+        /// On Get Method to fetch the first product
+        /// </summary>
         public void OnGet(string id)
         {
 
@@ -34,7 +40,9 @@ namespace ContosoCrafts.WebSite.Pages.Product
 
         }
 
+        /// <summary>
         /// OnPost Method to Update Data
+        /// </summary>
         public IActionResult OnPost()
         {
             if (!ModelState.IsValid) /// State Validation
