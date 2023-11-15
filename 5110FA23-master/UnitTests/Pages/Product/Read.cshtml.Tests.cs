@@ -16,6 +16,9 @@ namespace UnitTests.Pages.Product.Read
 {
     public class ReadTests
     {
+        /// <summary>
+        /// Test Initialise
+        /// </summary>
         #region TestSetup
         public static IUrlHelperFactory urlHelperFactory;
         public static DefaultHttpContext httpContextDefault;
@@ -77,12 +80,12 @@ namespace UnitTests.Pages.Product.Read
 
         #endregion TestSetup
 
-        /// <summary>
-        /// OnGet Method in Read.cshtml.cs file
-        /// </summary>
+        // OnGet Method in Read.cshtml.cs file
         #region OnGet
 
-        // Test case for the OnGet method when a valid product is requested
+        /// <summary>
+        /// Test case for the OnGet method when a valid product is requested
+        /// </summary>
         [Test]
         public void OnGet_Valid_Should_Return_Products()
         {
@@ -99,7 +102,9 @@ namespace UnitTests.Pages.Product.Read
             pageModel.ModelState.Clear();
         }
 
-        // Test case for checking if the Update button redirects properly
+        /// <summary>
+        /// Test case for checking if the Update button redirects properly
+        /// </summary>
         [Test]
         public void OnGet_If_Update_Button_Redirects_Should_Return_True()
         {
@@ -115,6 +120,10 @@ namespace UnitTests.Pages.Product.Read
             // Reset
             pageModel.ModelState.Clear();
         }
+
+        /// <summary>
+        /// Cancel Button should redirect to products index page and it returns true
+        /// </summary>
         [Test]
         public void OnGet_If_Cancel_Button_Redirects_To_Products_Index_Page_Should_Return_True()
         {
@@ -130,6 +139,7 @@ namespace UnitTests.Pages.Product.Read
             // Reset
             pageModel.ModelState.Clear();
         }
+
         #endregion OnGet
         /// Ending OnGet Method in Read.cshtml.cs file
     }
