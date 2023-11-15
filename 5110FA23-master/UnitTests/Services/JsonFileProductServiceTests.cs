@@ -7,6 +7,9 @@ namespace UnitTests.Services
 {
     public class JsonFileProductServiceTests
     {
+        /// <summary>
+        /// Test Initialise
+        /// </summary>
         #region TestSetup
 
         [SetUp]
@@ -18,17 +21,10 @@ namespace UnitTests.Services
 
         // AddRating Method in JsonFileProductService.cs File
         #region AddRating
-        //[Test]
-        //public void AddRating_InValid_....()
-        //{
-        // // Arrange
-        // // Act
-        // //var result = TestHelper.ProductService.AddRating(null, 1);
-        // // Assert
-        // //Assert.AreEqual(false, result);
-        //}
-        // ....
 
+        /// <summary>
+        /// Null Rating Should Return False
+        /// </summary>
         [Test]
         public void AddRating_Check_Rating_Null_Should_Return_False()
         {
@@ -42,8 +38,9 @@ namespace UnitTests.Services
             Assert.AreEqual(false, check);
         }
 
-        // Unit Test to Check if Rating is available for product if Yes append Rating and return False
-
+        /// <summary>
+        /// Unit Test to Check if Rating is available for product if Yes append Rating and return False
+        /// </summary>
         [Test]
         public void AddRating_Check_Rating_And_AddRating_Should_Return_False()
         {
@@ -57,6 +54,9 @@ namespace UnitTests.Services
             Assert.AreEqual(false, check);
         }
 
+        /// <summary>
+        /// Invalid Null Product should return false
+        /// </summary>
         [Test]
         public void AddRating_InValid_Product_Null_Should_Return_False()
         {
@@ -68,6 +68,9 @@ namespace UnitTests.Services
             Assert.AreEqual(false, result);
         }
 
+        /// <summary>
+        /// Invalid Empty Product should return false
+        /// </summary>
         [Test]
         public void AddRating_InValid_Product_Empty_Should_Return_False()
         {
@@ -78,6 +81,10 @@ namespace UnitTests.Services
             // Assert
             Assert.AreEqual(false, result);
         }
+
+        /// <summary>
+        /// Invalid ProductData should return false
+        /// </summary>
         [Test]
         public void AddRating_InValid_ProductData_Found_Should_Return_False()
         {
@@ -89,6 +96,9 @@ namespace UnitTests.Services
             Assert.AreEqual(false, result);
         }
 
+        /// <summary>
+        /// Invalid Rating less than zero should return false
+        /// </summary>
         [Test]
         public void AddRating_InValid_Product_Rating_less_than_0_Should_Return_False()
         {
@@ -106,6 +116,9 @@ namespace UnitTests.Services
             Assert.AreEqual(false, result);
         }
 
+        /// <summary>
+        /// Invalid Product Rating more than five should return false
+        /// </summary>
         [Test]
         public void AddRating_InValid_Product_Rating_more_5_Should_Return_False()
         {
@@ -123,6 +136,9 @@ namespace UnitTests.Services
             Assert.AreEqual(false, result);
         }
 
+        /// <summary>
+        /// Valid Product Id Rating null should return a new array
+        /// </summary>
         [Test]
         public void AddRating_Valid_Product_Id_Rating_null_Should_Return_new_Array()
         {
@@ -140,6 +156,9 @@ namespace UnitTests.Services
             Assert.AreEqual(true, result);
         }
 
+        /// <summary>
+        /// Initialising array if it is Null
+        /// </summary>
         [Test]
         public void AddRating_InitializeRatingsArrayIfNull()
         {
@@ -169,6 +188,10 @@ namespace UnitTests.Services
 
         // UpdateData Method in JsonFileProductService.cs File
         #region UpdateData
+
+        /// <summary>
+        /// If Updated Value matches, it should return True
+        /// </summary>
         [Test]
         public void UpdateData_Valid_Updated_Value_Matches_Should_Return_true()
         {
