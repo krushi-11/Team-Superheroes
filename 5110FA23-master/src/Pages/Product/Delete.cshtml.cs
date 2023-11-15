@@ -14,45 +14,42 @@ namespace ContosoCrafts.WebSite.Pages.Product
         /// <summary>
         /// Default Construtor
         /// </summary>
-        
         public DeleteModel(JsonFileProductService productService)
         {
             ProductService = productService;
         }
 
-
+        /// <summary>
+        /// Getting the Product from ProductModel
+        /// </summary>
         [BindProperty]
-
-        ///Getting the Product from ProductModel
         public ProductModel Product { get; set; }
 
-        ///On Get Method to fetch product details by Id
+        /// <summary>
+        /// On Get Method to fetch product details by Id
+        /// </summary>
         public void OnGet(string id)
 
         {
             Product = ProductService.GetProducts().FirstOrDefault(m => m.Id.Equals(id));
         }
 
-
-        // OnPost Request to Delete Data
-
+        /// <summary>
+        /// OnPost Request to Delete Data
+        /// </summary>
         public IActionResult OnPost()
         {
             if (!ModelState.IsValid) // State Validation
             {
-
                 // Handle the case where ModelState is not valid
                 return Page();
 
             }
-
             // Update the product title using the service
             ProductService.DeleteData(Product.Id);
 
-
             // Redirect to a confirmation page or a product list page
             return RedirectToPage("./Index");
-
         }
     }
 }
