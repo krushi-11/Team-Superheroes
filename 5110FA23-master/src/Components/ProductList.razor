@@ -48,6 +48,18 @@
             </div>
             <div class="card-body">
                 <p class="card-text">@selectedProduct.Description</p>
+                <h5 style="color:red">Order Note</h5>
+                <input type="text" id="textboxid" placeholder="Input you custom requirements" class="form-text"><br>
+                            <p>Please select your Shirt Size:</p>
+                            <input type="radio" id="shirt-size-small" name="S" value="small">
+                            <label for="shirt-size-small">Small(S)</label><br>
+                            <input type="radio" id="shirt-size-medium" name="M" value="medium">
+                            <label for="shirt-size-medium">Medium(M)</label><br>
+                            <input type="radio" id="shirt-size-large" name="L" value="large">
+                            <label for="shirt-size-large">Large(L)</label><br>
+                            <input type="radio" id="shirt-size-xlarge" name="XL" value="xlarge">
+                            <label for="shirt-size-xlarge">X-Large(XL)</label><br>
+                            <button class="btn btn-success">Save</button><br><br>
                 <small>Shopping Cart</small>
                 <ul>
                     @foreach (var item in ShoppingCart)
@@ -76,7 +88,7 @@
             }
             else
             {
-                <span class="fa fa-neutral" @onclick="(e => SubmitRating(currentStar))">&#xf119;</span>
+                <span class="fa fa-smile" @onclick="(e => SubmitRating(currentStar))">&#xf118;</span>
             }
           }
         </div>
