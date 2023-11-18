@@ -22,7 +22,7 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                <div class="navbar-collapse collapse d-flex justify-content-between">
                     <ul class="flex-grow-1 navbar-nav">
                         <li>
                             <!--Logo-->
@@ -42,7 +42,13 @@
                             <a class="nav-link text-white" asp-area="" asp-page="/AboutUs">About Us</a>
                         </li>
                     </ul>
-                </div>
+                    <div class="cart-icon ml-auto order-sm-last">
+                        <a asp-page="/Cart" class="nav-link text-white">
+                            <img src="~/assets/superherogrocer.png" alt="Cart" class="cart-image">
+                            Cart
+                        </a>
+                    </div>
+
             </div>
         </nav>
     </header>
