@@ -5,7 +5,6 @@
 @inject JsonFileProductService ProductService
 @inject IJSRuntime JSRuntime
 
-
 <div>
     <div class="row">
         <div class="col">
@@ -15,8 +14,6 @@
         </div>
     </div>
 </div>
-
-
 
 <div class="row hidden-md-up">
     @{
@@ -69,32 +66,6 @@
         }
     }
 </div>
-
-@* <div class="card-columns">
-    @foreach (var product in ProductService.GetProducts())
-    {
-        <div class="card">
-            <div class="card-img" style="background-image: url('@product.Image');">
-            </div>
-            <div class="card-body">
-                <h5 class="card-title">@product.Title</h5>
-            </div>
-            <div class="card-footer">
-                <small class="text-muted">
-                    <button @onclick="(e => SelectProduct(product.Id))" 
-                        data-toggle="modal" data-target="#productModal" class="btn btn-primary">More Info</button>
-                </small>
-                <!--Created Add to Cart button-->
-                <button class="addtocart" @onclick="(e => AddToCart(product))">Add to Cart</button>
-                <!-- Display the message -->
-                @if (productAddedToCart == product.Id)
-                {
-                    <span id="addedToCart"class="text-success flex-column row ml-2">Added to Cart</span>
-                }
-            </div>
-        </div>
-    }
-</div> *@
 
 @if(selectedProduct != null)
 {
@@ -207,10 +178,10 @@
     }
 
     string productAddedToCart;
-    // // New property for the shopping cart
+    // New property for the shopping cart
     List<ProductModel> ShoppingCart { get; set; } = new List<ProductModel>();
 
-    // // Add product to the shopping cart
+    // Add product to the shopping cart
     void AddToCart(ProductModel product)
     {
         ShoppingCart.Add(product);
@@ -237,4 +208,5 @@
         FilterData = false;
         FilterDataString = null;
     }
+
 }
