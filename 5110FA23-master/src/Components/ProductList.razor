@@ -5,7 +5,72 @@
 @inject JsonFileProductService ProductService
 @inject IJSRuntime JSRuntime
 
-<div class="card-columns">
+
+<div>
+    <div class="row">
+        <div class="col">
+            <input placeholder="Enter the Product" type="text" @onchange="(e) => UpdateFilterText(e.Value.ToString())" value="@FilterDataString" />
+            <button @onclick="(e => EnableFilterData())" class="btn btn-success">Filter</button>
+            <button @onclick="(e => ClearFilterData())" class="btn btn-danger">Clear</button>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="row hidden-md-up">
+    @{
+        var productList = ProductService.GetProducts();
+        productList = productList.OrderBy(m => m.Title);
+
+        // If filter is enabled, reduce the data set to the filter string
+        if (FilterData)
+        {
+            productList = productList.Where(m => m.Title.Contains(FilterDataString));
+        }
+
+        if (productList.Any())
+        {
+            <div class="card-columns">
+            @foreach(var product in productList)
+            {
+                <div class="card">
+                    <div class="card-img" style="background-image: url('@product.Image');"></div>
+
+                        <div class="card-body">
+                            <h5 class="card-title">@product.Title</h5>
+                        </div>
+
+                        <div class="card-footer">
+                            <small class="text-muted">
+                                <button @onclick="(e => SelectProduct(product.Id))"
+                                        data-toggle="modal" data-target="#productModal" class="btn btn-primary">
+                                    More Info
+                                </button>
+                            </small>
+
+                        <!--Created Add to Cart button-->
+                        <button class="addtocart" @onclick="(e => AddToCart(product))">Add to Cart</button>
+                        <!-- Display the message -->
+                        @if (productAddedToCart == product.Id)
+                        {
+                            <span id="addedToCart" class="text-success flex-column row ml-2">Added to Cart</span>
+                        }
+                        </div>
+                </div>
+            }
+            </div>
+        }
+        else
+        {
+            <div class="container">
+                <span class="text-danger">Sorry!! No Product Found</span>
+            </div>
+        }
+    }
+</div>
+
+@* <div class="card-columns">
     @foreach (var product in ProductService.GetProducts())
     {
         <div class="card">
@@ -29,7 +94,7 @@
             </div>
         </div>
     }
-</div>
+</div> *@
 
 @if(selectedProduct != null)
 {
@@ -103,6 +168,8 @@
 {
     ProductModel selectedProduct = new ProductModel { Title = "Black Panther" };
     string selectedProductId;
+    string FilterDataString = "";
+    bool FilterData = false;
 
     void SelectProduct(string productId)
     {
@@ -151,5 +218,23 @@
         StateHasChanged();
         Console.WriteLine("Added to Cart");
         Task.Delay(2000).ContinueWith(_ => productAddedToCart = null);
+    }
+
+    void UpdateFilterText(string text)
+    {
+        FilterDataString = text;
+    }
+
+    void EnableFilterData()
+    {
+        // If the Filter is enabled, set the filter flag
+        FilterData = true;
+    }
+
+    void ClearFilterData()
+    {
+        // If the Filter is enabled, set the filter flag
+        FilterData = false;
+        FilterDataString = null;
     }
 }
