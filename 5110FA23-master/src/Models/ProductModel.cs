@@ -33,6 +33,9 @@ namespace ContosoCrafts.WebSite.Models
 
         public int[] Ratings { get; set; } // RatingsModel of the Product
 
+        //Getter and Setter of ProductType (enum)
+        public ProductTypeEnum ProductType { get; set; } = ProductTypeEnum.Undefined;
+
         public override string ToString() => JsonSerializer.Serialize<ProductModel>(this);
     }
 }
