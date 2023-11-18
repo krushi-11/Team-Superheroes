@@ -397,6 +397,11 @@ a {
     color: rgba(0,0,0,.8);
 }
 
+.cart-image {
+    max-width: 60px; 
+    height: 60px; 
+}
+
 /*Styling for Read page background box*/
 .Read-box {
     width: 1150px; /*setting the width of the box*/
