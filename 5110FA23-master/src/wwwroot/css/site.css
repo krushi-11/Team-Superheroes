@@ -397,6 +397,7 @@ a {
     color: rgba(0,0,0,.8);
 }
 
+/*Styling for cart icon on nav bar*/
 .cart-image {
     max-width: 60px; 
     height: 60px; 
