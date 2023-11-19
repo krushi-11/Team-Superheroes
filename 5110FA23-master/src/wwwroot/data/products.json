@@ -27,6 +27,7 @@
       4,
       1
     ],
+    "CommentList": [],
     "ProductType": 0
   },
   {
@@ -43,6 +44,7 @@
       2,
       4
     ],
+    "CommentList": [],
     "ProductType": 0
   },
   {
@@ -55,6 +57,7 @@
     "Price": 14.99,
     "Stock": 58,
     "Ratings": null,
+    "CommentList": [],
     "ProductType": 0
   },
   {
@@ -67,6 +70,7 @@
     "Price": 16.99,
     "Stock": 40,
     "Ratings": null,
+    "CommentList": [],
     "ProductType": 0
   },
   {
@@ -79,6 +83,7 @@
     "Price": 17.99,
     "Stock": 8,
     "Ratings": null,
+    "CommentList": [],
     "ProductType": 0
   },
   {
@@ -124,6 +129,7 @@
       2,
       2
     ],
+    "CommentList": [],
     "ProductType": 0
   },
   {
@@ -136,6 +142,7 @@
     "Price": 28.49,
     "Stock": 47,
     "Ratings": null,
+    "CommentList": [],
     "ProductType": 0
   },
   {
@@ -156,6 +163,7 @@
       2,
       1
     ],
+    "CommentList": [],
     "ProductType": 0
   },
   {
@@ -172,6 +180,7 @@
       2,
       4
     ],
+    "CommentList": [],
     "ProductType": 0
   },
   {
@@ -184,6 +193,7 @@
     "Price": 21.99,
     "Stock": 76,
     "Ratings": null,
+    "CommentList": [],
     "ProductType": 0
   },
   {
@@ -199,6 +209,7 @@
       2,
       2
     ],
+    "CommentList": [],
     "ProductType": 0
   },
   {
@@ -211,6 +222,7 @@
     "Price": 17.99,
     "Stock": 58,
     "Ratings": null,
+    "CommentList": [],
     "ProductType": 0
   },
   {
@@ -223,6 +235,7 @@
     "Price": 13.99,
     "Stock": 58,
     "Ratings": null,
+    "CommentList": [],
     "ProductType": 0
   },
   {
@@ -235,6 +248,7 @@
     "Price": 18.99,
     "Stock": 24,
     "Ratings": null,
+    "CommentList": [],
     "ProductType": 0
   },
   {
@@ -246,7 +260,11 @@
     "Description": "This is an Ant Man page",
     "Price": 14.99,
     "Stock": 60,
-    "Ratings": null,
+    "Ratings": [
+      3,
+      3
+    ],
+    "CommentList": [],
     "ProductType": 0
   }
 ]
