@@ -33,36 +33,28 @@
         {
             //Display Filtered Products
             <div class="card-columns">
-            @foreach(var product in productList)
-            {
-                <div class="card">
-                    <!--Product Image-->
-                    <div class="card-img" style="background-image: url('@product.Image');"></div>
+                @foreach(var product in productList)
+                {
+                    <div class="card">
+                        <!--Product Image-->
+                        <div class="card-img" style="background-image: url('@product.Image');"></div>
 
-                        <div class="card-body">
-                            <!-- Product Title-->
-                            <h5 class="card-title">@product.Title</h5>
-                        </div>
+                            <div class="card-body">
+                                <!-- Product Title-->
+                                <h5 class="card-title">@product.Title</h5>
+                            </div>
 
-                        <div class="card-footer">
-                            <small class="text-muted">
-                            <!--More Info Button-->    
-                            <button @onclick="(e => SelectProduct(product.Id))"
-                                        data-toggle="modal" data-target="#productModal" class="btn btn-primary">
-                                    More Info
-                                </button>
-                            </small>
-
-                        <!--Created Add to Cart button-->
-                        <button class="addtocart" @onclick="(e => AddToCart(product))">Add to Cart</button>
-                        <!-- Display the message -->
-                        @if (productAddedToCart == product.Id)
-                        {
-                            <span id="addedToCart" class="text-success flex-column row ml-2">Added to Cart</span>
-                        }
-                        </div>
-                </div>
-            }
+                            <div class="card-footer">
+                                <small class="text-muted">
+                                    <!--More Info Button-->    
+                                    <button @onclick="(e => SelectProduct(product.Id))"
+                                                data-toggle="modal" data-target="#productModal" class="btn btn-primary">
+                                            More Info
+                                    </button>
+                                </small>
+                            </div>
+                    </div>
+                }
             </div>
         }
         else
@@ -110,13 +102,6 @@
                             <input type="radio" id="shirt-size-xlarge" name="XL" value="xlarge">
                             <label for="shirt-size-xlarge">X-Large(XL)</label><br>
                             <button class="btn btn-success">Save</button><br><br>
-                <small>Shopping Cart</small>
-                <ul>
-                    @foreach (var item in ShoppingCart)
-                    {
-                        <li>@item.Title - $@item.Price - 1 shirt</li>
-                    }
-                </ul>
             </div>
           </div>
         </div>
@@ -191,20 +176,6 @@
         System.Console.WriteLine($"Rating received for {selectedProduct.Id}: {rating}");
         ProductService.AddRating(selectedProductId, rating);
         SelectProduct(selectedProductId);
-    }
-
-    string productAddedToCart;
-    // New property for the shopping cart
-    List<ProductModel> ShoppingCart { get; set; } = new List<ProductModel>();
-
-    // Add product to the shopping cart
-    void AddToCart(ProductModel product)
-    {
-        ShoppingCart.Add(product);
-        productAddedToCart = product.Id;
-        StateHasChanged();
-        Console.WriteLine("Added to Cart");
-        Task.Delay(2000).ContinueWith(_ => productAddedToCart = null);
     }
 
     void UpdateFilterText(string text)
