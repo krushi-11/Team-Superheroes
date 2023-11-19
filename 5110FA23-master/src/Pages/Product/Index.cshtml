@@ -6,14 +6,15 @@
 <!-- Referencing styling done in site.css page -->
 <link rel="stylesheet" type="text/css" href="site.css" />
 <div class="container">
+
     <!-- Implemented a Create button -->
     <form method="post">
         <a asp-page="./Create" asp-route-id="@Model.Products" class="create-button">+ Create</a> <!-- Create button -->
     </form>
 
     &nbsp;
-    <!-- Spacing in between -->
 
+    <!-- Spacing in between -->
     <table class="table table-bordered bg-white">
         <thead>
             <tr>
@@ -31,6 +32,7 @@
                         <a asp-page="Read" asp-route-id="@product.Id" class="link-button">Read</a> <!-- Read button -->
                         &nbsp;
                         &nbsp;
+
                         <!-- Spacing between the Buttons -->
                         <!-- Created Delete button -->
                         <a asp-page="Delete" asp-route-id="@product.Id" class="link-button2">Delete</a> <!-- Delete button -->
