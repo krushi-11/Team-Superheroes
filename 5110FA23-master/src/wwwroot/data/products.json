@@ -26,7 +26,8 @@
       4,
       4,
       1
-    ]
+    ],
+    "ProductType": 0
   },
   {
     "Id": "tony-stark",
@@ -41,7 +42,8 @@
       2,
       2,
       4
-    ]
+    ],
+    "ProductType": 0
   },
   {
     "Id": "steve-rogers",
@@ -52,7 +54,8 @@
     "Description": "Put on this T-shirt, grab your shield and head into battle as the first avenger, Captain America.",
     "Price": 14.99,
     "Stock": 58,
-    "Ratings": null
+    "Ratings": null,
+    "ProductType": 0
   },
   {
     "Id": "thunder-god",
@@ -63,7 +66,8 @@
     "Description": "Put on this T-shirt, grab your mighty hammer and strike with all your might as the thunder god and Prince of Asgard, THOR!",
     "Price": 16.99,
     "Stock": 40,
-    "Ratings": null
+    "Ratings": null,
+    "ProductType": 0
   },
   {
     "Id": "peter-parker",
@@ -74,7 +78,8 @@
     "Description": "Put this on and become everyone\u0027s favorite web slinger, our friendly neighborhood Spider-Man",
     "Price": 17.99,
     "Stock": 8,
-    "Ratings": null
+    "Ratings": null,
+    "ProductType": 0
   },
   {
     "Id": "bruce-banner",
@@ -118,7 +123,8 @@
       3,
       2,
       2
-    ]
+    ],
+    "ProductType": 0
   },
   {
     "Id": "steven-strange",
@@ -129,7 +135,8 @@
     "Description": "Get this and be prepared to become the sorceror supreme, use your magic wisely.",
     "Price": 28.49,
     "Stock": 47,
-    "Ratings": null
+    "Ratings": null,
+    "ProductType": 0
   },
   {
     "Id": "clint-barton",
@@ -148,7 +155,8 @@
       2,
       2,
       1
-    ]
+    ],
+    "ProductType": 0
   },
   {
     "Id": "mind-stone",
@@ -163,7 +171,8 @@
       2,
       2,
       4
-    ]
+    ],
+    "ProductType": 0
   },
   {
     "Id": "scarlet-witch",
@@ -174,7 +183,8 @@
     "Description": "The scarlet witch, a powerful sorcer or a loving mother ? ",
     "Price": 21.99,
     "Stock": 76,
-    "Ratings": null
+    "Ratings": null,
+    "ProductType": 0
   },
   {
     "Id": "kal-el",
@@ -188,7 +198,8 @@
     "Ratings": [
       2,
       2
-    ]
+    ],
+    "ProductType": 0
   },
   {
     "Id": "bruce-wayne",
@@ -199,7 +210,8 @@
     "Description": "The Dark Knight, The Caped Crusader, He\u0027s Vengence, He doesn\u0027t hide in the shadows, he is the shadows.",
     "Price": 17.99,
     "Stock": 58,
-    "Ratings": null
+    "Ratings": null,
+    "ProductType": 0
   },
   {
     "Id": "fish-man",
@@ -210,7 +222,8 @@
     "Description": "Put this on and feel like a King, The King of Atlantis",
     "Price": 13.99,
     "Stock": 58,
-    "Ratings": null
+    "Ratings": null,
+    "ProductType": 0
   },
   {
     "Id": "diana-prince",
@@ -221,7 +234,8 @@
     "Description": "The chosen Amazon warrior armed with her bullet proof bracelets and lasso of truth. Wonder Woman will always save the day",
     "Price": 18.99,
     "Stock": 24,
-    "Ratings": null
+    "Ratings": null,
+    "ProductType": 0
   },
   {
     "Id": "28771fbe-3a56-44ae-92ca-03e6f1ad0427",
@@ -232,6 +246,7 @@
     "Description": "This is an Ant Man page",
     "Price": 14.99,
     "Stock": 60,
-    "Ratings": null
+    "Ratings": null,
+    "ProductType": 0
   }
 ]
