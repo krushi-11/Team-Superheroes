@@ -1,12 +1,13 @@
 using System.Diagnostics;
-
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 
 namespace ContosoCrafts.WebSite.Pages
 {
-    // The ErrorModel class represents the model for the Error Razor Page.
+    /// <summary>
+    /// The ErrorModel class represents the model for the Error Razor Page.
+    /// </summary>
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public class ErrorModel : PageModel
     {
@@ -19,13 +20,18 @@ namespace ContosoCrafts.WebSite.Pages
         // Logger instance for logging errors and messages.
         private readonly ILogger<ErrorModel> _logger;
 
-        // Constructor for the ErrorModel class, injecting the logger.
+        /// <summary>
+        /// Constructor for the ErrorModel class, injecting the logger.
+        /// </summary>
+        /// <param name="logger"></param>
         public ErrorModel(ILogger<ErrorModel> logger)
         {
             _logger = logger;
         }
 
-        // Handler for the HTTP GET request to the Error Page.
+        /// <summary>
+        /// Handler for the HTTP GET request to the Error Page.
+        /// </summary>
         public void OnGet()
         {
             // Retrieve the current RequestId from the activity or generate a new one.

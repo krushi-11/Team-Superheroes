@@ -5,8 +5,14 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace ContosoCrafts.WebSite.Pages.Product
 {
+    /// <summary>
+    /// Page Model for creating
+    /// </summary>
     public class CreateModel : PageModel
     {
+        /// <summary>
+        /// Data service for managing product information
+        /// </summary>
         public JsonFileProductService ProductService { get; }
 
         /// <summary>

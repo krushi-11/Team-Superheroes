@@ -6,8 +6,10 @@
 @inject IJSRuntime JSRuntime
 
 <div>
+    <!--Search and Filter Section-->
     <div class="row">
         <div class="col">
+            <!-- Search Input and Buttons-->
             <input placeholder="Enter the Product" type="text" @onchange="(e) => UpdateFilterText(e.Value.ToString())" value="@FilterDataString" />
             <button @onclick="(e => EnableFilterData())" class="btn btn-success">Filter</button>
             <button @onclick="(e => ClearFilterData())" class="btn btn-danger">Clear</button>
@@ -17,6 +19,7 @@
 
 <div class="row hidden-md-up">
     @{
+        //Retrieve and Filter product list
         var productList = ProductService.GetProducts();
         productList = productList.OrderBy(m => m.Title);
 
@@ -28,19 +31,23 @@
 
         if (productList.Any())
         {
+            //Display Filtered Products
             <div class="card-columns">
             @foreach(var product in productList)
             {
                 <div class="card">
+                    <!--Product Image-->
                     <div class="card-img" style="background-image: url('@product.Image');"></div>
 
                         <div class="card-body">
+                            <!-- Product Title-->
                             <h5 class="card-title">@product.Title</h5>
                         </div>
 
                         <div class="card-footer">
                             <small class="text-muted">
-                                <button @onclick="(e => SelectProduct(product.Id))"
+                            <!--More Info Button-->    
+                            <button @onclick="(e => SelectProduct(product.Id))"
                                         data-toggle="modal" data-target="#productModal" class="btn btn-primary">
                                     More Info
                                 </button>
@@ -60,6 +67,7 @@
         }
         else
         {
+            <!--No Products found message-->
             <div class="container">
                 <span class="text-danger">Sorry!! No Product Found</span>
             </div>
@@ -69,24 +77,30 @@
 
 @if(selectedProduct != null)
 {
+  <!--Product Modal-->
   <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
+          <!--Product title in Modal-->
           <h5 class="modal-title" id="productTitle">@selectedProduct.Title</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
+          <!--Product details in Modal-->
           <div class="card">
             <div class="card-img" style="background-image: url('@selectedProduct.Image');">
             </div>
             <div class="card-body">
+                <!--Product description-->
                 <p class="card-text">@selectedProduct.Description</p>
+                <!--order note and size selection-->
                 <h5 style="color:red">Order Note</h5>
                 <input type="text" id="textboxid" placeholder="Input you custom requirements" class="form-text"><br>
                             <p>Please select your Shirt Size:</p>
+                            <!--Radio button for size selections-->
                             <input type="radio" id="shirt-size-small" name="S" value="small">
                             <label for="shirt-size-small">Small(S)</label><br>
                             <input type="radio" id="shirt-size-medium" name="M" value="medium">
@@ -107,6 +121,7 @@
           </div>
         </div>
         <div class="modal-footer">
+          <!--Display like/dislike and rating-->
           @if(voteCount == 0)
           {
             <span>Like our Shirt</span>
@@ -115,6 +130,7 @@
           {
             <span>@voteCount @voteLabel</span>
           }
+          <!--Star rating-->
           @for(int i=1; i<6; i++)
           {
             var currentStar = i;
@@ -132,7 +148,7 @@
     </div>
   </div>
 }
-
+<!--Font Awesome styles-->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 @code 

@@ -4,56 +4,74 @@ using System.Text.Json.Serialization;
 
 namespace ContosoCrafts.WebSite.Models
 {
+    /// <summary>
+    /// The Product class represents an individual product in the application 
+    /// </summary>
     public class ProductModel
     {
-        // Getter and Setter for IdModel
+        /// <summary>
+        /// Getter and Setter for IdModel
+        /// </summary>
         public string Id { get; set; }
 
-        // Getter and Setter for MakerModel
+        /// <summary>
+        /// Getter and Setter for MakerModel
+        /// </summary>
         public string Maker { get; set; } 
 
-        // Regex Code to Ensure Image is not null
+        /// <summary>
+        /// Gets or sets the URL to the product's image. Must not be null and must be valid URl.
+        /// </summary>
         [Required(ErrorMessage = "Image is required.")]
-        // Regex Code to Ensure Image is a valid URL
         [Url(ErrorMessage = "Invalid URL for Image.")]
-        // Getter and Setter for ImageModel
         [JsonPropertyName("img")]
         public string Image { get; set; }
 
-        // Regex Code to Ensure Url is not null
+        /// <summary>
+        /// Gets or sets the URL to additional details about the product. Must not be null and must be a valid URL.
+        /// </summary>
         [Required(ErrorMessage = "Url is required.")]
-        // Regex Code to Ensure Url is a valid URL
         [Url(ErrorMessage = "Invalid URL.")]
-        // Getter and Setter for UrlModel
         public string Url { get; set; }
 
-        // Regex Code to Ensure Title is not null
+        /// <summary>
+        /// Gets or sets the title of the product. Must not be null and limited to 50 characters
+        /// </summary>
         [Required(ErrorMessage = "Title is required.")]
-        // Regex Code to Limit Title to only 50 Characters
         [MaxLength(50, ErrorMessage = "Title must not exceed 50 characters.")]
-        // Getter and Setter for TitleModel
         public string Title { get; set; }
 
-        // Getter and Setter for DescriptionModel
+        /// <summary>
+        /// Getter and Setter for DescriptionModel
+        /// </summary>
         public string Description { get; set; }
 
-        // Regex Code to Limit Price to be only Positive
-        [Range(0, float.MaxValue, ErrorMessage = "Price should be only Positive.")] 
-        // Getter and Setter for PriceModel
+        /// <summary>
+        /// Regex Code to Limit Price to be only Positive
+        /// </summary>
+        [Range(0, float.MaxValue, ErrorMessage = "Price should be only Positive.")]
         public float Price { get; set; } 
 
-        // Regex Code to Ensure Stock is a Non-Negative integer
+        /// <summary>
+        /// Regex Code to Ensure Stock is a Non-Negative integer
+        /// </summary>
         [RegularExpression(@"^\d+$", ErrorMessage = "Stock must be Positive and Non-Decimal Number.")]
-        // Getter and Setter for StockModel
         public int Stock { get; set; } 
 
-        // Getter and Setter for RatingsModel
+        /// <summary>
+        /// Getter and Setter for RatingsModel
+        /// </summary>
         public int[] Ratings { get; set; } 
 
-        //Getter and Setter of ProductType (enum)
+        /// <summary>
+        /// Getter and Setter of ProductType (enum)
+        /// </summary>
         public ProductTypeEnum ProductType { get; set; } = ProductTypeEnum.Undefined;
 
-        //Serializes it to a String to Json
+        /// <summary>
+        /// Serializes it to a String to Json
+        /// </summary>
+        /// <returns></returns>
         public override string ToString() => JsonSerializer.Serialize<ProductModel>(this);
     }
 }

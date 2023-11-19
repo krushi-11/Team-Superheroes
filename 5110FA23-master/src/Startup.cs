@@ -7,6 +7,9 @@ using Microsoft.Extensions.Hosting;
 
 namespace ContosoCrafts.WebSite
 {
+    /// <summary>
+    /// Startup class for configuring  services and the HTTP request pipeline.
+    /// </summary>
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -16,21 +19,38 @@ namespace ContosoCrafts.WebSite
 
         public IConfiguration Configuration { get; }
 
-        /// This method gets called by the runtime. Use this method to add services to the container.
+        /// <summary>
+        /// Configure the services and adds them to the dependency injection container.
+        /// </summary>
+        /// <param name="services"></param> The service collection to configure.
         public void ConfigureServices(IServiceCollection services)
         {
+            //configure razor pages with runtime compilation for development.
             services.AddRazorPages().AddRazorRuntimeCompilation();
+
+            //Add server side blazor support
             services.AddServerSideBlazor();
+
+            //Add HTTP client for making HTTP requests
             services.AddHttpClient();
+
+            //Add MVC controllers.
             services.AddControllers();
+
+            //Add a transient service for the JSonFileProductService.
             services.AddTransient<JsonFileProductService>();
         }
 
-        /// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        /// <summary>
+        /// Configures the HTTP request pipeline.
+        /// </summary>
+        /// <param name="app">The application builder.</param>
+        /// <param name="env">The hosting environment.</param>
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
+                //use developer exception page in development mode.
                 app.UseDeveloperExceptionPage();
             }
             else
@@ -40,17 +60,28 @@ namespace ContosoCrafts.WebSite
                 app.UseHsts();
             }
 
+            //Redirect HTTP requests to HTTPS
             app.UseHttpsRedirection();
+
+            //serve static files
             app.UseStaticFiles();
 
+            //Enable routing
             app.UseRouting();
 
+            //Enable authorization
             app.UseAuthorization();
 
+            //Configure endpoints for routing
             app.UseEndpoints(endpoints =>
             {
+                //Map Razor pages
                 endpoints.MapRazorPages();
+
+                //Map MVC Controllers
                 endpoints.MapControllers();
+
+                //Map Blazor hub
                 endpoints.MapBlazorHub();
 
                 // endpoints.MapGet("/products", (context) => 

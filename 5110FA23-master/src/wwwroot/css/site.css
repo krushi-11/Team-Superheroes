@@ -365,7 +365,7 @@ a {
     max-width: 800px; /*setting the width of the box*/
     position: relative; /*making the position relative*/
     display: inline-block; /*displaying the type of box*/
-    left: 25%; /*setting the position from left side*/
+    left: 15%; /*setting the position from left side*/
     background: #e5e5e5; /*color for the box*/
     box-shadow: 0 15px 20px rgba(0,0,0,.8); /*giving shadow to the box*/
     text-align: center; /*aligning the text to the centre*/

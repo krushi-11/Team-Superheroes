@@ -7,8 +7,14 @@ using System.Linq;
 
 namespace ContosoCrafts.WebSite.Pages.Product
 {
+    /// <summary>
+    /// Page model for deleting product details.
+    /// </summary>
     public class DeleteModel : PageModel
     {
+        /// <summary>
+        /// Data service for managing product information.
+        /// </summary>
         public JsonFileProductService ProductService { get; }
 
         /// <summary>

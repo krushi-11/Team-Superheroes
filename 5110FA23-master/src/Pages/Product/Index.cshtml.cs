@@ -5,30 +5,31 @@ using ContosoCrafts.WebSite.Services;
 
 namespace ContosoCrafts.WebSite.Pages.Product
 {
+    /// <summary>
+    /// Page model for the index page of the product section.
+    /// </summary>
     public class IndexModel : PageModel
     {
         /// <summary>
-        /// Default Constructor
+        /// Default Constructor for IndexModel.
         /// </summary>
-        /// <param name="productService"></param>
+        /// <param name="productService"></param>The service responsible for providing product data.
         public IndexModel(JsonFileProductService productService)
         {
             ProductService = productService;
         }
 
         /// <summary>
-        /// Data Service
+        /// Data Servicefor retrieving product information
         /// </summary>
         public JsonFileProductService ProductService { get; }
 
         /// <summary>
-        /// Collection of the Data
+        /// Collection of products retrieved from the data service
         /// </summary>
         public IEnumerable<ProductModel> Products { get; private set; }
 
-        /// <summary>
-        /// REST OnGet, return all data
-        /// </summary>
+        // REST OnGet, return all data
         public void OnGet()
         {
             Products = ProductService.GetProducts();

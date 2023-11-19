@@ -8,6 +8,9 @@ using static ContosoCrafts.WebSite.Controllers.ProductsController;
 
 namespace UnitTests.Controllers
 {
+    /// <summary>
+    /// Unit tests for productcontroller class
+    /// </summary>
     public class ProductControllerTests
     {
         //Creating an instance

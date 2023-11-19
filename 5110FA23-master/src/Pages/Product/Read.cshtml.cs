@@ -2,10 +2,12 @@ using System.Linq;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using ContosoCrafts.WebSite.Models;
 using ContosoCrafts.WebSite.Services;
-using Microsoft.AspNetCore.Mvc;
 
 namespace ContosoCrafts.WebSite.Pages.Product
 {
+    /// <summary>
+    /// Page Model for reading product details.
+    /// </summary>
     public class ReadModel : PageModel
     {
         /// <summary>
@@ -17,7 +19,7 @@ namespace ContosoCrafts.WebSite.Pages.Product
         /// Defualt Construtor
         /// </summary>
         /// <param name="logger"></param>
-        /// <param name="productService"></param>
+        /// <param name="productService"></param> The service for managing product data.
         public ReadModel(JsonFileProductService productService)
         {
             ProductService = productService;
@@ -31,9 +33,10 @@ namespace ContosoCrafts.WebSite.Pages.Product
         /// <summary>
         /// REST Get request
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="id"></param> The ID of the product to retrieve
         public void OnGet(string id) /// OnGet Request to Get Products by id
         {
+            // Retrieve the product with the specified ID from the data service.
             Product = ProductService.GetProducts().FirstOrDefault(m => m.Id.Equals(id));
         }
     }

@@ -1,27 +1,27 @@
-﻿using ContosoCrafts.WebSite.Controllers;
-using ContosoCrafts.WebSite.Models;
-using ContosoCrafts.WebSite.Services;
-using Microsoft.AspNetCore.Mvc;
+﻿using ContosoCrafts.WebSite.Services;
 using NUnit.Framework;
 using Bunit;
-using System.Collections.Generic;
-using System.Linq;
 using ContosoCrafts.WebSite.Components;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.AspNetCore.Hosting;
 
 namespace UnitTests.Components
 {
+    /// <summary>
+    /// Unit tests for the ProductList component
+    /// </summary>
     public class ProductListTests: Bunit.TestContext
     {
+        /// <summary>
+        /// Test that the method adds a product to the shopping cart
+        /// </summary>
         [Test]
         public void AddToCartButtonShouldAddProductToShoppingCart()
         {
            
-            // To register the JsonFileProductServices
+            // Arrange: To register the JsonFileProductServices
             Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
 
-            // Render the component
+            // Act: Render the component
             var cut = RenderComponent<ProductList>();
 
             // Act: Click on the Add to Cart button

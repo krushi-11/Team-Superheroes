@@ -7,16 +7,28 @@ using Microsoft.AspNetCore.Hosting;
 
 namespace ContosoCrafts.WebSite.Services
 {
-   public class JsonFileProductService
+   /// <summary>
+   /// Service for managing product data stored in JSON file
+   /// </summary>
+    public class JsonFileProductService
     {
+        /// <summary>
+        /// Constructor for JsonFileProductService
+        /// </summary>
+        /// <param name="webHostEnvironment"></param>
         public JsonFileProductService(IWebHostEnvironment webHostEnvironment)
         {
             WebHostEnvironment = webHostEnvironment;
         }
 
+        /// <summary>
+        /// Gets the hosting environment
+        /// </summary>
         public IWebHostEnvironment WebHostEnvironment { get; }
 
-        ///Json file
+        /// <summary>
+        /// Gets the path to the Json File
+        /// </summary>
         private string JsonFileName
         {
             get
@@ -25,7 +37,10 @@ namespace ContosoCrafts.WebSite.Services
             }
         }
 
+        /// <summary>
         /// Get all Products from Json File
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<ProductModel> GetProducts() 
         {
             using(var jsonFileReader = File.OpenText(JsonFileName))
@@ -47,9 +62,6 @@ namespace ContosoCrafts.WebSite.Services
         /// </summary>
         /// <param name="productId"></param>
         /// <param name="rating"></param>
-         
-
-        /// Add Rating Method
         public bool AddRating(string productId, int rating) 
         {
             var products = GetProducts();
@@ -97,7 +109,11 @@ namespace ContosoCrafts.WebSite.Services
         }
 
 
+        /// <summary>
         /// Update Data Method
+        /// </summary>
+        /// <param name="updatedProduct"></param>
+        /// <returns></returns>
         public ProductModel UpdateData(ProductModel updatedProduct)
         {
                 var products = GetProducts(); // Get the Products
@@ -116,7 +132,11 @@ namespace ContosoCrafts.WebSite.Services
         }
 
 
+        /// <summary>
         /// Create Data Method
+        /// </summary>
+        /// <param name="productModel"></param>
+        /// <returns></returns>
         public ProductModel CreateData(ProductModel productModel)
         {
             productModel.Id = System.Guid.NewGuid().ToString();
@@ -133,7 +153,10 @@ namespace ContosoCrafts.WebSite.Services
         }
 
 
+        /// <summary>
         /// Save product after converting it to json format
+        /// </summary>
+        /// <param name="products"></param>
         private void SaveProducts(IEnumerable<ProductModel> products)
         {
             var jsonProducts = JsonSerializer.Serialize(products,
@@ -146,7 +169,11 @@ namespace ContosoCrafts.WebSite.Services
         }
 
 
+        /// <summary>
         /// Delete Data Method 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public bool DeleteData(string id)
         {
             // Get the current set, and remove the record with the specified ID from it
