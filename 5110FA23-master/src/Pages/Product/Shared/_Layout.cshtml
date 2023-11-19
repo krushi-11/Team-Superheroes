@@ -4,19 +4,24 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Contoso Crafts</title>
+
     <!--Include Bootstrap-->
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+
     <!--Include site.css-->
     <link rel="stylesheet" href="~/css/site.css" />
+
     <!--Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Yellowtail&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
+
         <!--Navigation Bar-->
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-navbar border-bottom box-shadow mb-3">
             <div class="container">
+
                 <!--Navbar Toggle Buttons-->
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -25,23 +30,28 @@
                 <div class="navbar-collapse collapse d-flex justify-content-between">
                     <ul class="flex-grow-1 navbar-nav">
                         <li>
+
                             <!--Logo-->
                             <a asp-page="/Index"><img class="navImgLogo" id="navImage" src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/b9ccce181739065.6520fe8600888.png"></a>
                         </li>
                         <li class="nav-item navbar-nav-padding">
+
                             <!--Privacy Link-->
                             <a class="nav-link text-white" asp-area="" asp-page="/Privacy">Privacy</a>
                         </li>
                         <li class="nav-item navbar-nav-padding">
+
                             <!--Product Link-->
                             <!-- removed ./ which was stopping inner pages to product page -->
                             <a class="nav-link text-white" asp-area="" asp-page="/Product/Index">Products</a>
                         </li>
                         <li class="nav-item navbar-nav-padding">
+
                             <!--About Us Link-->
                             <a class="nav-link text-white" asp-area="" asp-page="/AboutUs">About Us</a>
                         </li>
                     </ul>
+
                     <!--Cart icon and image-->
                     <div class="cart-icon ml-auto order-sm-last">
                         <a asp-page="/Cart" class="nav-link text-white">
@@ -56,6 +66,7 @@
     
     <div class="container">
         <main role="main" class="pb-3">
+
             <!-- Render the main content here -->
             @RenderBody()
         </main>
@@ -70,6 +81,7 @@
     <!-- Include jQuery and Bootstrap JavaScript -->
     <script src="~/lib/jquery/dist/jquery.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
+
     <!-- Include custom site JavaScript -->
     <script src="~/js/site.js" asp-append-version="true"></script>
 
