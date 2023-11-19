@@ -30,21 +30,21 @@ namespace ContosoCrafts.WebSite.Pages.Product
         public ProductModel Product { get; set; }
 
         /// <summary>
-        /// OnPost Method to send data
+        /// Handles HTTP POST request to create a new product
         /// </summary>
         public IActionResult OnPost()
         {
-
-            if (ModelState.IsValid) ///State Validation Check
+            //Check if the model is valid
+            if (ModelState.IsValid) 
             {
-                /// Save the product to the database (or in this case, the JSON file)
+                // Save the product to the database (or in this case, the JSON file)
                 ProductService.CreateData(Product);
 
-                /// Redirect to a success or product listing page after saving
+                // Redirect to a success or product listing page after saving
                 return RedirectToPage("./Index");
             }
 
-            /// Stay on the same page if no file was uploaded or there was an issue
+            // Stay on the same page if no file was uploaded or there was an issue
             return Page();
         }
     }
