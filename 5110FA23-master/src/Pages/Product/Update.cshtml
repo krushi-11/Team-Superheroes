@@ -1,5 +1,6 @@
 ﻿@page "{id}"
 @using ContosoCrafts.WebSite.Services
+@using ContosoCrafts.WebSite.Models
 @inject JsonFileProductService ProductService
 @model ContosoCrafts.WebSite.Pages.Product.UpdateModel
 
@@ -7,14 +8,17 @@
     ViewData["Title"] = "Update Page";
 }
 
-<h1>Update Product</h1> <!-- Heading -->
-<!-- Update page -->
+<!-- Heading -->
+<h1>Update Product</h1>
+
 <div class="whiteboxcrudi">
 
     <form method="post">
 
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        @Html.HiddenFor(x => x.Product.Id) <!-- Hidden input for Product ID -->
+        <!-- Hidden input for Product ID -->
+        @Html.HiddenFor(x => x.Product.Id)
+
         <!-- Update Product Title -->
         <div class="form-group">
             <label asp-for="Product.Title" class="control-label"></label> <!-- Label for Product Title -->
@@ -57,8 +61,18 @@
             <span asp-validation-for="Product.Stock" class="text-danger"></span> <!-- Validation message for Product Stock -->
         </div>
 
-        <div class="row">
+        <!-- Select Category of Product-->
+        <div class="form-group">
+            <label asp-for="Product.ProductType" class="text-label"></label>
+            <select class="form-control"
+                    asp-for="Product.ProductType"
+                    asp-items="Html.GetEnumSelectList<ProductTypeEnum>()">
+                <option selected="selected" value="">Please Select</option>
+            </select>
+            <span asp-validation-for="Product.ProductType" class="text-danger"></span>
+        </div>
 
+        <div class="row">
             <!-- Save Updated Information -->
             <div class="form-group">
                 <input style="margin-left:15px" type="submit" value="Save" class="btn btn-success" /> <!-- Save button -->
@@ -70,11 +84,8 @@
             <div class="form-group">
                 <button asp-page="./Product/Index" class="btn btn-danger">Cancel</button> <!-- Back to Product List button -->
             </div>
-
         </div>
-        
     </form>
-
 </div>
 
 @section Scripts {
