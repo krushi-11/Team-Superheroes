@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -61,7 +62,10 @@ namespace ContosoCrafts.WebSite.Models
         /// <summary>
         /// Getter and Setter for RatingsModel
         /// </summary>
-        public int[] Ratings { get; set; } 
+        public int[] Ratings { get; set; }
+
+        // Store the Comments entered by the users on this product
+        public List<CommentModel> CommentList { get; set; } = new List<CommentModel>();
 
         /// <summary>
         /// Getter and Setter of ProductType (enum)
