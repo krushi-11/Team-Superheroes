@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System;
 
 namespace ContosoCrafts.WebSite.Models
 {
@@ -10,9 +9,9 @@ namespace ContosoCrafts.WebSite.Models
     {
         // Adding categories for ProductType list displayed on update page for admin to choose from
         [Display(Name = "Undefined")] Undefined = 0,
-        [Display(Name = "Scary")] Scary = 1,
-        [Display(Name = "Kids")] Kids = 2,
-        [Display(Name = "Princess")] Princess = 3,
+        [Display(Name = "Shirts")] Scary = 1,
+        [Display(Name = "Cups")] Kids = 2,
+        [Display(Name = "Caps")] Princess = 3,
 
     }
 }
