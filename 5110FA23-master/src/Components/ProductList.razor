@@ -1,7 +1,8 @@
-@using ContosoCrafts.WebSite.Models
 @using ContosoCrafts.WebSite.Services
+@using ContosoCrafts.WebSite.Models
 @using Microsoft.AspNetCore.Components.Web
 @using Microsoft.JSInterop;
+@using System.Reflection.Metadata;
 @inject JsonFileProductService ProductService
 @inject IJSRuntime JSRuntime
 
@@ -88,20 +89,45 @@
             <div class="card-body">
                 <!--Product description-->
                 <p class="card-text">@selectedProduct.Description</p>
-                <!--order note and size selection-->
-                <h5 style="color:red">Order Note</h5>
-                <input type="text" id="textboxid" placeholder="Input you custom requirements" class="form-text"><br>
-                            <p>Please select your Shirt Size:</p>
-                            <!--Radio button for size selections-->
-                            <input type="radio" id="shirt-size-small" name="S" value="small">
-                            <label for="shirt-size-small">Small(S)</label><br>
-                            <input type="radio" id="shirt-size-medium" name="M" value="medium">
-                            <label for="shirt-size-medium">Medium(M)</label><br>
-                            <input type="radio" id="shirt-size-large" name="L" value="large">
-                            <label for="shirt-size-large">Large(L)</label><br>
-                            <input type="radio" id="shirt-size-xlarge" name="XL" value="xlarge">
-                            <label for="shirt-size-xlarge">X-Large(XL)</label><br>
-                            <button class="btn btn-success">Save</button><br><br>
+                            <!--order note and size selection-->
+                            <h5 style="color:red">Order Note</h5>
+                            <div class="row">
+                                <div class="col">
+                                    @{
+                                        // First show all the existing comments
+                                        foreach (var comment in selectedProduct.CommentList)
+                                        {
+                                            <div class="row">
+                                                <div class="col">
+                                                    @comment.Comment
+                                                </div>
+                                            </div>
+                                        }
+
+                                        // If this is a new comment, then add the Input boxes for it, else show the Add Comment Button
+                                        if (NewComment)
+                                        {
+                                            <div class="row">
+                                                <div class="col">
+                                                    <input placeholder="Enter Custom Requirements" type="text" @onchange="(e) => UpdateCommentText(e.Value.ToString())" value="@NewCommentText" />
+                                                    <button @onclick="(e => AddComment())" class="btn btn-success" data-toggle="modal">Save Order Form</button>
+                                                </div>
+                                            </div>
+                                        }
+
+                                        // If this is not a new oredr form, then show the buttons for Adding comment and Close
+                                        if (NewComment == false)
+                                        {
+                                            <div class="row">
+                                                <div class="col">
+                                                    <button @onclick="(e => ShowNewCommentInput())" id="AddComment" class="btn btn-customised">Add Order Form</button>
+                                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                            </div>
             </div>
           </div>
         </div>
@@ -196,4 +222,49 @@
         FilterDataString = null;
     }
 
+    // New Comment Flag to show the input box or not
+    bool NewComment = false;
+
+    // Next Comment Text is what the comment text is
+    string NewCommentText = "";
+
+    /// <summary>
+    /// Enable the New Comment Entry by setting the NewComment flag
+    /// </summary>
+    /// <param name="comment"></param>
+    void ShowNewCommentInput()
+    {
+        // Setting the new Comment flag to true will show the input box
+        NewComment = true;
+    }
+
+    /// <summary>
+    /// Set the New Comment Text variable to the data just entered in the input box
+    /// </summary>
+    /// <param name="newCommentText"></param>
+    void UpdateCommentText(string newCommentText)
+    {
+        NewCommentText = newCommentText;
+    }
+
+    /// <summary>
+    /// Add the comment to the product
+    /// Best to refactor this to be a method to call in the Middle Tier Data service, rathern than putting the logic here...
+    /// </summary>
+    /// <param name="comment"></param>
+    void AddComment()
+    {
+        // Refactor to be a call to the middle tier
+        // ProductService.AddCommentToProduct(selectedProduct, comment);
+
+
+        // Add it to the Comment List
+        selectedProduct.CommentList.Add(new CommentModel() { Comment = NewCommentText });
+
+        // Call for the Product to be saved
+        ProductService.UpdateData(selectedProduct);
+
+        // Set the NewComment flag to false to hide the input box
+        NewComment = false;
+    }
 }
