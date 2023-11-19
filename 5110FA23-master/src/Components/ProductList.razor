@@ -6,9 +6,11 @@
 @inject IJSRuntime JSRuntime
 
 <div>
+
     <!--Search and Filter Section-->
     <div class="row">
         <div class="col">
+
             <!-- Search Input and Buttons-->
             <input placeholder="Enter the Product" type="text" @onchange="(e) => UpdateFilterText(e.Value.ToString())" value="@FilterDataString" />
             <button @onclick="(e => EnableFilterData())" class="btn btn-success">Filter</button>
@@ -31,21 +33,24 @@
 
         if (productList.Any())
         {
-            //Display Filtered Products
+            <!--Display Filtered Products-->
             <div class="card-columns">
             @foreach(var product in productList)
             {
                 <div class="card">
+
                     <!--Product Image-->
                     <div class="card-img" style="background-image: url('@product.Image');"></div>
 
                         <div class="card-body">
+
                             <!-- Product Title-->
                             <h5 class="card-title">@product.Title</h5>
                         </div>
 
                         <div class="card-footer">
                             <small class="text-muted">
+
                             <!--More Info Button-->    
                             <button @onclick="(e => SelectProduct(product.Id))"
                                         data-toggle="modal" data-target="#productModal" class="btn btn-primary">
@@ -55,6 +60,7 @@
 
                         <!--Created Add to Cart button-->
                         <button class="addtocart" @onclick="(e => AddToCart(product))">Add to Cart</button>
+                        
                         <!-- Display the message -->
                         @if (productAddedToCart == product.Id)
                         {
@@ -82,6 +88,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
+
           <!--Product title in Modal-->
           <h5 class="modal-title" id="productTitle">@selectedProduct.Title</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -89,17 +96,21 @@
           </button>
         </div>
         <div class="modal-body">
+
           <!--Product details in Modal-->
           <div class="card">
             <div class="card-img" style="background-image: url('@selectedProduct.Image');">
             </div>
             <div class="card-body">
+
                 <!--Product description-->
                 <p class="card-text">@selectedProduct.Description</p>
+
                 <!--order note and size selection-->
                 <h5 style="color:red">Order Note</h5>
                 <input type="text" id="textboxid" placeholder="Input you custom requirements" class="form-text"><br>
                             <p>Please select your Shirt Size:</p>
+
                             <!--Radio button for size selections-->
                             <input type="radio" id="shirt-size-small" name="S" value="small">
                             <label for="shirt-size-small">Small(S)</label><br>
@@ -121,6 +132,7 @@
           </div>
         </div>
         <div class="modal-footer">
+
           <!--Display like/dislike and rating-->
           @if(voteCount == 0)
           {
@@ -130,6 +142,7 @@
           {
             <span>@voteCount @voteLabel</span>
           }
+
           <!--Star rating-->
           @for(int i=1; i<6; i++)
           {
@@ -148,16 +161,19 @@
     </div>
   </div>
 }
+
 <!--Font Awesome styles-->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 @code 
 {
+    // Current selected product for modal display
     ProductModel selectedProduct = new ProductModel { Title = "Black Panther" };
     string selectedProductId;
     string FilterDataString = "";
     bool FilterData = false;
 
+    //Method to select a product and display its details in the modal
     void SelectProduct(string productId)
     {
         selectedProductId = productId;
@@ -169,6 +185,7 @@
     int voteCount = 0;
     string voteLabel;
 
+    // Method to get the current rating of the selected product
     void GetCurrentRating()
     {
         if(selectedProduct.Ratings == null)
@@ -186,6 +203,7 @@
         System.Console.WriteLine($"Current rating for {selectedProduct.Id}: {currentRating}");
     }
 
+    // Method to submit a rating for the selected product
     void SubmitRating(int rating)
     {
         System.Console.WriteLine($"Rating received for {selectedProduct.Id}: {rating}");
@@ -194,6 +212,7 @@
     }
 
     string productAddedToCart;
+
     // New property for the shopping cart
     List<ProductModel> ShoppingCart { get; set; } = new List<ProductModel>();
 
@@ -207,17 +226,20 @@
         Task.Delay(2000).ContinueWith(_ => productAddedToCart = null);
     }
 
+    // Method to update the filter text
     void UpdateFilterText(string text)
     {
         FilterDataString = text;
     }
 
+    // Method to enable the filter
     void EnableFilterData()
     {
         // If the Filter is enabled, set the filter flag
         FilterData = true;
     }
 
+    // Method to clear the filter
     void ClearFilterData()
     {
         // If the Filter is enabled, set the filter flag
