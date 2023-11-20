@@ -6,6 +6,7 @@
 @{
     ViewData["Title"] = "Read page";
 }
+
 <!-- Referencing styles in site.css -->
 <head>
     <link rel="stylesheet" type="text/css" href="site.css">
@@ -13,38 +14,57 @@
 
 <!-- Added whitebox on the background to make text visible -->
 <div class="Read-box">
-    &nbsp;
+
     <!-- Added Spacing -->
+    &nbsp;
+    
+    <!-- Heading -->
     <h1>Read</h1>
+
     <div class="content">
-        <h5 class="title" id="productTitle">@Model.Product.Title</h5> <!-- Displaying the Product Title -->
-        <img src='@Model.Product.Image' width="388" height="400" alt='Image for @Model.Product.Title'> <!-- Displaying the Product Image -->
-        <p class="card-text">@Model.Product.Description</p> <!-- Displaying the Product Description -->
-        <p class="card-text">Price: $@Model.Product.Price</p> <!-- Displaying the Product Price -->
+
+        <!-- Displaying the Product Title -->
+        <h5 class="title" id="productTitle">@Model.Product.Title</h5>
+        <!-- Displaying the Product Image -->
+        <img src='@Model.Product.Image' width="388" height="400" alt='Image for @Model.Product.Title'>
+        <!-- Displaying the Product Description -->
+        <p class="card-text">@Model.Product.Description</p>
+        <!-- Displaying the Product Price -->
+        <p class="card-text">Price: $@Model.Product.Price</p>
+
         <p class="card-text">
+
             @if (@Model.Product.Stock <= 10)
             {
                 <span>Items lefts: @Model.Product.Stock</span>
 
-                <br> <!-- Displaying the Stock left and a warning if the stock is low -->
+                <!-- Line Break -->
+                <br>
+
+                <!-- Displaying the Stock left and a warning if the stock is low -->
                 <span>Hurry Up! Limited Stock</span>
             }
+
             else
             {
-                <span>Items lefts: @Model.Product.Stock</span> <!-- Displaying the Stock left -->
+                <!-- Displaying the Stock left -->
+                <span>Items lefts: @Model.Product.Stock</span>
             }
+
         </p>
 
         <!-- Created update button -->
         <form method="post">
-            <a class="link-button" asp-page="Update" asp-route-id="@Model.Product.Id">Update</a> <!-- Update button -->
+            <a class="link-button" asp-page="Update" asp-route-id="@Model.Product.Id">Update</a>
         </form>
 
+        <!-- Back to Product List button -->
         <div>
-            <a asp-page="Index" class="link-button2">Cancel</a> <!-- Back to Product List button -->
+            <a asp-page="Index" class="link-button2">Cancel</a>
         </div>
-        &nbsp;
+
         <!-- Added Spacing in between -->
+        &nbsp;
 
     </div>
 </div>
