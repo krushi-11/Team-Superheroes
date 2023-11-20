@@ -36,6 +36,7 @@ namespace UnitTests.Models
         [SetUp]
         public void TestInitialize()
         {
+            // set up the default HTTP context
             httpContextDefault = new DefaultHttpContext()
             {
                 //RequestServices = serviceProviderMock.Object,
@@ -43,27 +44,32 @@ namespace UnitTests.Models
 
             modelState = new ModelStateDictionary();
 
+            //Create an action context for testing
             actionContext = new ActionContext(httpContextDefault, httpContextDefault.GetRouteData(), new PageActionDescriptor(), modelState);
 
             modelMetadataProvider = new EmptyModelMetadataProvider();
             viewData = new ViewDataDictionary(modelMetadataProvider, modelState);
             tempData = new TempDataDictionary(httpContextDefault, Mock.Of<ITempDataProvider>());
 
+            // create a page context for testing
             pageContext = new PageContext(actionContext)
             {
                 ViewData = viewData,
             };
 
+            //set up the web host environment for testing
             var mockWebHostEnvironment = new Mock<IWebHostEnvironment>();
             mockWebHostEnvironment.Setup(m => m.EnvironmentName).Returns("Hosting:UnitTestEnvironment");
             mockWebHostEnvironment.Setup(m => m.WebRootPath).Returns("../../../../src/bin/Debug/net7.0/wwwroot");
             mockWebHostEnvironment.Setup(m => m.ContentRootPath).Returns("./data/");
 
+            //set up the logger and product service for testing
             var MockLoggerDirect = Mock.Of<ILogger<ProductModelTests>>();
             JsonFileProductService productService;
 
             productService = new JsonFileProductService(mockWebHostEnvironment.Object);
 
+            //create an instance of the test class
             pageModel = new ProductModelTests()
             {
             };

@@ -21,6 +21,7 @@ namespace UnitTests.Pages.Product.Create
         /// Test initialize
         /// </summary>
         #region TestSetup
+        //variables for setting up the test environment 
         public static IUrlHelperFactory urlHelperFactory; // Factory for URL helper
         public static DefaultHttpContext httpContextDefault; // Default HTTP context
         public static IWebHostEnvironment webHostEnvironment; // Web host environment
@@ -36,12 +37,16 @@ namespace UnitTests.Pages.Product.Create
         [SetUp]
         public void TestInitialize()
         {
+            //set up the default HTTP context
             httpContextDefault = new DefaultHttpContext(); // Creating a new default HTTP context
 
+            //initialize a new model state dictionary
             modelState = new ModelStateDictionary(); // Initializing a new model state dictionary
 
+            //create an auction context for testing
             actionContext = new ActionContext(httpContextDefault, httpContextDefault.GetRouteData(), new PageActionDescriptor(), modelState); // Creating a new action context
 
+            //initialize an empty model metadata provider
             modelMetadataProvider = new EmptyModelMetadataProvider(); // Initializing an empty model metadata provider
             viewData = new ViewDataDictionary(modelMetadataProvider, modelState); // Creating a new view data dictionary
             tempData = new TempDataDictionary(httpContextDefault, Mock.Of<ITempDataProvider>()); // Creating a new temporary data dictionary
@@ -51,13 +56,13 @@ namespace UnitTests.Pages.Product.Create
                 ViewData = viewData, // Setting view data
             };
 
-            ///creating variable mockWebHostEnvironment
+            ///creating a mockWebHostEnvironment
             var mockWebHostEnvironment = new Mock<IWebHostEnvironment>(); // Mocking the web host environment
             mockWebHostEnvironment.Setup(m => m.EnvironmentName).Returns("Hosting:UnitTestEnvironment"); // Setting up environment name
             mockWebHostEnvironment.Setup(m => m.WebRootPath).Returns("../../../../src/bin/Debug/net7.0/wwwroot"); // Setting up web root path
             mockWebHostEnvironment.Setup(m => m.ContentRootPath).Returns("./data/"); // Setting up content root path
 
-            ///creating variable MockLoggerDirect
+            ///creating a MockLoggerDirect
             var MockLoggerDirect = Mock.Of<ILogger<IndexModel>>(); // Mocking the logger
 
             JsonFileProductService productService; // JSON file product service

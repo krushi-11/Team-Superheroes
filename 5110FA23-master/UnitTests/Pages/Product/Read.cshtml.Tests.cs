@@ -56,13 +56,13 @@ namespace UnitTests.Pages.Product.Read
 
             // Setting up a mock WebHostEnvironment
 
-            ///creating variable mockWebHostEnvironment
+            ///creating a mockWebHostEnvironment
             var mockWebHostEnvironment = new Mock<IWebHostEnvironment>();
             mockWebHostEnvironment.Setup(m => m.EnvironmentName).Returns("Hosting:UnitTestEnvironment");
             mockWebHostEnvironment.Setup(m => m.WebRootPath).Returns("../../../../src/bin/Debug/net7.0/wwwroot");
             mockWebHostEnvironment.Setup(m => m.ContentRootPath).Returns("./data/");
 
-            ///creating variable MockLoggerDirect
+            ///creating a MockLoggerDirect
             var MockLoggerDirect = Mock.Of<ILogger<IndexModel>>();
             JsonFileProductService productService;
 
