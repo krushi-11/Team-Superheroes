@@ -3,39 +3,46 @@
 @{
     ViewData["Title"] = "Index page";
 }
+
 <!-- Referencing styling done in site.css page -->
 <link rel="stylesheet" type="text/css" href="site.css" />
 <div class="container">
 
     <!-- Implemented a Create button -->
     <form method="post">
-        <a asp-page="./Create" asp-route-id="@Model.Products" class="create-button">+ Create</a> <!-- Create button -->
+        <!-- Create button -->
+        <a asp-page="./Create" asp-route-id="@Model.Products" class="create-button">+ Create</a>
     </form>
 
-    &nbsp;
-
     <!-- Spacing in between -->
+    &nbsp;
+    
     <table class="table table-bordered bg-white">
         <thead>
             <tr>
-                <th>Title</th> <!-- Table header for Title -->
-                <th>Action</th> <!-- Table header for Action -->
+                <!-- Table header for Title -->
+                <th>Title</th> 
+                <!-- Table header for Action -->
+                <th>Action</th>
             </tr>
         </thead>
+
         <tbody>
             @foreach (var product in Model.Products)
             {
                 <tr>
-                    <td>@product.Title</td> <!-- Displaying the product title -->
+                    <!-- Displaying the product title -->
+                    <td>@product.Title</td> 
                     <!-- Style for Read and Delete button moved to css file -->
                     <td>
-                        <a asp-page="Read" asp-route-id="@product.Id" class="link-button">Read</a> <!-- Read button -->
-                        &nbsp;
-                        &nbsp;
+                        <!-- Read button -->
+                        <a asp-page="Read" asp-route-id="@product.Id" class="link-button">Read</a>
 
                         <!-- Spacing between the Buttons -->
+                        &nbsp; &nbsp;
+                        
                         <!-- Created Delete button -->
-                        <a asp-page="Delete" asp-route-id="@product.Id" class="link-button2">Delete</a> <!-- Delete button -->
+                        <a asp-page="Delete" asp-route-id="@product.Id" class="link-button2">Delete</a>
                     </td>
                 </tr>
             }
