@@ -21,44 +21,44 @@
 
         <!-- Update Product Title -->
         <div class="form-group">
-            <label asp-for="Product.Title" class="control-label"></label> <!-- Label for Product Title -->
-            <input asp-for="Product.Title" class="form-control" /> <!-- Input for Product Title -->
-            <span asp-validation-for="Product.Title" class="text-danger"></span> <!-- Validation message for Product Title -->
+            <label asp-for="Product.Title" class="control-label"></label>
+            <input asp-for="Product.Title" class="form-control" />
+            <span asp-validation-for="Product.Title" class="text-danger"></span>
         </div>
 
         <!-- Update Product Description -->
         <div class="form-group">
-            <label asp-for="Product.Description" class="control-label"></label> <!-- Label for Product Description -->
-            <input asp-for="Product.Description" class="form-control" /> <!-- Input for Product Description -->
-            <span asp-validation-for="Product.Description" class="text-danger"></span> <!-- Validation message for Product Description -->
+            <label asp-for="Product.Description" class="control-label"></label>
+            <input asp-for="Product.Description" class="form-control" />
+            <span asp-validation-for="Product.Description" class="text-danger"></span>
         </div>
 
         <!-- Update Product URL -->
         <div class="form-group">
-            <label asp-for="Product.Url" class="control-label"></label> <!-- Label for Product URL -->
-            <input asp-for="Product.Url" class="form-control" /> <!-- Input for Product URL -->
-            <span asp-validation-for="Product.Url" class="text-danger"></span> <!-- Validation message for Product URL -->
+            <label asp-for="Product.Url" class="control-label"></label>
+            <input asp-for="Product.Url" class="form-control" />
+            <span asp-validation-for="Product.Url" class="text-danger"></span>
         </div>
 
         <!-- Update Product Image -->
         <div class="form-group">
-            <label asp-for="Product.Image" class="control-label"></label> <!-- Label for Product Image -->
-            <input asp-for="Product.Image" class="form-control" /> <!-- Input for Product Image -->
-            <span asp-validation-for="Product.Image" class="text-danger"></span> <!-- Validation message for Product Image -->
+            <label asp-for="Product.Image" class="control-label"></label>
+            <input asp-for="Product.Image" class="form-control" />
+            <span asp-validation-for="Product.Image" class="text-danger"></span>
         </div>
 
         <!-- Update Product Price -->
         <div class="form-group">
-            <label asp-for="Product.Price" class="control-label"></label> <!-- Label for Product Price -->
-            <input asp-for="Product.Price" class="form-control" /> <!-- Input for Product Price -->
-            <span asp-validation-for="Product.Price" class="text-danger"></span> <!-- Validation message for Product Price -->
+            <label asp-for="Product.Price" class="control-label"></label>
+            <input asp-for="Product.Price" class="form-control" />
+            <span asp-validation-for="Product.Price" class="text-danger"></span>
         </div>
 
         <!-- Update Product Stock -->
         <div class="form-group">
-            <label asp-for="Product.Stock" class="control-label"></label> <!-- Label for Product Stock -->
-            <input asp-for="Product.Stock" class="form-control" /> <!-- Input for Product Stock -->
-            <span asp-validation-for="Product.Stock" class="text-danger"></span> <!-- Validation message for Product Stock -->
+            <label asp-for="Product.Stock" class="control-label"></label>
+            <input asp-for="Product.Stock" class="form-control" />
+            <span asp-validation-for="Product.Stock" class="text-danger"></span>
         </div>
 
         <!-- Select Category of Product-->
@@ -75,21 +75,23 @@
         <div class="row">
             <!-- Save Updated Information -->
             <div class="form-group">
-                <input style="margin-left:15px" type="submit" value="Save" class="btn btn-success" /> <!-- Save button -->
+                <input style="margin-left:15px" type="submit" value="Save" class="btn btn-success" />
             </div>
 
+            <!-- Spacing in between -->
             &nbsp; &nbsp;
 
             <!-- Back to Products -->
             <div class="form-group">
-                <button asp-page="./Product/Index" class="btn btn-danger">Cancel</button> <!-- Back to Product List button -->
+                <button asp-page="./Product/Index" class="btn btn-danger">Cancel</button>
             </div>
         </div>
     </form>
 </div>
 
+<!-- Script Validation -->
 @section Scripts {
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    } <!-- Script Validation -->
+    }
 }
