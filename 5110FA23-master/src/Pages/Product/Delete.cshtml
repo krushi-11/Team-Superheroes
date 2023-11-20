@@ -64,21 +64,24 @@
 
         <!-- Delete Updated Information -->
         <div class="form-group">
-            <input style="margin-left:15px" type="submit" value="Delete" class="btn btn-success" /> <!-- Delete Button -->
+            <!-- Delete Button -->
+            <input style="margin-left:15px" type="submit" value="Delete" class="btn btn-success" />
         </div>
 
 
         <!-- Back to Products -->
         <div>
-            <a asp-page="Index" class="link-button2">Cancel</a> <!-- Back to Product List button -->
+            <!-- Back to Product List button -->
+            <a asp-page="Index" class="link-button2">Cancel</a>
         </div>
         &nbsp;
 
     </form>
 </div>
 
+<!-- Script Validation -->
 @section Scripts {
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    } <!-- Script Validation -->
+    }
 }
