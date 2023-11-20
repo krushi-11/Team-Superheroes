@@ -11,61 +11,59 @@
 <!-- Heading -->
 <h1>Create a New Product</h1> 
 
-<!-- Referencing styling done in site.css page -->
 <head>
-
     <!-- Header -->
-    <link rel="stylesheet" type="text/css" href="site.css">
+    <link rel="stylesheet" type="text/css" href="site.css"> <!-- Referencing styling done in site.css page -->
 </head>
 
 <body>
     <div>
-        <form method="post" class="whiteboxcrudi">
-
-            <!-- HTML Form -->
+        <!-- HTML Form -->
+        <form method="post" enctype="multipart/form-data" class="whiteboxcrudi">
+            
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             @Html.HiddenFor(x => x.Product.Id) <!-- Hidden input for Product ID -->
 
             <!-- Product Title -->
             <div class="form-group">
-                <label class="control-label" asp-for="Product.Title"></label> <!-- Label for Product Title -->
-                <input asp-for="Product.Title" class="form-control" required placeholder="Enter Title"> <!-- Input for Product Title -->
-                <span class="text-danger" asp-validation-for="Product.Title"></span> <!-- Validation message for Product Title -->
+                <label class="control-label" asp-for="Product.Title"></label>
+                <input asp-for="Product.Title" class="form-control" required placeholder="Enter Title">
+                <span class="text-danger" asp-validation-for="Product.Title"></span>
             </div>
 
             <!-- Product Description -->
             <div class="form-group">
-                <label class="control-label" asp-for="Product.Description"></label> <!-- Label for Product Description -->
-                <input asp-for="Product.Description" class="form-control" required placeholder="Enter Description"> <!-- Input for Product Description -->
-                <span class="text-danger" asp-validation-for="Product.Description"></span> <!-- Validation message for Product Description -->
+                <label class="control-label" asp-for="Product.Description"></label>
+                <input asp-for="Product.Description" class="form-control" required placeholder="Enter Description">
+                <span class="text-danger" asp-validation-for="Product.Description"></span>
             </div>
 
             <!-- Product URL -->
             <div class="form-group">
-                <label class="control-label" asp-for="Product.Url"></label> <!-- Label for Product URL -->
-                <input asp-for="Product.Url" class="form-control" required placeholder="Enter Url"> <!-- Input for Product URL -->
-                <span class="text-danger" asp-validation-for="Product.Url"></span> <!-- Validation message for Product URL -->
+                <label class="control-label" asp-for="Product.Url"></label>
+                <input asp-for="Product.Url" class="form-control" required placeholder="Enter Url">
+                <span class="text-danger" asp-validation-for="Product.Url"></span>
             </div>
 
             <!-- Product Image -->
             <div class="form-group">
-                <label class="control-label" asp-for="Product.Image"></label> <!-- Label for Product Image -->
-                <input asp-for="Product.Image" class="form-control" required placeholder="Enter Image Link"> <!-- Input for Product Image -->
-                <span class="text-danger" asp-validation-for="Product.Image"></span> <!-- Validation message for Product Image -->
+                <label class="control-label" asp-for="Product.Image"></label>
+                <input asp-for="Product.Image" class="form-control" required placeholder="Enter Image Link">
+                <span class="text-danger" asp-validation-for="Product.Image"></span>
             </div>
 
             <!-- Product Price -->
             <div class="form-group">
-                <label class="control-label" asp-for="Product.Price"></label> <!-- Label for Product Price -->
-                <input asp-for="Product.Price" class="form-control" required placeholder="Enter Price"> <!-- Input for Product Price -->
-                <span class="text-danger" asp-validation-for="Product.Price"></span> <!-- Validation message for Product Price -->
+                <label class="control-label" asp-for="Product.Price"></label>
+                <input asp-for="Product.Price" class="form-control" required placeholder="Enter Price">
+                <span class="text-danger" asp-validation-for="Product.Price"></span>
             </div>
 
             <!-- Product Stock -->
             <div class="form-group">
-                <label class="control-label" asp-for="Product.Stock"></label> <!-- Label for Product Stock -->
-                <input asp-for="Product.Stock" class="form-control" required placeholder="Enter Stock"> <!-- Input for Product Stock -->
-                <span class="text-danger" asp-validation-for="Product.Stock"></span> <!-- Validation message for Product Stock -->
+                <label class="control-label" asp-for="Product.Stock"></label>
+                <input asp-for="Product.Stock" class="form-control" required placeholder="Enter Stock">
+                <span class="text-danger" asp-validation-for="Product.Stock"></span>
             </div>
 
             <!-- Select Category of Product-->
@@ -83,19 +81,21 @@
 
                 <!-- Save Button -->
                 <div class="form-group">
-                    <input style="margin-left:15px" type="submit" value="Save" class="btn btn-success" /> <!-- Save button -->
+                    <input style="margin-left:15px" type="submit" value="Save" class="btn btn-success" />
                 </div>
 
                 &nbsp; &nbsp;
 
                 <!-- Cancel Button -->
                 <div>
-                    <a asp-page="Index" class="link-button2">Cancel</a> <!-- Back to Product List button -->
+                    <!-- Back to Product List button -->
+                    <a asp-page="Index" class="link-button2">Cancel</a>
                 </div>
+
             </div>
 
-            <!-- Verification -->
-            <input name="__RequestVerificationToken" type="hidden" value=""> <!-- Request Verification Token -->
+            <!-- Request Verification Token -->
+            <input name="__RequestVerificationToken" type="hidden" value="">
 
         </form>
     </div>
