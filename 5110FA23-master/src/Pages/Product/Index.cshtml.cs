@@ -1,7 +1,7 @@
-using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using ContosoCrafts.WebSite.Models;
 using ContosoCrafts.WebSite.Services;
+using System.Collections.Generic;
 
 namespace ContosoCrafts.WebSite.Pages.Product
 {
@@ -13,14 +13,14 @@ namespace ContosoCrafts.WebSite.Pages.Product
         /// <summary>
         /// Default Constructor for IndexModel.
         /// </summary>
-        /// <param name="productService"></param>The service responsible for providing product data.
+        /// <param name="productService">The service responsible for providing product data.</param>
         public IndexModel(JsonFileProductService productService)
         {
             ProductService = productService;
         }
 
         /// <summary>
-        /// Data Servicefor retrieving product information
+        /// Data Service for retrieving product information
         /// </summary>
         public JsonFileProductService ProductService { get; }
 
