@@ -15,7 +15,9 @@ using ContosoCrafts.WebSite.Services;
 
 namespace UnitTests.Pages.Shared
 {
-    // Class for testing Error Razor Page
+    /// <summary>
+    /// Class for testing Error Razor Page
+    /// </summary>
     public class ErrorTests
     {
         /// <summary>
@@ -33,7 +35,9 @@ namespace UnitTests.Pages.Shared
         public static TempDataDictionary tempData;
         public static PageContext pageContext;
 
-        // Instance of the ErrorModel for testing
+        /// <summary>
+        /// Instance of the ErrorModel for testing
+        /// </summary>
         public static ErrorModel pageModel;
 
         // Test initialization method

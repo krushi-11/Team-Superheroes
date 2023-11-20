@@ -13,7 +13,9 @@ namespace UnitTests.Controllers
     /// </summary>
     public class ProductControllerTests
     {
-        //Creating an instance
+        /// <summary>
+        /// Creating an instance
+        /// </summary>
         public static ProductsController testProductController;
 
         /// <summary>

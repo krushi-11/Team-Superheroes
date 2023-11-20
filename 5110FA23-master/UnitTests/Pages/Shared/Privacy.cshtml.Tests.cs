@@ -56,13 +56,13 @@ namespace UnitTests.Pages.Shared
                 HttpContext = httpContextDefault
             };
 
-            ///creating variable mockWebHostEnvironment
+            ///creating a mockWebHostEnvironment
             var mockWebHostEnvironment = new Mock<IWebHostEnvironment>();
             mockWebHostEnvironment.Setup(m => m.EnvironmentName).Returns("Hosting:UnitTestEnvironment");
             mockWebHostEnvironment.Setup(m => m.WebRootPath).Returns("../../../../src/bin/Debug/net7.0/wwwroot");
             mockWebHostEnvironment.Setup(m => m.ContentRootPath).Returns("./data/");
 
-            ///creating variable MockLoggerDirect
+            ///creating a MockLoggerDirect
             var MockLoggerDirect = Mock.Of<ILogger<PrivacyModel>>();
             JsonFileProductService productService;
 
