@@ -54,11 +54,78 @@
         </main>
     </div>
 
+    <!--  footer -->
+
     <footer class="border-top footer text-muted bg-footer">
-        <div class="container">
-            &copy; 2023 - Super Heroes - <a asp-area="" asp-page="/Index">Home</a>
+        <div class="container p-4 pb-0">
+            <!-- Section: Links -->
+            <section class="">
+                <!--Grid row-->
+                <div class="row">
+                    <!-- Grid column -->
+                    <div class="col-6 col-sm-6 col-md-3 mx-auto mt-3">
+                        <a asp-page="/Index"><img class="navImgLogo" id="navImage" src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/b9ccce181739065.6520fe8600888.png"></a>
+                    </div>
+                    <!-- Grid column -->
+
+                    <hr class="w-100 clearfix d-md-none" />
+
+
+
+                    <hr class="w-100 clearfix d-md-none" />
+
+                    <!-- Grid column -->
+                    <hr class="w-100 clearfix d-md-none" />
+
+                    <!-- Grid column -->
+                    <!--    contact infomation        -->
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3" style="color:#fff;">
+                        <h6 class="text-uppercase mb-4 font-weight-bold">Contact US</h6>
+                        <p><i class="fas fa-envelope mr-3"></i> TeamSuperHeroes@gmail.com</p>
+                        <p><i class="fas fa-phone mr-3"></i> +1 234 567 8890</p>
+                    </div>
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3" style="color:#fff;">
+                        <h6 class="text-uppercase mb-4 font-weight-bold">Follow us</h6>
+
+                        <!--Instagram-->
+                        <a href="#!" role="button" style="margin-right: 10px;">
+                            <i class="fab fa-instagram fa-2x" style="color: #fff;"></i>
+                        </a>
+
+                        <!--Facebook-->
+                        <a href="#!" role="button" style="margin-right: 10px" ;>
+                            <i class="fab fa-facebook-f fa-2x" style="color: #fff;"></i>
+                        </a>
+
+                        <!--Twitter-->
+                        <a href="#!" role="button" style="margin-right: 10px;">
+                            <i class="fab fa-twitter fa-2x" style="color: #fff;"></i>
+                        </a>
+
+                    </div>
+                </div>
+                <!--Grid row-->
+            </section>
+            <!-- Section: Links -->
+            <!-- Grid container -->
+
+
+            <br />
+            <br />
+
+            <hr size="3" style="margin:auto;" width="70%" color="white">
+            <div class="text-center p-3">
+
+                <p class="text-white" href="https://mdbootstrap.com/">  © 2023 Copyright: SuperHeroes | All rights reserved. </p>
+            </div>
         </div>
+
+        <!-- End of .container -->
+
     </footer>
+
+    
 
     <!-- Include jQuery and Bootstrap JavaScript -->
     <script src="~/lib/jquery/dist/jquery.js"></script>
@@ -67,5 +134,7 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
 
     @RenderSection("Scripts", required: false)
+
+    <script src="https://kit.fontawesome.com/bffb865160.js" crossorigin="anonymous"></script>
 </body>
 </html>
