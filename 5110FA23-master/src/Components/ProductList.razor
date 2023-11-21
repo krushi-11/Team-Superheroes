@@ -51,7 +51,7 @@
                                 <small class="text-muted">
                                     <!--More Info Button-->    
                                     <button @onclick="(e => SelectProduct(product.Id))"
-                                                data-toggle="modal" data-target="#productModal" class="btn btn-primary">
+                                                data-toggle="modal" data-target="#productModal" id="MoreInfoButton_@product.Id" class="btn btn-primary">
                                             More Info
                                     </button>
                                 </small>
@@ -193,7 +193,7 @@
     // Method to get the current rating of the selected product
     void GetCurrentRating()
     {
-        if(selectedProduct.Ratings == null)
+        if (selectedProduct.Ratings == null)
         {
             currentRating = 0;
             voteCount = 0;
