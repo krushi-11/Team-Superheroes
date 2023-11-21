@@ -5,6 +5,31 @@
     ViewData["Title"] = "Home page";
 }
 
-@(await Html.RenderComponentAsync<ProductList>(RenderMode.ServerPrerendered))
+<div id="hero-container">
+    <img src="~/assets/peakpx.jpg" type="image/jpg" />
+
+    <div class="banner">
+        <div class="overlay">
+            <div class="container">
+                <div class="intro-text">
+                    <h1 class="homepage-title-content" id="fade-in">HEROES</h1>
+                    <p class="homepage-tagline-content" id="fade-in">Find Your Favorite Superhero Merchandise!</p>
+                    <a class="btn btn-primary btn-xl" role="button" id="enter-button">Enter</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="products" style="display: none;">
+    @(await Html.RenderComponentAsync<ProductList>(RenderMode.ServerPrerendered))
+</div>
+
+<script>
+    document.getElementById('enter-button').addEventListener('click', function () {
+        document.getElementById('hero-container').style.display = 'none';
+        document.getElementById('products').style.display = 'block';
+    });
+</script>
 
 <script src="_framework/blazor.server.js"></script>
