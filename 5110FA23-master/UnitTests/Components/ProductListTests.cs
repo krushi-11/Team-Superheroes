@@ -116,6 +116,36 @@ namespace UnitTests.Components.Tests
             Assert.AreEqual(true, page.Instance.FilterData);
 
         }
+        /// <summary>
+
+        /// Test for updating the filter
+
+        /// </summary>
+
+        [Test]
+
+        public void UpdateFilterType_ShouldUpdateFilterDataType()
+
+        {
+
+            // Arrange
+
+            Services.AddSingleton(TestHelper.ProductService);
+
+            var page = RenderComponent<ProductList>();
+
+            // Act
+
+            var inputField = page.Find("input[type='text']");
+
+            inputField.Change("NewFilterText");
+
+            // Assert
+
+            Assert.AreEqual("NewFilterText", page.Instance.FilterDataString);
+
+        }
     }
+
     #endregion FilterData
 }
