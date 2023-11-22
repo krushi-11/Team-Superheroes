@@ -77,7 +77,45 @@ namespace UnitTests.Components.Tests
 
             Assert.AreEqual(true, result.Contains("t-challa"));
         }
-          #endregion ProductList
-    }
+        #endregion ProductList
 
+        /// <summary>
+
+        /// Test for testing the enabling the filter function
+
+        /// </summary>
+
+        #region FilterData
+
+        [Test]
+
+        public void Enable_Filter_Data_Set_to_True_Should_Return_True()
+
+        {
+
+            // Arrange
+
+            Services.AddSingleton(TestHelper.ProductService);
+
+            var filterButton = "Filter";
+
+            var page = RenderComponent<ProductList>();
+
+            var buttonList = page.FindAll("Button");
+
+            var button = buttonList.First(m => m.OuterHtml.Contains(filterButton));
+
+            // Act
+
+            button.Click();
+
+            var pageMarkup = page.Markup;
+
+            // Assert
+
+            Assert.AreEqual(true, page.Instance.FilterData);
+
+        }
+    }
+    #endregion FilterData
 }
