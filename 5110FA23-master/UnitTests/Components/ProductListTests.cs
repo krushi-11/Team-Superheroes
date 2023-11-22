@@ -299,6 +299,115 @@ namespace UnitTests.Components.Tests
             Assert.AreEqual(false, preVoteCountString.Equals(postVoteCountString));
 
         }
+        /// <summary>
+
+        /// Test for submit rating
+
+        /// </summary>
+
+        [Test]
+        public void SubmitRating_Valid_ID_Click_Stared_Should_Increment_Count()
+
+        {
+
+            /*
+
+             This test tests that the SubmitRating will change the vote as well as the Star checked
+
+             Because the star check is a calculation of the ratings, using a record that has no stars and checking one makes it clear what was changed
+
+            The test needs to open the page
+
+            Then open the popup on the card
+
+            Then record the state of the count and star check status
+
+            Then check a star
+
+            Then check again the state of the cound and star check status
+ 
+            */
+
+            // Arrange
+
+            Services.AddSingleton(TestHelper.ProductService);
+
+            var Title = "MoreInfoButton_t-challa";
+
+            var page = RenderComponent<ProductList>();
+
+            // Find the Buttons (more info)
+
+            var buttonList = page.FindAll("Button");
+
+            // Find the one that matches the ID looking for and click it
+
+            var button = buttonList.First(m => m.OuterHtml.Contains(Title));
+
+            button.Click();
+
+            // Get the markup of the page post the Click action
+
+            var buttonMarkup = page.Markup;
+
+            // Get the Star Buttons
+
+            var starButtonList = page.FindAll("span");
+
+            // Get the Vote Count
+
+            // Get the Vote Count, the List should have 7 elements, element 2 is the string for the count
+
+            var preVoteCountSpan = starButtonList[1];
+
+            var preVoteCountString = ((preVoteCountSpan.InnerHtml).Split(' '))[0];
+
+            // Get the First star item from the list, it should not be checked
+
+            var starButton = starButtonList.First(m => !string.IsNullOrEmpty(m.ClassName) && m.ClassName.Contains("fa fa-smile"));
+
+            // Save the html for it to compare after the click
+
+            var preStarChange = starButton.OuterHtml;
+
+            // Act
+
+            // Click the star button
+
+            starButton.Click();
+
+            // Get the markup to use for the assert
+
+            buttonMarkup = page.Markup;
+
+            // Get the Star Buttons
+
+            starButtonList = page.FindAll("span");
+
+            // Get the Vote Count, the List should have 7 elements, element 2 is the string for the count
+
+            var postVoteCountSpan = starButtonList[1];
+
+            var postVoteCountString = ((postVoteCountSpan.InnerHtml).Split(' '))[0];
+
+            // Get the Last stared item from the list
+
+            starButton = starButtonList.First(m => !string.IsNullOrEmpty(m.ClassName) && m.ClassName.Contains("fa fa-smile checked"));
+
+            // Save the html for it to compare after the click
+
+            var postStarChange = starButton.OuterHtml;
+
+            int preVoteCount = Int32.Parse(preVoteCountString);
+
+            int postVoteCount = Int32.Parse(postVoteCountString);
+
+            var result = postVoteCount - preVoteCount;
+
+            // Assert
+
+            Assert.AreEqual(1, result);
+        }
     }
     #endregion submitRating
 }
