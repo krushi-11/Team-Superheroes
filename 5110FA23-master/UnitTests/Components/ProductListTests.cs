@@ -408,6 +408,57 @@ namespace UnitTests.Components.Tests
 
             Assert.AreEqual(1, result);
         }
+        #endregion submitRating
+
+        #region SelectProduct
+
+        /// <summary>
+
+        /// Test for getting content of selected product
+
+        /// </summary>
+
+        [Test]
+
+        public void SelectProduct_Valid_ID_Should_Return_Content()
+
+        {
+
+            // Arrange
+
+            Services.AddSingleton(TestHelper.ProductService);
+
+            var id = "10";
+
+            // Render the ProductList component
+
+            var page = RenderComponent<ProductList>();
+
+            // Find the Buttons (more info)
+
+            var buttonList = page.FindAll("Button");
+
+            // Find the one that matches the ID looking for and click it
+
+            var button = buttonList.First(m => m.OuterHtml.Contains(id));
+
+            // Act
+
+            button.Click();
+
+            // Get the markup to use for the assert
+
+            var pageMarkup = page.Markup;
+
+            // Assert
+
+            // Check if the markup contains a specific content
+
+            Assert.AreEqual(true, pageMarkup.Contains("t-challa"));
+
+        }
+
+        #endregion SelectProduct
     }
-    #endregion submitRating
+
 }
