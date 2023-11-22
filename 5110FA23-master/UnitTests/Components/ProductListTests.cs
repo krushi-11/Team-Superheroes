@@ -145,6 +145,47 @@ namespace UnitTests.Components.Tests
             Assert.AreEqual("NewFilterText", page.Instance.FilterDataString);
 
         }
+        /// <summary>
+
+        /// Test for clearing out the filter text
+
+        /// </summary>
+
+        [Test]
+
+        public void Clear_Filter_Data_Set_to_False_Should_Return_False()
+
+        {
+
+            // Arrange
+
+            Services.AddSingleton(TestHelper.ProductService);
+
+            var clearButton = "Clear";
+
+            var page = RenderComponent<ProductList>();
+
+            // Find the Buttons (Clear)
+
+            var buttonList = page.FindAll("Button");
+
+            // Find the one that matches the button name looking for and click it
+
+            var button = buttonList.First(m => m.OuterHtml.Contains(clearButton));
+
+            // Act
+
+            button.Click();
+
+            // Get the markup to use for the assert
+
+            var pageMarkup = page.Markup;
+
+            // Assert
+
+            Assert.AreEqual(false, page.Instance.FilterData);
+
+        }
     }
 
     #endregion FilterData
