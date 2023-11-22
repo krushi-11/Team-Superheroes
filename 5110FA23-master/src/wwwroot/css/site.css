@@ -506,6 +506,8 @@ body, html {
     box-sizing: border-box;
 }
 
+
+/*Styling for Launch page*/
 .banner {
     text-align: center;
     color: #fff;
@@ -554,6 +556,7 @@ body, html {
     animation-duration: 2s;
 }
 
+/*Styling for button*/
 .banner .intro-text .btn-primary {
     border-color: #fff;
     background-color: red;
@@ -568,6 +571,7 @@ body, html {
     color: #111;
 }
 
+/*Styling for video file*/
 #herovid {
     display: block;
     position: absolute;
