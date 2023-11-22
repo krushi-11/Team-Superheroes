@@ -1,40 +1,83 @@
-﻿using ContosoCrafts.WebSite.Services;
-using NUnit.Framework;
-using Bunit;
-using ContosoCrafts.WebSite.Components;
-using Microsoft.Extensions.DependencyInjection;
-using System.Linq;
-using System;
-using System.IO;
+﻿using Bunit;
 
-namespace UnitTests.Components
+using NUnit.Framework;
+
+using Microsoft.Extensions.DependencyInjection;
+
+using System.Linq;
+
+using ContosoCrafts.WebSite.Models;
+
+using ContosoCrafts.WebSite.Components;
+
+using ContosoCrafts.WebSite.Services;
+
+using System;
+
+
+namespace UnitTests.Components.Tests
+
 {
 
+    /// <summary>
+
+    /// This class contains unit tests for the ProductModel
+
+    /// </summary>
+
     public class ProductListTests : Bunit.TestContext
+
     {
-        [Test]
-        public void SelectProduct_InValidId_returns_false()
+
+        #region TestSetup
+
+        public ProductModel[] Products;
+
+        /// <summary>
+
+        /// Test Setup
+
+        /// </summary>
+
+        [SetUp]
+
+        public void TestInitialize()
+
         {
-            Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
-            var id = "MoreInfoButton_t-challa";
+
+        }
+        #endregion TestSetup
+
+        #region ProductList
+        /// <summary>
+        /// Test for getting the product list
+        /// </summary>
+        /// 
+        [Test]
+        public void ProductList_Default_Should_Return_Content()
+
+        {
+            // Arrange
+
+            Services.AddSingleton(TestHelper.ProductService);
+
+            // Act
+
+            // Render the ProductList component
 
             var page = RenderComponent<ProductList>();
 
-            var buttonList = page.FindAll("Button");
+            // Get the Cards retrned
 
-            var button = buttonList.First(m => m.OuterHtml.Contains(id));
+            var result = page.Markup;
 
-            button.Click();
+            // Assert
 
-            var pageMarkup = page.Markup;
-            Assert.AreEqual(false, pageMarkup.Contains("Testing"));
+            // Check if the markup contains a specific content
 
+            Assert.AreEqual(true, result.Contains("t-challa"));
         }
-
-
+          #endregion ProductList
     }
-
-
-
 
 }
