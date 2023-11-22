@@ -10,11 +10,13 @@
 <!-- modify a space between header and body"  -->
 <p style="line-height:5.5em;"> </p>
 
+<!--Video file for Launch page-->
 <div id="video-container">
     <video autoplay muted loop preload="auto" id="herovid">
         <source src="~/assets/vid.mp4" type="video/mp4" />
     </video>
 
+    <!--Text and button for Launch page->
     <div class="banner">
         <div class="overlay">
             <div class="container">
@@ -28,6 +30,8 @@
     </div>
 </div>
 
+
+<!--Directs to index page-->
 <div id="products" style="display: none;">
     @(await Html.RenderComponentAsync<ProductList>(RenderMode.ServerPrerendered))
 </div>
