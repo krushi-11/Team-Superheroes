@@ -9,9 +9,9 @@ namespace ContosoCrafts.WebSite.Models
     {
         // Adding categories for ProductType list displayed on update page for admin to choose from
         [Display(Name = "Undefined")] Undefined = 0,
-        [Display(Name = "Shirts")] Scary = 1,
-        [Display(Name = "Cups")] Kids = 2,
-        [Display(Name = "Caps")] Princess = 3,
+        [Display(Name = "Shirts")] Shirts = 1,
+        [Display(Name = "Cups")] Cups = 2,
+        [Display(Name = "Caps")] Caps = 3,
 
     }
 }
