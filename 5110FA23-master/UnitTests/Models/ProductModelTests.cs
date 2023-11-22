@@ -78,7 +78,7 @@ namespace UnitTests.Models
         #endregion TestSetup
 
         // Testing the ProductModel.cs file
-        #region ModelTests
+        #region ProductModel
 
         /// <summary>
         /// To String should return a Json String
@@ -107,8 +107,8 @@ namespace UnitTests.Models
             // Validate that the string is a valid JSON string.
             Assert.DoesNotThrow(() => System.Text.Json.JsonDocument.Parse(json));
         }
-
-        #endregion ModelTests
         // Ending Testing in the ProductModel.cs file
+        #endregion ProductModel
+
     }
 }
