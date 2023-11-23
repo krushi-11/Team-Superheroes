@@ -10,7 +10,6 @@
 <!-- modify a space between header and body"  -->
 <p style="line-height:5.5em;"> </p>
 
-<!--Video file for Launch page-->
 <div id="video-container">
     <video autoplay muted loop preload="auto" id="herovid">
         <source src="~/assets/vid.mp4" type="video/mp4" />
@@ -30,16 +29,14 @@
     </div>
 </div>
 
-
-<!--Directs to index page-->
-<div id="products" style="display: none;">
+<div id="productlist" style="display: none;">
     @(await Html.RenderComponentAsync<ProductList>(RenderMode.ServerPrerendered))
 </div>
 
 <script>
     document.getElementById('explore-button').addEventListener('click', function () {
-        document.getElementById('hero-container').style.display = 'none';
-        document.getElementById('products').style.display = 'block';
+        document.getElementById('video-container').style.display = 'none';
+        document.getElementById('productlist').style.display = 'block';
     });
 </script>
 
