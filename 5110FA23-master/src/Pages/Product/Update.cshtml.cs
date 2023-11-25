@@ -54,7 +54,7 @@ namespace ContosoCrafts.WebSite.Pages.Product
             if (!ModelState.IsValid) /// State Validation
             {
                 /// Handle the case where ModelState is not valid
-                return Page();
+                return RedirectToPage("./NewErrorPage");
             }
 
             /// Update the product title using the service
