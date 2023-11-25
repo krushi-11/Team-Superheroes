@@ -7,7 +7,6 @@
 @inject IJSRuntime JSRuntime
 
 <div>
-
     <!--Search and Filter Section-->
     <div class="row">
         <div class="col">
@@ -29,7 +28,7 @@
         // If filter is enabled, reduce the data set to the filter string
         if (FilterData)
         {
-            productList = productList.Where(m => m.Title.Contains(FilterDataString));
+            productList = productList.Where(m => m.Title.IndexOf(FilterDataString, StringComparison.OrdinalIgnoreCase)!=-1);
         }
 
         if (productList.Any())
