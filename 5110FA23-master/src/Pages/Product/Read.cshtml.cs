@@ -36,8 +36,15 @@ namespace ContosoCrafts.WebSite.Pages.Product
         /// <param name="id"></param> The ID of the product to retrieve
         public void OnGet(string id) /// OnGet Request to Get Products by id
         {
-            // Retrieve the product with the specified ID from the data service.
-            Product = ProductService.GetProducts().FirstOrDefault(m => m.Id.Equals(id));
+            if(ModelState.IsValid)
+            {
+                // Retrieve the product with the specified ID from the data service.
+                Product = ProductService.GetProducts().FirstOrDefault(m => m.Id.Equals(id));
+            }
+            else
+            {
+                RedirectToPage("./NewErrorPage");
+            }
         }
     }
 }
