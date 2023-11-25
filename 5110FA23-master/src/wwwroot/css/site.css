@@ -582,7 +582,7 @@ body, html {
     object-fit: cover;
     opacity: 1;
     z-index: -1;
-    transform: translateY(-17%);
+    transform: translateY(0);
 }
 /*dynamic-background*/
 
