@@ -349,6 +349,18 @@ a {
     border-radius: 20px; /*setting the border radius for box*/
     opacity: 0.9;
 }
+.aboutus-box { /*adding the dimensions for box*/
+    max-width: 1000px; /*setting the width of the box*/
+    position: relative; /*making the position relative*/
+    display: inline-block; /*displaying the type of box*/
+    left: 5%; /*setting the position from left side*/
+    background: #e5e5e5; /*color for the box*/
+    box-shadow: 0 15px 20px rgba(0,0,0,.8); /*giving shadow to the box*/
+    text-align: center; /*aligning the text to the centre*/
+    border-radius: 20px; /*setting the border radius for box*/
+    opacity: 0.9;
+}
+
 .privacy-box {
     /*adding the dimensions for box*/
     max-width: 800px; /*setting the width of the box*/
@@ -596,3 +608,32 @@ body, html {
     background-color: rgba(0, 0, 0, 0.2); /* Black background with 0.5 opacity */
     z-index: -1; /* Sit on top */
 }
+/*members */
+.team {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.member {
+    width: 200px;
+    text-align: center;
+    margin: 20px;
+}
+
+    .member img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .member h3 {
+        margin-top: 10px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .member p {
+        margin-top: 10px;
+    }
