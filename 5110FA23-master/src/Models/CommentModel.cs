@@ -1,4 +1,4 @@
-﻿namespace ContosoCrafts.WebSite.Models
+﻿namespace SuperHeroes.WebSite.Models
 {
     /// <summary>
     /// Comments entered by the user about the Product

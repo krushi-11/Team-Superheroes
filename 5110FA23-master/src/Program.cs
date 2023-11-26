@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
-namespace ContosoCrafts.WebSite
+namespace SuperHeroes.WebSite
 {
     /// <summary>
     /// The main entry point for the application

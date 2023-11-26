@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
-using ContosoCrafts.WebSite.Models;
-using ContosoCrafts.WebSite.Services;
+using SuperHeroes.WebSite.Models;
+using SuperHeroes.WebSite.Services;
 
-namespace ContosoCrafts.WebSite.Pages
+namespace SuperHeroes.WebSite.Pages
 {
     /// <summary>
     /// Index page model for homepage

@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using ContosoCrafts.WebSite.Models;
-using ContosoCrafts.WebSite.Services;
+using SuperHeroes.WebSite.Models;
+using SuperHeroes.WebSite.Services;
 using System.Collections.Generic;
 
-namespace ContosoCrafts.WebSite.Pages.Product
+namespace SuperHeroes.WebSite.Pages.Product
 {
     /// <summary>
     /// Page model for the index page of the product section.

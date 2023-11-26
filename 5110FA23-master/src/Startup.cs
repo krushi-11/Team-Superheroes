@@ -1,11 +1,11 @@
-using ContosoCrafts.WebSite.Services;
+using SuperHeroes.WebSite.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace ContosoCrafts.WebSite
+namespace SuperHeroes.WebSite
 {
     /// <summary>
     /// Startup class for configuring  services and the HTTP request pipeline.

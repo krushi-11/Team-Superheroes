@@ -2,10 +2,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.Json;
-using ContosoCrafts.WebSite.Models;
+using SuperHeroes.WebSite.Models;
 using Microsoft.AspNetCore.Hosting;
 
-namespace ContosoCrafts.WebSite.Services
+namespace SuperHeroes.WebSite.Services
 {
    /// <summary>
    /// Service for managing product data stored in JSON file

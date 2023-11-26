@@ -1,10 +1,10 @@
 using System.Linq;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using ContosoCrafts.WebSite.Models;
-using ContosoCrafts.WebSite.Services;
+using SuperHeroes.WebSite.Models;
+using SuperHeroes.WebSite.Services;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ContosoCrafts.WebSite.Pages.Product
+namespace SuperHeroes.WebSite.Pages.Product
 {
     /// <summary>
     /// Page Model for reading product details.

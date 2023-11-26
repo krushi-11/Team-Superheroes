@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 
-namespace ContosoCrafts.WebSite.Pages
+namespace SuperHeroes.WebSite.Pages
 {
     /// <summary>
     /// Page model for the AboutUs page 

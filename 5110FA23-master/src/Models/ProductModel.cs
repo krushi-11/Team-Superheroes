@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace ContosoCrafts.WebSite.Models
+namespace SuperHeroes.WebSite.Models
 {
     /// <summary>
     /// The Product class represents an individual product in the application 

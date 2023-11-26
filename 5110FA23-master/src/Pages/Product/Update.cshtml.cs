@@ -1,10 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using ContosoCrafts.WebSite.Services;
-using ContosoCrafts.WebSite.Models;
+using SuperHeroes.WebSite.Services;
+using SuperHeroes.WebSite.Models;
 using System.Linq;
 
-namespace ContosoCrafts.WebSite.Pages.Product
+namespace SuperHeroes.WebSite.Pages.Product
 {
     /// <summary>
     /// Page model for updating product details

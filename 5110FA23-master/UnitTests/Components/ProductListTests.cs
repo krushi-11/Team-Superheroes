@@ -1,9 +1,9 @@
 ﻿using Bunit;
 using NUnit.Framework;
 using Microsoft.Extensions.DependencyInjection;
-using ContosoCrafts.WebSite.Models;
-using ContosoCrafts.WebSite.Components;
-using ContosoCrafts.WebSite.Services;
+using SuperHeroes.WebSite.Models;
+using SuperHeroes.WebSite.Components;
+using SuperHeroes.WebSite.Services;
 using System.Linq;
 using System;
 

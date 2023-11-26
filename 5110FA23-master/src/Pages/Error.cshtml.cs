@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 
-namespace ContosoCrafts.WebSite.Pages
+namespace SuperHeroes.WebSite.Pages
 {
     /// <summary>
     /// The ErrorModel class represents the model for the Error Razor Page.

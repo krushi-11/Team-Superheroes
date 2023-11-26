@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
-using ContosoCrafts.WebSite.Models;
-using ContosoCrafts.WebSite.Services;
+using SuperHeroes.WebSite.Models;
+using SuperHeroes.WebSite.Services;
 
-namespace ContosoCrafts.WebSite.Controllers
+namespace SuperHeroes.WebSite.Controllers
 {
     /// <summary>
     /// API Controller for managing products

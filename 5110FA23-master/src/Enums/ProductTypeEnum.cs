@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace ContosoCrafts.WebSite.Models
+namespace SuperHeroes.WebSite.Models
 {
     /// <summary>
     /// Defines an enum for the different types
