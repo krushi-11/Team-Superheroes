@@ -42,6 +42,8 @@ namespace ContosoCrafts.WebSite.Pages.Product
             if (Product == null)
             {
                 ModelState.AddModelError("OnGet", "Update Onget Error");
+                // An error message
+                RedirectToPage("NewErrorPage");
             }
 
         }
@@ -54,7 +56,7 @@ namespace ContosoCrafts.WebSite.Pages.Product
             if (!ModelState.IsValid) /// State Validation
             {
                 /// Handle the case where ModelState is not valid
-                return RedirectToPage("./NewErrorPage");
+                return RedirectToPage("NewErrorPage");
             }
 
             /// Update the product title using the service
