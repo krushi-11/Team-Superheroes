@@ -29,18 +29,20 @@ namespace ContosoCrafts.WebSite.Services
         /// <summary>
         /// Gets the path to the Json File
         /// </summary>
+        /// <returns>It returns the Path to combine Web Environment</returns>
         private string JsonFileName
         {
             get
-            { 
-                return Path.Combine(WebHostEnvironment.WebRootPath, "data", "products.json"); // Path to Json File
+            {
+                // Path to Json File
+                return Path.Combine(WebHostEnvironment.WebRootPath, "data", "products.json"); 
             }
         }
 
         /// <summary>
         /// Get all Products from Json File
         /// </summary>
-        /// <returns></returns>
+        /// <returns>It returns the serialized data in Json File</returns>
         public IEnumerable<ProductModel> GetProducts() 
         {
             using(var jsonFileReader = File.OpenText(JsonFileName))
@@ -113,30 +115,40 @@ namespace ContosoCrafts.WebSite.Services
         /// Update Data Method
         /// </summary>
         /// <param name="updatedProduct"></param>
-        /// <returns></returns>
+        /// <returns>It returns the data of the product</returns>
         public ProductModel UpdateData(ProductModel updatedProduct)
         {
-                var products = GetProducts(); // Get the Products
-                var productData = products.FirstOrDefault(x=>x.Id.Equals(updatedProduct.Id)); // Filter by id
+            // Get the Products
+            var products = GetProducts();
+            // Filter by id
+            var productData = products.FirstOrDefault(x=>x.Id.Equals(updatedProduct.Id));
 
-                productData.Title = updatedProduct.Title; // Set Old Title to Updated Title
-                productData.Description = updatedProduct.Description; // Set Old Description to Updated Description
-                productData.Url = updatedProduct.Url; // Set Old Url to Updated Url
-                productData.Image = updatedProduct.Image; // Set Old Image to Updated Image
-                productData.Price = updatedProduct.Price; // Set Old Price to Updated Price
-                productData.Stock = updatedProduct.Stock; // Set Old Stock to Updated Stock
+            // Set Old Title to Updated Title
+            productData.Title = updatedProduct.Title;
+            // Set Old Description to Updated Description
+            productData.Description = updatedProduct.Description;
+            // Set Old Url to Updated Url
+            productData.Url = updatedProduct.Url;
+            // Set Old Image to Updated Image
+            productData.Image = updatedProduct.Image;
+            // Set Old Price to Updated Price
+            productData.Price = updatedProduct.Price;
+            // Set Old Stock to Updated Stock
+            productData.Stock = updatedProduct.Stock;
 
-                SaveProducts(products); // Save the Updated List
+            // Save the Updated List
+            SaveProducts(products); 
 
-                return productData;
+            return productData;
         }
 
 
         /// <summary>
         /// Create Data Method
+        /// This method creates a new product and saves it in the Json File
         /// </summary>
         /// <param name="productModel"></param>
-        /// <returns></returns>
+        /// <returns>It returns the productModel</returns>
         public ProductModel CreateData(ProductModel productModel)
         {
             productModel.Id = System.Guid.NewGuid().ToString();
@@ -165,15 +177,18 @@ namespace ContosoCrafts.WebSite.Services
                 WriteIndented = true
             });
 
-            File.WriteAllText(JsonFileName, jsonProducts); // Writes it back to the Json File
+            // Writes it back to the Json File
+            File.WriteAllText(JsonFileName, jsonProducts); 
         }
 
 
         /// <summary>
-        /// Delete Data Method 
+        /// Delete Data Method
+        /// This method is used to remove the existing product from the Json File
         /// </summary>
         /// <param name="id"></param>
-        /// <returns></returns>
+        /// <returns>If the product is valid, it deletes the product from the Json File 
+        /// else it will return false </returns>
         public bool DeleteData(string id)
         {
             // Get the current set, and remove the record with the specified ID from it
@@ -190,7 +205,8 @@ namespace ContosoCrafts.WebSite.Services
 
             else
             {
-                return false; //If the Product is NULL
+                //If the Product is NULL
+                return false; 
             }
         }
     }
