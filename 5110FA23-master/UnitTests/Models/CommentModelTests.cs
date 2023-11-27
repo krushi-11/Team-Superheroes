@@ -9,8 +9,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Logging;
 using Moq;
 using NUnit.Framework;
-using ContosoCrafts.WebSite.Services;
-using ContosoCrafts.WebSite.Models;
+using SuperHeroes.WebSite.Services;
+using SuperHeroes.WebSite.Models;
 
 namespace UnitTests.Models
 {

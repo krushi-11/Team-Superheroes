@@ -5,7 +5,7 @@ using NUnit.Framework;
 namespace UnitTests.Pages.Startup
 {
     /// <summary>
-    /// Unit tests for the startup process of the ContosoCrafts.WebSite 
+    /// Unit tests for the startup process of the SuperHeroes.WebSite 
     /// (TakeABreak) application.
     /// </summary>
     public class StartupTests
@@ -27,7 +27,7 @@ namespace UnitTests.Pages.Startup
         /// A derived Startup class for testing purposes, inheriting from the
         /// web application's original Startup class.
         /// </summary>
-        public class Startup : ContosoCrafts.WebSite.Startup
+        public class Startup : SuperHeroes.WebSite.Startup
         {
             /// <summary>
             /// Constructor that initializes the derived startup class with the

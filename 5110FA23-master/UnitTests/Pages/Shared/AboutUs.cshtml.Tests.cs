@@ -1,5 +1,5 @@
-﻿using ContosoCrafts.WebSite.Pages;
-using ContosoCrafts.WebSite.Services;
+﻿using SuperHeroes.WebSite.Pages;
+using SuperHeroes.WebSite.Services;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.ModelBinding;

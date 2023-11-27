@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Routing;
 using Moq;
-using ContosoCrafts.WebSite.Services;
+using SuperHeroes.WebSite.Services;
 
 namespace UnitTests
 {

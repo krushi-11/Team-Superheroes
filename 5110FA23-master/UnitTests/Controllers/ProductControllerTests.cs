@@ -1,10 +1,10 @@
-﻿using ContosoCrafts.WebSite.Controllers;
-using ContosoCrafts.WebSite.Models;
+﻿using SuperHeroes.WebSite.Controllers;
+using SuperHeroes.WebSite.Models;
 using Microsoft.AspNetCore.Mvc;
 using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
-using static ContosoCrafts.WebSite.Controllers.ProductsController;
+using static SuperHeroes.WebSite.Controllers.ProductsController;
 
 namespace UnitTests.Controllers
 {

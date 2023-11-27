@@ -10,8 +10,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Logging;
 using Moq;
 using NUnit.Framework;
-using ContosoCrafts.WebSite.Pages.Product;
-using ContosoCrafts.WebSite.Services;
+using SuperHeroes.WebSite.Pages.Product;
+using SuperHeroes.WebSite.Services;
 
 namespace UnitTests.Pages.Product.Index
 {

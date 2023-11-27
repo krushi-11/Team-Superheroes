@@ -1,5 +1,5 @@
-﻿using ContosoCrafts.WebSite.Pages.Product;
-using ContosoCrafts.WebSite.Services;
+﻿using SuperHeroes.WebSite.Pages.Product;
+using SuperHeroes.WebSite.Services;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -147,7 +147,7 @@ namespace UnitTests.Pages.Product.Update
         public void OnPost_InValid_Model_Not_Valid_Return_Page()
         {
             // Arrange
-            pageModel.Product = new ContosoCrafts.WebSite.Models.ProductModel
+            pageModel.Product = new SuperHeroes.WebSite.Models.ProductModel
             {
                 Id = "testId",
                 Title = "Title",

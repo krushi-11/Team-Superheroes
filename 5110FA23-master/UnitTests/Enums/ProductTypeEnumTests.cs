@@ -1,5 +1,5 @@
 ﻿using NUnit.Framework;
-using ContosoCrafts.WebSite.Models;
+using SuperHeroes.WebSite.Models;
 using System.ComponentModel.DataAnnotations;
 
 namespace UnitTests.Enums

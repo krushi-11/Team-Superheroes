@@ -1,4 +1,4 @@
-﻿using ContosoCrafts.WebSite.Pages;
+﻿using SuperHeroes.WebSite.Pages;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using Moq;

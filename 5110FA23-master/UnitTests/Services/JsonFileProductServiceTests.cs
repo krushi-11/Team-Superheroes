@@ -1,6 +1,6 @@
 using System.Linq;
 using NUnit.Framework;
-using ContosoCrafts.WebSite.Models;
+using SuperHeroes.WebSite.Models;
 using NUnit.Framework.Internal;
 
 namespace UnitTests.Services

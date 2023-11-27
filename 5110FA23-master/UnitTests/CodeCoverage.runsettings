@@ -49,9 +49,9 @@ Included items must then not match any entries in the exclude list to remain inc
 						<!-- (Use "\." to delimit namespaces in C# or Visual Basic, "::" in C++.)  -->
 						<Functions>
 							<Exclude>
-								<Function>^ContosoCrafts.WebSite.Components.*</Function>
-								<Function>^ContosoCrafts.WebSite.Models.*</Function>
-								<Function>^ContosoCrafts.WebSite.Controllers.*</Function>
+								<Function>^SuperHeroes.WebSite.Components.*</Function>
+								<Function>^SuperHeroes.WebSite.Models.*</Function>
+								<Function>^SuperHeroes.WebSite.Controllers.*</Function>
 								<Function>^Fabrikam\.UnitTest\..*</Function>
 								<Function>^std::.*</Function>
 								<Function>^ATL::.*</Function>
