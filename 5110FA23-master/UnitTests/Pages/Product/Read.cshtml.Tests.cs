@@ -11,6 +11,7 @@ using Moq;
 using NUnit.Framework;
 using SuperHeroes.WebSite.Pages.Product;
 using SuperHeroes.WebSite.Services;
+using System.Linq;
 
 namespace UnitTests.Pages.Product.Read
 {
@@ -138,6 +139,25 @@ namespace UnitTests.Pages.Product.Read
 
             // Reset
             pageModel.ModelState.Clear();
+        }
+
+        [Test]
+        public void OnGet_ProductNotFound_ShouldSetModelErrorAndRedirectToErrorPage()
+        {
+            // Arrange
+            string nonExistentProductId = "non-existent-product-id";
+
+            // Act
+            IActionResult result = pageModel.OnGet(nonExistentProductId);
+
+            // Assert
+            Assert.IsFalse(pageModel.ModelState.IsValid);
+            Assert.IsNotNull(pageModel.ModelState["missing"]);
+            Assert.AreEqual("Not found error", pageModel.ModelState["missing"].Errors.First().ErrorMessage);
+
+            Assert.That(result, Is.TypeOf<RedirectToPageResult>());
+            var redirectToPageResult = (RedirectToPageResult)result;
+            Assert.AreEqual("NewErrorPage", redirectToPageResult.PageName);
         }
 
         #endregion OnGet
