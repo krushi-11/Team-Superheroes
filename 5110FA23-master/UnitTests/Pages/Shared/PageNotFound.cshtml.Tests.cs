@@ -66,6 +66,18 @@ namespace SuperHeroes.WebSite.Tests.Pages
             // Assert
             Assert.IsFalse(result);
         }
+        [Test]
+        public void ShowRequestId_ReturnsTrue_WhenRequestIdIsValid()
+        {
+            // Arrange
+            _pageModel.RequestId = "TestRequestId";
+
+            // Act
+            var result = _pageModel.ShowRequestId;
+
+            // Assert
+            Assert.IsTrue(result);
+        }
 
     }
 }
