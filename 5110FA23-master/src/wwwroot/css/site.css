@@ -416,30 +416,7 @@ a {
     text-align: center; /*aligning the text to the centre*/
     border-radius: 10px; /*setting the border radius for box*/
 }
-/*Styling for search bar*/
-.Search{
-    display: block;
-    align-items: center;
-    margin-right: 0;
-    margin-left: 75px;
-}
-.Search form{
-    display: flex;
-    margin: 0;
-}
-.Search input{
-    padding: 4px;
-    border: 1px solid rgba(0,0,0,.8);
-    outline: none;
-    border-radius: 5px;
-    margin-right: 10px;
-    font-size: 16px;
-}
-.Search button{
-    color: rgba(255,255,255,.9);
-    background-color: #4CAF50;
-    border-radius: 7px;
-}
+
 /*Animations for card*/
 /.card-footer {
     width: 150px;
