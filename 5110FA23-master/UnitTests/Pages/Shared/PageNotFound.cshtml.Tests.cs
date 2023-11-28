@@ -55,6 +55,17 @@ namespace SuperHeroes.WebSite.Tests.Pages
             // Assert
             Assert.AreEqual(httpContext.TraceIdentifier, _pageModel.RequestId);
         }
+        [Test]
+        public void ShowRequestId_ReturnsFalse_WhenRequestIdIsNullOrEmpty()
+        {
+            // Arrange
+
+            // Act
+            var result = _pageModel.ShowRequestId;
+
+            // Assert
+            Assert.IsFalse(result);
+        }
 
     }
 }
