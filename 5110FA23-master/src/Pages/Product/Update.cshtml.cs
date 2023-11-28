@@ -35,7 +35,7 @@ namespace SuperHeroes.WebSite.Pages.Product
         /// <summary>
         /// On Get Method to fetch the first product
         /// </summary>
-        public void OnGet(string id)
+        public IActionResult OnGet(string id)
         {
 
             Product = ProductService.GetProducts().FirstOrDefault(m => m.Id.Equals(id));
@@ -43,8 +43,9 @@ namespace SuperHeroes.WebSite.Pages.Product
             {
                 ModelState.AddModelError("OnGet", "Update Onget Error");
                 // An error message
-                RedirectToPage("NewErrorPage");
+                return RedirectToPage("./NewErrorPage");
             }
+            return Page();
 
         }
 
@@ -56,7 +57,7 @@ namespace SuperHeroes.WebSite.Pages.Product
             if (!ModelState.IsValid) /// State Validation
             {
                 /// Handle the case where ModelState is not valid
-                return RedirectToPage("NewErrorPage");
+                return RedirectToPage("./NewErrorPage");
             }
 
             /// Update the product title using the service
