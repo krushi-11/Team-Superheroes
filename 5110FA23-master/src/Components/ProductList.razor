@@ -9,12 +9,57 @@
 <div>
     <!--Search and Filter Section-->
     <div class="row">
+
         <div class="col">
 
             <!-- Search Input and Buttons-->
             <input placeholder="Enter the Product" type="text" @onchange="(e) => UpdateFilterText(e.Value.ToString())" value="@FilterDataString" />
             <button id="enableFilter" @onclick="(e => EnableFilterData())" class="btn btn-success">Filter</button>
             <button @onclick="(e => ClearFilterData())" class="btn btn-danger">Clear</button>
+
+        </div>
+
+        <div class="col align-content-between">
+        <!-- Product Comparison Section -->
+        <h5>Product Comparison</h5>
+        <div class="row text-center">
+            @if (SelectedProductsForComparison.Count >= 2)
+            {
+                    <div class="comparison-table card-body card-columns">
+                    <!-- Display product attributes for comparison -->
+                    <div class="comparison-header">
+                        @foreach (var product in SelectedProductsForComparison)
+                        {
+                            <div class="col">
+                            <img src="@product.Image" alt="@product.Title" width="50" height="50" />
+                            <span>@product.Title</span>
+                                <!-- Display the product prices -->
+                                <div class="comparison-prices">
+                                    <span>Price</span>
+                                    
+                                        <div>@product.Price</div>
+                                    
+                                </div>
+                                </div>
+                        }
+                    </div>
+
+                        @* <!-- Display the product prices -->
+                        <div class="comparison-prices">
+                            <span>Price</span>
+                            @foreach (var product in SelectedProductsForComparison)
+                            {
+                                <div>@product.Price</div>
+                            }
+                        </div> *@
+                    <!-- Add more attributes as needed -->
+                </div>
+            }
+            else
+            {
+                <span>Select at least two products for comparison</span>
+            }
+        </div>
         </div>
     </div>
 </div>
@@ -54,6 +99,26 @@
                                             More Info
                                     </button>
                                 </small>
+
+                            <!-- Select for Comparison Button -->
+                            <button @onclick="(e => ToggleProductSelection(product.Id))" class="btn btn-info">
+                                @if (SelectedProductsForComparison.Contains(product))
+                                {
+                                    <span>Remove from Comparison</span>
+                                }
+                                else
+                                {
+                                    <span>Add to Comparison</span>
+                                }
+                            </button>
+
+                            <!-- Notification for successful addition -->
+                            @if (AddedToComparisonProductId == product.Id)
+                            {
+                                <div class="notification">
+                                    <span class="text-success">Added to Comparison!</span>
+                                </div>
+                            }
                             
                                 <a href="@product.Url" class="btn btn-dark" target="_blank">Visit Website <i class="fa-solid fa-shirt"></i></a>
                             </div>
@@ -281,5 +346,33 @@
 
         // Set the NewComment flag to false to hide the input box
         NewComment = false;
+    }
+
+    List<ProductModel> SelectedProductsForComparison = new List<ProductModel>();
+    string AddedToComparisonProductId = null;
+
+    void ToggleProductSelection(string productId)
+    {
+
+        var product = ProductService.GetProducts().FirstOrDefault(p => p.Id == productId);
+        if (product != null)
+        {
+
+            // Convert the product ID to the same type as in the SelectedProductsForComparison list
+            var matchingProduct = SelectedProductsForComparison.FirstOrDefault(p => p.Id.ToString() == productId);
+
+            if (matchingProduct != null)
+            {
+                SelectedProductsForComparison.Remove(matchingProduct);
+            }
+            else
+            {
+                SelectedProductsForComparison.Add(product);
+                AddedToComparisonProductId = product.Id.ToString();
+
+                // Reset the notification after a short delay (e.g., 2000 milliseconds)
+                Task.Delay(2000).ContinueWith(_ => AddedToComparisonProductId = null);
+            }
+        }
     }
 }
