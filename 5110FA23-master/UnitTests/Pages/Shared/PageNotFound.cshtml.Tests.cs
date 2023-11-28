@@ -41,6 +41,20 @@ namespace SuperHeroes.WebSite.Tests.Pages
             // Assert
             Assert.AreEqual(activity.Id, _pageModel.RequestId);
         }
+        [Test]
+        public void OnGet_SetsRequestIdFromHttpContext_WhenActivityIsNull()
+        {
+            // Arrange
+            var httpContext = new DefaultHttpContext();
+            httpContext.TraceIdentifier = "TestTraceId";
+
+            // Act
+            _pageModel.PageContext = new PageContext { HttpContext = httpContext };
+            _pageModel.OnGet();
+
+            // Assert
+            Assert.AreEqual(httpContext.TraceIdentifier, _pageModel.RequestId);
+        }
 
     }
 }
