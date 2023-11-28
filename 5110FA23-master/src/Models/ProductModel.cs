@@ -73,6 +73,11 @@ namespace SuperHeroes.WebSite.Models
         public ProductTypeEnum ProductType { get; set; } = ProductTypeEnum.Undefined;
 
         /// <summary>
+        /// Getter and Setter of MaterialModel
+        /// </summary>
+        public string Material { get; set; }
+
+        /// <summary>
         /// Serializes it to a String to Json
         /// </summary>
         /// <returns></returns>
