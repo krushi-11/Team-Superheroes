@@ -1,0 +1,32 @@
+﻿@page
+@model SuperHeroes.WebSite.Pages.PageNotFoundModel
+@{
+    ViewData["Title"] = "Model Error";
+}
+
+<!-- Referencing styling done in site.css page -->
+<link rel="stylesheet" type="text/css" href="site.css" />
+<div class="container card bg-white text-center">
+    <!--Page Title-->
+    <h1 class="text-black-50">404 Error</h1>
+
+    <!-- Error Message -->
+    <h2 class="text-danger">The Requested page is not Found.</h2>
+    <small>Enter a valid URL</small>
+
+    <!-- Spacing -->
+    &nbsp;
+
+    <!-- Display Request ID if available -->
+    @if (Model.ShowRequestId)
+    {
+        <p>
+            <strong>Request ID:</strong> <code>@Model.RequestId</code>
+        </p>
+    }
+
+    <!-- Back to Product List button -->
+    <div>
+        <a asp-page="Index" class="link-button2">Go back</a>
+    </div>
+</div>
