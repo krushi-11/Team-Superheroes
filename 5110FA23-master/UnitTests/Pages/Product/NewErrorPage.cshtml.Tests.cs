@@ -9,21 +9,34 @@ using System.Diagnostics;
 
 namespace SuperHeroes.WebSite.Tests.Pages.Product
 {
+    /// <summary>
+    /// Unit tests for the NewErrorPageModel class.
+    /// </summary>
     [TestFixture]
     public class NewErrorPageModelTests
     {
         private Mock<ILogger<ErrorModel>> _loggerMock;
         private NewErrorPageModel _pageModel;
 
+        /// <summary>
+        /// setup method executed before each test
+        /// </summary>
         [SetUp]
         public void Setup()
         {
+            //Arrange: Create a mock logger for the page model
             _loggerMock = new Mock<ILogger<ErrorModel>>();
+            
+            //Act: Instantiate NewErrorPageModel with the mock logger
             _pageModel = new NewErrorPageModel(_loggerMock.Object);
+            
             // Setting up the NewErrorPageModel with a mock logger
             _pageModel = new NewErrorPageModel(Mock.Of<ILogger<ErrorModel>>());
         }
 
+        /// <summary>
+        /// Tests the OnGet method when there is an existing activity
+        /// </summary>
         [Test]
         public void OnGet_WithExistingActivity_SetsRequestIdFromActivity()
         {
@@ -41,6 +54,9 @@ namespace SuperHeroes.WebSite.Tests.Pages.Product
             Assert.AreEqual(activity.Id, _pageModel.RequestId);
         }
 
+        /// <summary>
+        /// Tests the OnGet method when there is a null activity.
+        /// </summary>
         [Test]
         public void OnGet_WithNullActivity_SetsRequestIdFromHttpContext()
         {
@@ -56,6 +72,9 @@ namespace SuperHeroes.WebSite.Tests.Pages.Product
             Assert.AreEqual(httpContext.TraceIdentifier, _pageModel.RequestId);
         }
 
+        /// <summary>
+        /// Tests the ShowRequestId property when RequestId is null or empty
+        /// </summary>
         [Test]
         public void ShowRequestId_WithNullOrEmptyRequestId_ReturnsFalse()
         {
@@ -68,6 +87,9 @@ namespace SuperHeroes.WebSite.Tests.Pages.Product
             Assert.IsFalse(result);
         }
 
+        /// <summary>
+        /// Tests the ShowRequestId property when RequestId is valid
+        /// </summary>
         [Test]
         public void ShowRequestId_WithValidRequestId_ReturnsTrue()
         {
