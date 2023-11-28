@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Http;
 
 namespace SuperHeroes.WebSite
 {
@@ -90,6 +91,18 @@ namespace SuperHeroes.WebSite
                 //     var json = JsonSerializer.Serialize<IEnumerable<Product>>(products);
                 //     return context.Response.WriteAsync(json);
                 // });
+            });
+
+            // Custom 404 error handling middleware
+            app.Use(async (context, next) =>
+            {
+                await next();
+
+                if (context.Response.StatusCode == 404 && !context.Response.HasStarted)
+                {
+                    // Handle 404 errors here
+                    context.Response.Redirect("/PageNotFound");
+                }
             });
         }
     }
