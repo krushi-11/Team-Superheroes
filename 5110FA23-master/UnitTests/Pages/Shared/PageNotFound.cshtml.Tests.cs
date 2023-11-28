@@ -25,6 +25,22 @@ namespace SuperHeroes.WebSite.Tests.Pages
             _pageModel = new PageNotFoundModel(_loggerMock.Object);
         }
 
-        
+        [Test]
+        public void OnGet_SetsRequestIdFromActivity_WhenActivityExists()
+        {
+            // Arrange
+            Activity activity = new Activity("TestActivity");
+            activity.Start();
+
+            // Act
+            _pageModel.OnGet();
+
+            // Reset
+            activity.Stop();
+
+            // Assert
+            Assert.AreEqual(activity.Id, _pageModel.RequestId);
+        }
+
     }
 }
