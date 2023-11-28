@@ -6,7 +6,7 @@
 @inject JsonFileProductService ProductService
 @inject IJSRuntime JSRuntime
 
-<div>
+<div class="align-content-between">
     <!--Search and Filter Section-->
     <div class="row">
 
@@ -20,47 +20,48 @@
         </div>
 
         <div class="col align-content-between">
-        <!-- Product Comparison Section -->
-        <h5>Product Comparison</h5>
-        <div class="row text-center">
-            @if (SelectedProductsForComparison.Count >= 2)
-            {
-                    <div class="comparison-table card-body card-columns">
-                    <!-- Display product attributes for comparison -->
-                    <div class="comparison-header">
-                        @foreach (var product in SelectedProductsForComparison)
-                        {
-                            <div class="col">
-                            <img src="@product.Image" alt="@product.Title" width="50" height="50" />
-                            <span>@product.Title</span>
-                                <!-- Display the product prices -->
-                                <div class="comparison-prices">
-                                    <span>Price</span>
-                                    
-                                        <div>@product.Price</div>
-                                    
-                                </div>
-                                </div>
-                        }
-                    </div>
-
-                        @* <!-- Display the product prices -->
-                        <div class="comparison-prices">
-                            <span>Price</span>
+            <!-- Product Comparison Section -->
+            <h5 class="text-center text-danger">Product Comparison</h5>
+            <div class="col text-center rounded align-content-center">
+                @if (SelectedProductsForComparison.Count >= 2)
+                {
+                    <div class="comparison-table col">
+                        <!-- Display product attributes for comparison -->
+                        <div class="comparison-header card col">
                             @foreach (var product in SelectedProductsForComparison)
                             {
-                                <div>@product.Price</div>
+                                <div class="col">
+                                    <img class="row"src="@product.Image" alt="@product.Title" width="50" height="50" />
+                                    <div class="row">
+                                        <span>@product.Title</span>
+                                    </div>
+                                    <div class="row">
+                                        <span>Price -</span>
+                                        <div>@product.Price</div><br />
+                                    </div>
+                                    <div class="row">
+                                        <span>Material - @product.Material</span>
+                                    </div>
+                                    
+                                </div>
                             }
-                        </div> *@
-                    <!-- Add more attributes as needed -->
-                </div>
-            }
-            else
-            {
-                <span>Select at least two products for comparison</span>
-            }
+                        </div>
+                    </div>
+                }
+                else if (SelectedProductsForComparison.Count >= 1)
+                {
+                    <span class="align-content-end text-center">Select one more product for comparison</span>
+                }
+                else
+                {
+                    <span class="align-content-end text-center">Select at least two products for comparison</span>
+                }
+            </div>
         </div>
-        </div>
+
+
+
+
     </div>
 </div>
 
