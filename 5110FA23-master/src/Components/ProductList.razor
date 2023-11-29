@@ -30,7 +30,7 @@
                         <div class="comparison-header card col">
                             @foreach (var product in SelectedProductsForComparison)
                             {
-                                <div class="col">
+                                <div style="margin-left: 295px" class="col">
                                     <img class="row"src="@product.Image" alt="@product.Title" width="50" height="50" />
                                     <div class="row">
                                         <span>@product.Title</span>
@@ -85,7 +85,7 @@
                 {
                     <div class="card">
                         <!--Product Image-->
-                        <div class="card-img" style="background-image: url('@product.Image');"></div>
+                        <div  class="card-img" style="background-image: url('@product.Image');"></div>
 
                             <div class="card-body">
                                 <!-- Product Title-->
@@ -170,7 +170,7 @@
                                         foreach (var comment in selectedProduct.CommentList)
                                         {
                                             <div class="row">
-                                                <div class="col">
+                                                <div style="margin-left: 165px" class="col">
                                                     @comment.Comment
                                                 </div>
                                             </div>
@@ -180,7 +180,7 @@
                                         if (NewComment)
                                         {
                                             <div class="row">
-                                                <div class="col">
+                                                <div style="margin-left: 165px" class="col">
                                                     <input placeholder="Enter Custom Requirements" type="text" @onchange="(e) => UpdateCommentText(e.Value.ToString())" value="@NewCommentText" />
                                                     <button id="Comment" @onclick="(e => AddComment())" class="btn btn-success" data-toggle="modal">Save Order Form</button>
                                                 </div>
@@ -191,7 +191,7 @@
                                         if (NewComment == false)
                                         {
                                             <div class="row">
-                                                <div class="col">
+                                                <div style="margin-left: 165px" class="col">
                                                     <button @onclick="(e => ShowNewCommentInput())" id="AddComment" class="btn btn-customised">Add Order Form</button>
                                                     <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                                                 </div>
