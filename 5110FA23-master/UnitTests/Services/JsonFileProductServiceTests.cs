@@ -135,30 +135,10 @@ namespace UnitTests.Services
             // Assert
             Assert.AreEqual(false, result);
         }
-
-        /// <summary>
-        /// Valid Product Id Rating null should return a new array
-        /// </summary>
-        [Test]
-        public void AddRating_Valid_Product_Id_Rating_null_Should_Return_new_Array()
-        {
-            // Arrange
-            // Get the Last data item
-            ///creating variable data
-            var data = TestHelper.ProductService.GetProducts().Last();
-
-            // Act
-            // Store the result of the AddRating method (which is being tested)
-            ///creating variable result
-            var result = TestHelper.ProductService.AddRating(data.Id, 0);
-
-            // Assert
-            Assert.AreEqual(true, result);
-        }
-
         /// <summary>
         /// Initialising array if it is Null
         /// </summary>
+        
         [Test]
         public void AddRating_InitializeRatingsArrayIfNull()
         {
@@ -183,6 +163,26 @@ namespace UnitTests.Services
             Assert.IsNotNull(result);
         }
 
+        /// <summary>
+        /// Valid Product Id Rating null should return a new array
+        /// </summary>
+        [Test]
+        public void AddRating_Valid_Product_Id_Rating_null_Should_Return_new_Array()
+        {
+            // Arrange
+            // Get the Last data item
+            ///creating variable data
+            var data = TestHelper.ProductService.GetProducts().Last();
+
+            // Act
+            // Store the result of the AddRating method (which is being tested)
+            ///creating variable result
+            var result = TestHelper.ProductService.AddRating(data.Id, 0);
+
+            // Assert
+            Assert.AreEqual(true, result);
+        }
+        
         #endregion AddRating
         // Ending AddRating Method in JsonFileProductService.cs File
 
