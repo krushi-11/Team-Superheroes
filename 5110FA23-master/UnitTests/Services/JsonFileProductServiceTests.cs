@@ -2,6 +2,9 @@ using System.Linq;
 using NUnit.Framework;
 using SuperHeroes.WebSite.Models;
 using NUnit.Framework.Internal;
+using System;
+using SuperHeroes.WebSite.Services;
+using System.IO;
 
 namespace UnitTests.Services
 {
@@ -201,12 +204,28 @@ namespace UnitTests.Services
             var data1 = data;
             data1.Title = "Test";
 
-            // Act
+            // Act  
             ///creating variable result
             var result = TestHelper.ProductService.UpdateData(data1);
 
             // Assert
             Assert.AreEqual(data1.Title, result.Title);
+        }
+
+        [Test]
+        public void UpdateData_WithNullProduct_ShouldPrintErrorMessageAndReturnNull()
+        {
+            // Arrange
+            var productService = TestHelper.ProductService;
+            var consoleOutput = new StringWriter();
+            Console.SetOut(consoleOutput);
+
+            // Act
+            var result = productService.UpdateData(null);
+
+            // Assert
+            StringAssert.Contains("Cannot update data: updatedProduct is null", consoleOutput.ToString());
+            Assert.IsNull(result);
         }
 
         #endregion UpdateData
