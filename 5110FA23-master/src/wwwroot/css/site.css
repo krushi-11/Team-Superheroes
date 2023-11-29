@@ -614,3 +614,6 @@ body, html {
     .member p {
         margin-top: 10px;
     }
+.row{
+    margin-left: -100px;
+}
