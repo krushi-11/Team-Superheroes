@@ -240,7 +240,7 @@
 @code 
 {
     // Current selected product for modal display
-    ProductModel selectedProduct = new ProductModel { Title = "Black Panther" };
+    public ProductModel selectedProduct = new ProductModel { Title = "Black Panther" };
     string selectedProductId;
     public string FilterDataString = "";
     public bool FilterData = false;
@@ -258,7 +258,7 @@
     string voteLabel;
 
     // Method to get the current rating of the selected product
-    void GetCurrentRating()
+    public void GetCurrentRating()
     {
         if (selectedProduct.Ratings == null)
         {
@@ -296,7 +296,7 @@
     }
 
     // Method to clear the filter
-    void ClearFilterData()
+    public void ClearFilterData()
     {
         // If the Filter is enabled, set the filter flag
         FilterData = false;
@@ -307,13 +307,13 @@
      public bool NewComment = false;
 
     // Next Comment Text is what the comment text is
-    string NewCommentText = "";
+    public string NewCommentText = "";
 
     /// <summary>
     /// Enable the New Comment Entry by setting the NewComment flag
     /// </summary>
     /// <param name="comment"></param>
-    void ShowNewCommentInput()
+    public void ShowNewCommentInput()
     {
         // Setting the new Comment flag to true will show the input box
         NewComment = true;
@@ -334,20 +334,24 @@
     /// Best to refactor this to be a method to call in the Middle Tier Data service, rathern than putting the logic here...
     /// </summary>
     /// <param name="comment"></param>
-    void AddComment()
+    public void AddComment()
     {
-        // Refactor to be a call to the middle tier
-        // ProductService.AddCommentToProduct(selectedProduct, comment);
+        if (selectedProduct != null)
+        {
+            // Add it to the Comment List
+            selectedProduct.CommentList.Add(new CommentModel() { Comment = NewCommentText });
 
+            // Call for the Product to be saved
+            ProductService.UpdateData(selectedProduct);
 
-        // Add it to the Comment List
-        selectedProduct.CommentList.Add(new CommentModel() { Comment = NewCommentText });
-
-        // Call for the Product to be saved
-        ProductService.UpdateData(selectedProduct);
-
-        // Set the NewComment flag to false to hide the input box
-        NewComment = false;
+            // Set the NewComment flag to false to hide the input box
+            NewComment = false;
+        }
+        else
+        {
+            // Handle the case where selectedProduct is null
+            Console.WriteLine("Cannot add comment: selectedProduct is null");
+        }
     }
 
     List<ProductModel> SelectedProductsForComparison = new List<ProductModel>();
