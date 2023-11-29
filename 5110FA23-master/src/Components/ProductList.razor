@@ -276,7 +276,7 @@
     }
 
     // Method to submit a rating for the selected product
-    void SubmitRating(int rating)
+    public void SubmitRating(int rating)
     {
         System.Console.WriteLine($"Rating received for {selectedProduct.Id}: {rating}");
         ProductService.AddRating(selectedProductId, rating);
@@ -357,7 +357,7 @@
     List<ProductModel> SelectedProductsForComparison = new List<ProductModel>();
     string AddedToComparisonProductId = null;
 
-    void ToggleProductSelection(string productId)
+    public void ToggleProductSelection(string productId)
     {
 
         var product = ProductService.GetProducts().FirstOrDefault(p => p.Id == productId);
