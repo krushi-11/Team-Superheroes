@@ -32,6 +32,7 @@ namespace UnitTests.Components.Tests
             // Assert
             Assert.AreEqual(true, result.Contains("t-challa"));
         }
+
         #endregion ProductList
 
         #region FilterData
@@ -86,9 +87,9 @@ namespace UnitTests.Components.Tests
             // Assert
             Assert.AreEqual(false, page.Instance.FilterData);
         }
-        #endregion FilterData
 
-        
+        #endregion FilterData
+    
         #region SelectProduct
 
         /// <summary>
@@ -108,6 +109,7 @@ namespace UnitTests.Components.Tests
             // Assert
             Assert.AreEqual(true, pageMarkup.Contains("t-challa"));
         }
+
         #endregion SelectProduct
 
         #region Comment
@@ -131,8 +133,7 @@ namespace UnitTests.Components.Tests
             // Assert
             Assert.AreEqual(true, temp);
 
-            #endregion Comment
-
         }
+        #endregion Comment
     }
 }
