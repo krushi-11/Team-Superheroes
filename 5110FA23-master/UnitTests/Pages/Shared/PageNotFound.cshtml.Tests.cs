@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using Moq;
@@ -25,6 +24,9 @@ namespace SuperHeroes.WebSite.Tests.Pages
             _pageModel = new PageNotFoundModel(_loggerMock.Object);
         }
 
+        /// <summary>
+        /// On Get Sets the request Id from Activity when it exists
+        /// </summary>
         [Test]
         public void OnGet_SetsRequestIdFromActivity_WhenActivityExists()
         {
@@ -41,6 +43,10 @@ namespace SuperHeroes.WebSite.Tests.Pages
             // Assert
             Assert.AreEqual(activity.Id, _pageModel.RequestId);
         }
+
+        /// <summary>
+        /// On Get sets the request id from Http Context when Null
+        /// </summary>
         [Test]
         public void OnGet_SetsRequestIdFromHttpContext_WhenActivityIsNull()
         {
@@ -55,6 +61,10 @@ namespace SuperHeroes.WebSite.Tests.Pages
             // Assert
             Assert.AreEqual(httpContext.TraceIdentifier, _pageModel.RequestId);
         }
+
+        /// <summary>
+        /// Shows Request Id returns false when the request Id is null or empty
+        /// </summary>
         [Test]
         public void ShowRequestId_ReturnsFalse_WhenRequestIdIsNullOrEmpty()
         {
@@ -66,6 +76,10 @@ namespace SuperHeroes.WebSite.Tests.Pages
             // Assert
             Assert.IsFalse(result);
         }
+
+        /// <summary>
+        /// The request ID returns true when the RequestId is valid
+        /// </summary>
         [Test]
         public void ShowRequestId_ReturnsTrue_WhenRequestIdIsValid()
         {
