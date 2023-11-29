@@ -4,6 +4,8 @@ using Microsoft.Extensions.DependencyInjection;
 using SuperHeroes.WebSite.Components;
 using System.Linq;
 using SuperHeroes.WebSite.Models;
+using SuperHeroes.WebSite.Services;
+using Moq;
 
 namespace UnitTests.Components.Tests
 { 
