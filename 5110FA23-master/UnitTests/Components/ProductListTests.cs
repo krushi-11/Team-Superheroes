@@ -3,7 +3,6 @@ using NUnit.Framework;
 using Microsoft.Extensions.DependencyInjection;
 using SuperHeroes.WebSite.Components;
 using System.Linq;
-using SuperHeroes.WebSite.Services;
 
 namespace UnitTests.Components.Tests
 { 
