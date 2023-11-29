@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text.Json;
 using SuperHeroes.WebSite.Models;
 using Microsoft.AspNetCore.Hosting;
+using System;
 
 namespace SuperHeroes.WebSite.Services
 {
@@ -118,29 +119,41 @@ namespace SuperHeroes.WebSite.Services
         /// <returns>It returns the data of the product</returns>
         public ProductModel UpdateData(ProductModel updatedProduct)
         {
+            if (updatedProduct == null)
+            {
+                // Handle the case where updatedProduct is null
+                Console.WriteLine("Cannot update data: updatedProduct is null");
+                return null; // Or throw an exception or handle it accordingly
+            }
+
             // Get the Products
             var products = GetProducts();
+
             // Filter by id
-            var productData = products.FirstOrDefault(x=>x.Id.Equals(updatedProduct.Id));
+            var productData = products.FirstOrDefault(x => x.Id.Equals(updatedProduct.Id));
 
-            // Set Old Title to Updated Title
-            productData.Title = updatedProduct.Title;
-            // Set Old Description to Updated Description
-            productData.Description = updatedProduct.Description;
-            // Set Old Url to Updated Url
-            productData.Url = updatedProduct.Url;
-            // Set Old Image to Updated Image
-            productData.Image = updatedProduct.Image;
-            // Set Old Price to Updated Price
-            productData.Price = updatedProduct.Price;
-            // Set Old Stock to Updated Stock
-            productData.Stock = updatedProduct.Stock;
+            if (productData != null)
+            {
+                // Update the properties
+                productData.Title = updatedProduct.Title;
+                productData.Description = updatedProduct.Description;
+                productData.Url = updatedProduct.Url;
+                productData.Image = updatedProduct.Image;
+                productData.Price = updatedProduct.Price;
+                productData.Stock = updatedProduct.Stock;
 
-            // Save the Updated List
-            SaveProducts(products); 
+                // Save the Updated List
+                SaveProducts(products);
+            }
+            else
+            {
+                // Handle the case where the product with the specified ID is not found
+                Console.WriteLine($"Product with ID {updatedProduct.Id} not found");
+            }
 
             return productData;
         }
+
 
 
         /// <summary>
