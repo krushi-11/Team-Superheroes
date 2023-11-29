@@ -3,6 +3,7 @@ using NUnit.Framework;
 using Microsoft.Extensions.DependencyInjection;
 using SuperHeroes.WebSite.Components;
 using System.Linq;
+using SuperHeroes.WebSite.Models;
 
 namespace UnitTests.Components.Tests
 { 
@@ -22,6 +23,9 @@ namespace UnitTests.Components.Tests
         #region Rating
 
         
+
+       
+
         #endregion Rating
 
         #region ProductList
@@ -92,8 +96,24 @@ namespace UnitTests.Components.Tests
             Assert.AreEqual(false, page.Instance.FilterData);
         }
 
+        [Test]
+        public void ClearFilterData_ShouldResetFilterData()
+        {
+            // Arrange
+            var page = RenderComponent<ProductList>();
+            page.Instance.FilterData = true;
+            page.Instance.FilterDataString = "SomeFilterText";
+
+            // Act
+            page.Instance.ClearFilterData();
+
+            // Assert
+            Assert.IsFalse(page.Instance.FilterData);
+            Assert.IsNull(page.Instance.FilterDataString);
+        }
+
         #endregion FilterData
-    
+
         #region SelectProduct
 
         /// <summary>
@@ -137,6 +157,50 @@ namespace UnitTests.Components.Tests
             // Assert
             Assert.AreEqual(true, temp);
 
+        }
+
+        [Test]
+        public void ShowNewCommentInput_ShouldSetNewCommentToTrue()
+        {
+            // Arrange
+            var page = RenderComponent<ProductList>();
+
+            // Act
+            page.Instance.ShowNewCommentInput();
+
+            // Assert
+            Assert.IsTrue(page.Instance.NewComment);
+        }
+
+        [Test]
+        public void UpdateCommentText_ShouldUpdateNewCommentText()
+        {
+            // Arrange
+            var page = RenderComponent<ProductList>();
+            var newCommentText = "New Comment Text";
+
+            // Act
+            page.Instance.UpdateCommentText(newCommentText);
+
+            // Assert
+            Assert.AreEqual(newCommentText, page.Instance.NewCommentText);
+        }
+
+        [Test]
+        public void AddComment_ShouldAddCommentToSelectedProduct()
+        {
+            // Arrange
+            var page = RenderComponent<ProductList>();
+            page.Instance.selectedProduct = new ProductModel();
+            page.Instance.NewCommentText = "New Comment";
+
+            // Act
+            page.Instance.AddComment();
+
+            // Assert
+            Assert.AreEqual(1, page.Instance.selectedProduct.CommentList.Count);
+            Assert.AreEqual("New Comment", page.Instance.selectedProduct.CommentList.First().Comment);
+            Assert.IsFalse(page.Instance.NewComment); // Ensure NewComment is set to false after adding a comment
         }
         #endregion Comment
     }
