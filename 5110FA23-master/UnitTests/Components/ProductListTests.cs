@@ -288,6 +288,24 @@ namespace UnitTests.Components.Tests
             Assert.AreEqual(1, page.Instance.SelectedProductsForComparison.Count);
             Assert.IsNull(page.Instance.AddedToComparisonProductId);
         }
+        #endregion Toggle Product
+
+        #region Rating
+        [Test]
+        public void GetCurrentRating_NullRatings_ShouldSetCurrentRatingToZero()
+        {
+            // Arrange
+            var page = RenderComponent<ProductList>();
+            page.Instance.selectedProduct = new ProductModel { Id = "thunder-god", Ratings = null };
+
+            // Act
+            page.Instance.GetCurrentRating();
+
+            // Assert
+            Assert.AreEqual(0, page.Instance.currentRating);
+            Assert.AreEqual(0, page.Instance.voteCount);
+            Assert.AreEqual(null, page.Instance.voteLabel); // Assuming default label is "Vote"
+        }
+        #endregion Rating
     }
-    #endregion Toggle Product
 }
