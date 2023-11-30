@@ -354,8 +354,8 @@
         }
     }
 
-    List<ProductModel> SelectedProductsForComparison = new List<ProductModel>();
-    string AddedToComparisonProductId = null;
+    public List<ProductModel> SelectedProductsForComparison = new List<ProductModel>();
+    public string AddedToComparisonProductId { get; set; } = null;
 
     public void ToggleProductSelection(string productId)
     {

@@ -6,6 +6,8 @@ using System.Linq;
 using SuperHeroes.WebSite.Models;
 using SuperHeroes.WebSite.Services;
 using Moq;
+using System.Threading.Tasks;
+using System;
 
 namespace UnitTests.Components.Tests
 { 
@@ -204,6 +206,88 @@ namespace UnitTests.Components.Tests
             Assert.AreEqual("New Comment", page.Instance.selectedProduct.CommentList.First().Comment);
             Assert.IsFalse(page.Instance.NewComment); // Ensure NewComment is set to false after adding a comment
         }
+
+        [Test]
+        public void AddComment_SelectedProductIsNull_ShouldNotAddComment()
+        {
+            // Arrange
+            var page = RenderComponent<ProductList>();
+            page.Instance.selectedProduct = null;
+            page.Instance.NewCommentText = "New Comment";
+
+            // Act
+            page.Instance.AddComment();
+
+            // Assert
+            Assert.IsNull(page.Instance.selectedProduct); // Ensure selectedProduct is still null
+            Assert.AreEqual(1, page.Instance.selectedProduct?.CommentList.Count ?? 1); // Ensure no comment is added
+            Assert.IsFalse(page.Instance.NewComment); // Ensure NewComment is not changed
+        }
         #endregion Comment
+
+        #region Toggle Products
+        [Test]
+        public async Task ToggleProductSelection_AddProductToComparisonList()
+        {
+            // Arrange
+            var page = RenderComponent<ProductList>();
+            var productIdToAdd = "scarlet-witch";
+
+            // Act
+            page.Instance.ToggleProductSelection(productIdToAdd);
+
+
+            // Wait for the expected state
+            await Task.Run(() => page.WaitForAssertion(() => Assert.AreEqual(1, page.Instance.SelectedProductsForComparison.Count)));
+
+            // Assert
+            Assert.AreEqual(1, page.Instance.SelectedProductsForComparison.Count);
+
+            Assert.AreEqual(productIdToAdd, page.Instance.AddedToComparisonProductId);
+
+            // Wait for the notification to reset
+            await Task.Delay(2000);
+
+            // Assert notification reset
+            Assert.IsNull(page.Instance.AddedToComparisonProductId);
+        }
+        [Test]
+        public void ToggleProductSelection_RemoveProductFromComparisonList()
+        {
+            // Arrange
+            var page = RenderComponent<ProductList>();
+            var productIdToRemove = "scarlet-witch";
+            page.Instance.SelectedProductsForComparison.Add(new ProductModel { Id = productIdToRemove });
+
+            // Debugging output before calling ToggleProductSelection
+            Console.WriteLine($"Before ToggleProductSelection - Count: {page.Instance.SelectedProductsForComparison.Count}");
+
+            // Act
+            page.Instance.ToggleProductSelection(productIdToRemove);
+
+            // Debugging output after calling ToggleProductSelection
+            Console.WriteLine($"After ToggleProductSelection - Count: {page.Instance.SelectedProductsForComparison.Count}");
+
+            // Assert
+            Assert.AreEqual(0, page.Instance.SelectedProductsForComparison.Count);
+            Assert.IsNull(page.Instance.AddedToComparisonProductId);
+        }
+
+        [Test]
+        public void ToggleProductSelection_InvalidProductId_NoChangeToComparisonList()
+        {
+            // Arrange
+            var page = RenderComponent<ProductList>();
+            var invalidProductId = "invalidId";
+            page.Instance.SelectedProductsForComparison.Add(new ProductModel { Id = "1" });
+
+            // Act
+            page.Instance.ToggleProductSelection(invalidProductId);
+
+            // Assert
+            Assert.AreEqual(1, page.Instance.SelectedProductsForComparison.Count);
+            Assert.IsNull(page.Instance.AddedToComparisonProductId);
+        }
     }
+    #endregion Toggle Product
 }
